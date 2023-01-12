@@ -1,21 +1,8 @@
 ---
-title: About me
+layout: page
+title: About
 ---
 
-- #### 代码搬运工
+# About
 
-- #### 伪全栈
-
-- #### 大数据
-
-- #### 直男癌
-
-- #### 科幻爱好者
-
-- #### 江南梦想家
-
-<br>
-<br>
-<br>
-
-- [个人简历](/resume)
+- less is more.

@@ -1,8 +1,23 @@
-<section class="fixed-l mw7 center w-100 top-50 tc pb4 nt4">
-  {% if page.previous %}
-    <a href="{{ site.url }}{{ page.previous.url }}" class="no-underline f1 light-blue hover-silver nl5 fl-l ph3">‹</a>
+
+
+
+{% if page.pagination == false %}
+    
+{% endif %}
+    
+
+
+{% if paginator.total_pages > 1 %}
+<ul>
+  {% if paginator.previous_page %}
+  <li>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">← Prev</a>
+  </li>
   {% endif %}
-  {% if page.next %}
-    <a href="{{ site.url }}{{page.next.url}}" class="no-underline f1 light-blue hover-silver nr5 fr-l ph3">›</a>
+  {% if paginator.next_page %}
+  <li>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next →</a>
+  </li>
   {% endif %}
-</section>
+</ul>
+{% endif %}
