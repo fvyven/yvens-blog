@@ -11,6 +11,14 @@ pagination:
     {% if site.posts.size == 0 %}
 
             <p class="text-center">Nothing published yet!</p>
+  
+      {% elsif site.pagination.enabled %}
+
+        {% for post in paginator.posts %}
+            {% include blog-post.html %}
+        {% endfor %}
+
+        {% include pagination.html %}
 
     {% else %}
 
