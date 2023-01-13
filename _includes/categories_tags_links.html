@@ -10,9 +10,13 @@
 {% endif %}
 
 {% if include.tags != empty %}
+1
   {% for tag in include.tags %}
+2
     {% assign no_comma = forloop.last %}
+3
       {% if archive.type == "tag" and archive.title == tag %}
+4
       <li><a href="{{ archive.url | relative_url }}">{{ archive.title | escape }}</a></li>
       {% endif %}
   {% endfor %}
