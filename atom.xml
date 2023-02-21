@@ -157,7 +157,7 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
   &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;demo
   &lt;span class=&quot;c&quot;&gt;#build并运行&lt;/span&gt;
   &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
-  &lt;span class=&quot;c&quot;&gt;#https://lankee.blog&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#默认地址：http://localhost:4000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;上传代码到GitHub仓库。&lt;/li&gt;
