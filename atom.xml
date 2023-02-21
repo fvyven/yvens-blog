@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-01-22T19:41:08+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-02-21T20:13:19+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
 
@@ -7,9 +7,9 @@
 &lt;p&gt;Redash架构图:&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://pic1.zhimg.com/v2-50c3f04b9772f0f8f6d3c740a3794b56_r.jpg&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0002.pic.jpg&quot; /&gt;
     &lt;br /&gt;
-    &lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9;display: inline-block;color: #999;padding: 2px;&quot;&gt;图片来自网络, 侵删&lt;/div&gt;
+    &lt;!-- &lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9;display: inline-block;color: #999;padding: 2px;&quot;&gt;图片来自网络, 侵删&lt;/div&gt; --&gt;
 &lt;/center&gt;
 
 &lt;h2 id=&quot;安装部署macos&quot;&gt;安装部署(macOS)&lt;/h2&gt;
@@ -136,7 +136,93 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 
 &lt;p&gt;&lt;strong&gt;Done&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[Website] GitHub Pages 快速搭建个人博客</title><link href="https://lankee.blog/github-pages-build.html" rel="alternate" type="text/html" title="[Website] GitHub Pages 快速搭建个人博客" /><published>2019-08-03T00:00:00+08:00</published><updated>2019-08-03T00:00:00+08:00</updated><id>https://lankee.blog/github-pages-build</id><content type="html" xml:base="https://lankee.blog/github-pages-build.html">&lt;h2 id=&quot;github-pages配置&quot;&gt;GitHub Pages配置&lt;/h2&gt;
+
+&lt;p&gt;关于如何创建GitHub账号之类的步骤还是略过了。大概步骤：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;创建一个 &lt;strong&gt;Public Repository&lt;/strong&gt;。
+(&lt;em&gt;必须是公共仓库，如果要自定义域名，仓库名随意，如果使用GitHub提供的二级域名就需要使用’name.github.io’的格式命名。&lt;/em&gt;)&lt;/li&gt;
+  &lt;li&gt;选择静态站点生成器(Static Site Generator，SSG)  &lt;br /&gt;
+常见的SSG很多，常见不限于：&lt;strong&gt;&lt;a href=&quot;https://github.com/gohugoio/hugo&quot;&gt;Hugo&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/hexojs/hexo&quot;&gt;Hexo&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/getpelican/pelican&quot;&gt;Pelican&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/getgridea/gridea&quot;&gt;Gridea&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/gatsbyjs/gatsby&quot;&gt;Gatsby&lt;/a&gt;&lt;/strong&gt; 等等。它们各有各的优势和特点，这里就不一一列举分析了。&lt;br /&gt;
+本文选择GitHub&lt;a href=&quot;https://docs.github.com/zh/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll&quot;&gt;官方建议&lt;/a&gt;的Jekyll，需要注意GitHub当前&lt;a href=&quot;https://pages.github.com/versions/&quot;&gt;支持的版本&lt;/a&gt;。&lt;br /&gt;
+当然你也可以直接上传生成好的静态文件。&lt;/li&gt;
+  &lt;li&gt;搭建本地测试环境&lt;br /&gt;
+安装参考官方：&lt;a href=&quot;https://jekyllrb.com/docs/installation/macos/&quot;&gt;Jekyll on macOS&lt;/a&gt;。(&lt;em&gt;过程中需要注意Ruby和Jekyll的&lt;strong&gt;版本依赖&lt;/strong&gt;就可以杜绝大多错误。&lt;/em&gt;)&lt;br /&gt;
+新建Jekyll项目和本地运行主要代码：
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;c&quot;&gt;#安装bundler&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler
+  &lt;span class=&quot;c&quot;&gt;#创建一个项目，目录就是demo&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new demo
+  &lt;span class=&quot;c&quot;&gt;#进入demo项目目录下&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;demo
+  &lt;span class=&quot;c&quot;&gt;#build并运行&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+  &lt;span class=&quot;c&quot;&gt;#默认地址：https://lankee.blog&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;上传代码到GitHub仓库。&lt;/li&gt;
+  &lt;li&gt;域名DNS解析&lt;br /&gt;
+进入个人域名注册商管理界面，找到域名解析页面。
+添加4个 &lt;strong&gt;A&lt;/strong&gt; 类型记录，名称均为 &lt;strong&gt;@&lt;/strong&gt;，IP分别为：
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    185.199.108.153
+  185.199.109.153
+  185.199.110.153
+  185.199.111.153
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt; 是否解析成功，可以本地ping域名查看。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pages设置，开启HTTPS。&lt;br /&gt;
+进入仓库的 Settings –&amp;gt; Pages 页面进行设置，大致方式如图：
+    &lt;center&gt;
+  &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0001.pic.jpg&quot; /&gt;
+  &lt;br /&gt;
+&lt;/center&gt;
+  &lt;/li&gt;
+  &lt;li&gt;到这里，不出意外你应该就能访问你的个人博客了 =。=&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;使用cloudflare加速和开启https注意事项&quot;&gt;使用Cloudflare&lt;del&gt;加速&lt;/del&gt;和开启HTTPS注意事项&lt;/h2&gt;
+
+&lt;p&gt;由于之前存在过GitHub被墙的特殊情况，为了保证在国内环境的正常访问，所以选择将域名服务器切换到Cloudflare完成DNS解析。&lt;/p&gt;
+
+&lt;p&gt;依旧省略账号注册等基本操作，大致步骤如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;添加域名到Cloudflare&lt;br /&gt;
+&lt;em&gt;如果就是在Cloudflare买的域名就忽略这一步。&lt;/em&gt;&lt;br /&gt;
+添加在一个方案为Free的站点，各项一路continue。主要注意以下设置：&lt;br /&gt;
+** Encryption Mode 设为 Full (加密模式设为完全，注意不是strict)&lt;br /&gt;
+** 开启 Always Use HTTPS (始终开启HTTPS)&lt;br /&gt;
+** 开启 Opportunistic Encryption (随机加密)&lt;br /&gt;
+** 开启 Authenticated Origin Pulls (身份验证通过的源服务器拉取)&lt;br /&gt;
+最后将域名注册商原有的域名服务器替换为Cloudflare提供的域名服务器。&lt;/li&gt;
+  &lt;li&gt;DNS解析&lt;br /&gt;
+还是添加4个 &lt;strong&gt;A&lt;/strong&gt; 类型记录，名称均为 &lt;strong&gt;@&lt;/strong&gt;，&lt;strong&gt;Proxy status(代理状态)设为DNS only(仅DNS)&lt;/strong&gt;(就是那朵橙色的云朵置灰)，IP仍是：
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    185.199.108.153
+  185.199.109.153
+  185.199.110.153
+  185.199.111.153
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;GitHub Pages设置&lt;br /&gt;
+在仓库的Pages设置页面，勾选Enforce HTTPS，等待GitHub下发证书。&lt;br /&gt;
+确认证书下发成功后进行下一步。&lt;/li&gt;
+  &lt;li&gt;再次修改DNS解析记录&lt;br /&gt;
+将每条记录的&lt;strong&gt;Proxy status(代理状态)设为Proxied(已代理)&lt;/strong&gt;(即那朵灰色的云朵改回来)&lt;/li&gt;
+  &lt;li&gt;再将最初的 Encryption Mode 设为 Full(strict) (加密模式设为完全(严格))&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Full 和 Full(strict)的区别&lt;/strong&gt;&lt;br /&gt;
+Full(strict)模式使用的是由可信CA或Cloudflare Origin CA签名的有效证书并对每个请求验证证书，而Full模式使用的无需验证的自签名证书。GitHub Pages可以通过开启Enforce HTTPS来获取免费的可信证书，满足开启Full(strict)模式的条件。&lt;/li&gt;
+  &lt;li&gt;Done&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dns解析记录类型列表&quot;&gt;DNS解析记录类型列表&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;参考&lt;a href=&quot;https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages配置</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;* &lt;em&gt;本文为可能出现纰漏, 详细可参考访问&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/6.0/topics/installation.html&quot;&gt;官方安装文档&lt;/a&gt;和Google&lt;/em&gt;&lt;/p&gt;
 

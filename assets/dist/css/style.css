@@ -44,7 +44,8 @@ a:hover {
 
 ul {
   list-style: none;
-  padding-left: 2ch; }
+  padding-left: 2ch;
+  line-height: 1.8em; }
 
 ul li {
   text-indent: -2ch; }
@@ -378,7 +379,8 @@ table td {
   color: #bbbbbb; }
 
 .highlight {
-  background-color: #f8f8f8; }
+  background-color: #f8f8f8;
+  line-height: 1.6em; }
 
 .excerp {
   margin: 0;
