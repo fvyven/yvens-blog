@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-02-21T20:13:19+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-02-21T20:24:43+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
 
@@ -157,7 +157,7 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
   &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;demo
   &lt;span class=&quot;c&quot;&gt;#build并运行&lt;/span&gt;
   &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
-  &lt;span class=&quot;c&quot;&gt;#默认地址：https://lankee.blog&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;#https://lankee.blog&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;上传代码到GitHub仓库。&lt;/li&gt;
@@ -190,7 +190,7 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 &lt;ul&gt;
   &lt;li&gt;添加域名到Cloudflare&lt;br /&gt;
 &lt;em&gt;如果就是在Cloudflare买的域名就忽略这一步。&lt;/em&gt;&lt;br /&gt;
-添加在一个方案为Free的站点，各项一路continue。主要注意以下设置：&lt;br /&gt;
+添加一个方案为Free的站点，各项一路continue。主要注意以下设置：&lt;br /&gt;
 ** Encryption Mode 设为 Full (加密模式设为完全，注意不是strict)&lt;br /&gt;
 ** 开启 Always Use HTTPS (始终开启HTTPS)&lt;br /&gt;
 ** 开启 Opportunistic Encryption (随机加密)&lt;br /&gt;
