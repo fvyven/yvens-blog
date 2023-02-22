@@ -381,7 +381,13 @@ table td {
 .highlight {
   background-color: #f8f8f8;
   line-height: 1.3em;
+  font-size: 13px; }
+
+.language-shell code {
   font-size: 14px; }
+
+code {
+  font-family: Source Code Pro; }
 
 .excerp {
   margin: 0;
