@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-02-22T20:25:36+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-02-24T15:43:48+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
-&lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
+&lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash 相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
 
 &lt;p&gt;源码地址: https://github.com/getredash/redash.git&lt;/p&gt;
 
-&lt;p&gt;Redash架构图:&lt;/p&gt;
+&lt;p&gt;Redash 架构图:&lt;/p&gt;
 
 &lt;center&gt;
     &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0002.pic.jpg&quot; /&gt;
@@ -14,7 +14,7 @@
 
 &lt;h2 id=&quot;安装部署macos&quot;&gt;安装部署(macOS)&lt;/h2&gt;
 
-&lt;h3 id=&quot;docker一键安装&quot;&gt;Docker一键安装&lt;/h3&gt;
+&lt;h3 id=&quot;docker-一键安装&quot;&gt;Docker 一键安装&lt;/h3&gt;
 
 &lt;p&gt;下载源码后, 切换到项目路径, 分别执行一下命令:&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 拉取所有依赖镜像并初始化数据库&lt;/span&gt;
@@ -31,7 +31,7 @@ npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 npm run build
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;如果需要自定义配置, 可以修改docker-compose.yml中的制定配置项&lt;/p&gt;
+&lt;p&gt;如果需要自定义配置, 可以修改 docker-compose.yml 中的制定配置项&lt;/p&gt;
 
 &lt;p&gt;其他命令&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 停止容器&lt;/span&gt;
@@ -101,11 +101,11 @@ pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n
 &lt;p&gt;可能出现的问题:
 安装 psycopg2 可能会出现: &lt;em&gt;Error: pg_config executable not found.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;解决: 把 postgresql 的bin目录加入环境变量, 或者不安装 psycopg2 直接安装 psycopy2-binary(requirements.txt文件中注释掉该行)&lt;/p&gt;
+&lt;p&gt;解决: 把 postgresql 的 bin 目录加入环境变量, 或者不安装 psycopg2 直接安装 psycopy2-binary(requirements.txt 文件中注释掉该行)&lt;/p&gt;
 
 &lt;p&gt;安装 mysqlclient 可能会出现: &lt;em&gt;Error: mysql_config not found.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;解决: 安装 mysql-connector-c 并加入环境变量, 如果已安装过mysql相关模块仍报此问题, 可能就是环境变量问题.&lt;/p&gt;
+&lt;p&gt;解决: 安装 mysql-connector-c 并加入环境变量, 如果已安装过 mysql 相关模块仍报此问题, 可能就是环境变量问题.&lt;/p&gt;
 
 &lt;p&gt;安装完成后执行:&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py check_settings
@@ -136,8 +136,78 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 
 &lt;p&gt;&lt;strong&gt;Done&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[转载][Java] 从ReentrantLock的实现看AQS的原理及应用</title><link href="https://lankee.blog/aqs-theory-and-apply.html" rel="alternate" type="text/html" title="[转载][Java] 从ReentrantLock的实现看AQS的原理及应用" /><published>2020-01-22T00:00:00+08:00</published><updated>2020-01-22T00:00:00+08:00</updated><id>https://lankee.blog/aqs-theory-and-apply</id><content type="html" xml:base="https://lankee.blog/aqs-theory-and-apply.html">&lt;blockquote&gt;
-  &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[Java] Java 并发之 volatile 的实现原理</title><link href="https://lankee.blog/java-concurrency-volatile.html" rel="alternate" type="text/html" title="[Java] Java 并发之 volatile 的实现原理" /><published>2020-03-10T00:00:00+08:00</published><updated>2020-03-10T00:00:00+08:00</updated><id>https://lankee.blog/java-concurrency-volatile</id><content type="html" xml:base="https://lankee.blog/java-concurrency-volatile.html">&lt;p&gt;在多线程并发编程中，volatile 保证了共享变量的“可见性”。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 sysnchronized 也能达到相同的效果，但在恰当的使用 volatile 修饰变量的情况，是比 sysnchronized 效率更高的，因为它不会引起线程上下文的切换和调度。&lt;/p&gt;
+
+&lt;h2 id=&quot;volatile-的定义&quot;&gt;volatile 的定义&lt;/h2&gt;
+
+&lt;p&gt;Java语言规范一文中对 volatile 的定义如下：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Java编程语言允许线程访问共享变量，为了确保共享变量能被准确和一致地更新，线程应该确保通过排他锁单独获得这个变量。Java语言提供了 volatile，在某些情况下比锁要更加方便。如果一个字段被声明成 volatile，Java线程内存模型确保所有线程看到这个变量的值时一致的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;volatile-的实现原理&quot;&gt;volatile 的实现原理&lt;/h2&gt;
+
+&lt;p&gt;在了解它的实现原理之前，我们需要先了解一下与其实现原理相关的CPU术语：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;术 语&lt;/th&gt;
+      &lt;th&gt;英 文&lt;/th&gt;
+      &lt;th&gt;描 述&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;内存屏障&lt;/td&gt;
+      &lt;td&gt;memory barriers&lt;/td&gt;
+      &lt;td&gt;一组处理器指令，用于实现对内存操作的顺序限制&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;缓存行&lt;/td&gt;
+      &lt;td&gt;cache line&lt;/td&gt;
+      &lt;td&gt;CPU高速缓存中可以分配的最小存储单位。&lt;br /&gt;处理器填写缓存行时会加载整个缓存行，现代CPU需要执行几百次CPU指令&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;原子操作&lt;/td&gt;
+      &lt;td&gt;atomic operations&lt;/td&gt;
+      &lt;td&gt;不可中断的一个或一系列操作&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;缓存行填充&lt;/td&gt;
+      &lt;td&gt;cache line fill&lt;/td&gt;
+      &lt;td&gt;当CPU识别到从内存中读取操作数是可缓存的，CPU读取整个高速缓存行到&lt;br /&gt;适当的缓存区域(L1、L2、L3或所有)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;缓存命中&lt;/td&gt;
+      &lt;td&gt;cache hit&lt;/td&gt;
+      &lt;td&gt;如果进行高速缓存行填充操作的内存位置仍然是下次CPU访问的地址时，&lt;br /&gt;CPU从缓存中读取操作数，而不是从内存中读取&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;写命中&lt;/td&gt;
+      &lt;td&gt;write hit&lt;/td&gt;
+      &lt;td&gt;当CPU将操作数写回到一个内存缓存的区域时，它首先会检查这个缓存的内存地址是否&lt;br /&gt;在缓存行中，如果存在一个有效的缓存行，则CPU将这个操作数写回到缓存，而不是写&lt;br /&gt;回到内存&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;写缺失&lt;/td&gt;
+      &lt;td&gt;write misses the cache&lt;/td&gt;
+      &lt;td&gt;一个有效的缓存行被写入到不存在的内存区域&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;为了提高处理速度，CPU不直接和内存进行通行，而是先将系统内存的数据读取到内部缓存（L1、L2或其他）后再进行操作，但操作完不知道何时会写回到内存。如果对声明了 volatile 的变量进行写操作，JVM 就会向处理器发送一条 Lock 前缀指令，将这个变量所在缓存行的数据写回到系统内存。但是，就算写回到内存，如果其他处理器缓存的值还是旧的，再执行计算操作就会有问题。所以，在多处理器下，为了保证各个处理器的缓存是一致的，就会实现缓存一致性协议，每个处理器通过嗅探在总线上传播的数据来检查自己的值是不是过期了，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置成无效状态，当处理器对这个数据进行修改操作时，就会重新从系统内存中把数据读取到处理器缓存中。&lt;/p&gt;
+
+&lt;p&gt;volatile 具体的两条实现原则：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Lock 前缀指令会触发处理器缓存写回到内存。&lt;/strong&gt;&lt;br /&gt;
+Lock 前缀指令导致在执行指令期间，声言处理器的 LOCK# 信号。在多处理器环境中，LOCK# 信号确保在声言改信号期间，处理器可以独占任何共享内存(因为它会锁住总线，导致其他处理器不能访问总线，不能访问总线就意味着不能访问系统内存)。但是，在最近的处理器里，LOCK# 信号一般不锁总线，而是锁缓存，毕竟锁总线的开销比较大。对于 Intel486 和 Pentium 处理器，在锁操作时，总是在总线上声言 LOCK# 信号。但是在 P6 和目前的处理器中，如果访问的内存区域已经缓存在处理器内部，则不会声言 LOCK# 信号。相反，它会锁定这块内存区域的缓存并写回到内存，并使用缓存一致性机制来确保修改的原子性，此操作被称为“缓存锁定”，缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域数据。&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;一个处理器的缓存写回到内存会导致其他处理器的缓存无效。&lt;/strong&gt;&lt;br /&gt;
+IA-32 处理器和 Intel 64 处理器使用 MESI (修改、独占、共享、无效)控制协议去维护内部缓存和其他处理器缓存的一致性。在多核处理器系统中进行操作的时候，IA-32 和 Intel 64 处理器能嗅探其他处理器访问系统内存和它们的内部缓存。处理器使用嗅探技术确保它的内部缓存、系统内存和其他处理器的缓存的数据在总线上保存一致。例如 Pentium 和 P6 family 处理器中，如果通过嗅探一个处理器来检测其他处理器打算写内存地址，而这个地址当前处于共享状态，那么正在嗅探的处理器将使它的缓存行无效，在下次访问相同内存地址时，强制执行缓存行填充。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Java" /><category term="Concurrency" /><category term="volatile" /><summary type="html">在多线程并发编程中，volatile 保证了共享变量的“可见性”。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 sysnchronized 也能达到相同的效果，但在恰当的使用 volatile 修饰变量的情况，是比 sysnchronized 效率更高的，因为它不会引起线程上下文的切换和调度。</summary></entry><entry><title type="html">[转载][Java] 从ReentrantLock的实现看AQS的原理及应用</title><link href="https://lankee.blog/aqs-theory-and-apply.html" rel="alternate" type="text/html" title="[转载][Java] 从ReentrantLock的实现看AQS的原理及应用" /><published>2020-01-22T00:00:00+08:00</published><updated>2020-01-22T00:00:00+08:00</updated><id>https://lankee.blog/aqs-theory-and-apply</id><content type="html" xml:base="https://lankee.blog/aqs-theory-and-apply.html">&lt;blockquote&gt;
+  &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html&quot; target=&quot;_blank&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
@@ -230,7 +300,7 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;2-reentrantlock与aqs的关联&quot;&gt;2. ReentrantLock与AQS的关联&lt;/h3&gt;
-&lt;p&gt;通过上文我们已经了解，ReentrantLock支持公平锁和非公平锁（关于公平锁和非公平锁的原理分析，可参考&amp;lt;&lt;a href=&quot;https://tech.meituan.com/2018/11/15/java-lock.html&quot;&gt;不可不说的Java“锁”事&lt;/a&gt;&amp;gt;），并且ReentrantLock的底层就是由AQS来实现的。那么ReentrantLock是如何通过公平锁和非公平锁与AQS关联起来呢？ 我们着重从这两者的加锁过程来理解一下它们与AQS之间的关系（加锁过程中与AQS的关联比较明显，解锁流程后续会介绍）。&lt;/p&gt;
+&lt;p&gt;通过上文我们已经了解，ReentrantLock支持公平锁和非公平锁（关于公平锁和非公平锁的原理分析，可参考&amp;lt;&lt;a href=&quot;https://tech.meituan.com/2018/11/15/java-lock.html&quot; target=&quot;_blank&quot;&gt;不可不说的Java“锁”事&lt;/a&gt; &amp;gt;），并且ReentrantLock的底层就是由AQS来实现的。那么ReentrantLock是如何通过公平锁和非公平锁与AQS关联起来呢？ 我们着重从这两者的加锁过程来理解一下它们与AQS之间的关系（加锁过程中与AQS的关联比较明显，解锁流程后续会介绍）。&lt;/p&gt;
 
 &lt;p&gt;非公平锁源码中的加锁流程如下：&lt;/p&gt;
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// java.util.concurrent.locks.ReentrantLock#NonfairSync&lt;/span&gt;
@@ -243,8 +313,8 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 			&lt;span class=&quot;n&quot;&gt;setExclusiveOwnerThread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;currentThread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
 		&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
 			&lt;span class=&quot;nf&quot;&gt;acquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;这块代码的含义为：&lt;/p&gt;
@@ -816,19 +886,20 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;acquireQueued&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;failed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+    	&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(;;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 			&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Node&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;predecessor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tryAcquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 				&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 				&lt;span class=&quot;n&quot;&gt;failed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+        		&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 			&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;finally&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;failed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 			&lt;span class=&quot;n&quot;&gt;cancelAcquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1057,7 +1128,7 @@ h != null &amp;amp;&amp;amp; waitStatus &amp;lt; 0 表明后继节点可能被�
 			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shouldParkAfterFailedAcquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parkAndCheckInterrupt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt;
 				&lt;span class=&quot;n&quot;&gt;interrupted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;finally&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;failed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 			&lt;span class=&quot;n&quot;&gt;cancelAcquire&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
@@ -1232,7 +1303,6 @@ A：AQS的Acquire会调用tryAcquire方法，tryAcquire由各个自定义同步�
     &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LeeLock&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;leeLock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LeeLock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 
     &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InterruptedException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
         &lt;span class=&quot;nc&quot;&gt;Runnable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runnable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Runnable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
             &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -1264,19 +1334,19 @@ A：AQS的Acquire会调用tryAcquire方法，tryAcquire由各个自定义同步�
 
 &lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
 
-&lt;p&gt;我们日常开发中使用并发的场景太多，但是对并发内部的基本框架原理了解的人却不多。由于篇幅原因，本文仅介绍了可重入锁ReentrantLock的原理和AQS原理，希望能够成为大家了解AQS和ReentrantLock等同步器的“敲门砖”。&lt;/p&gt;</content><author><name></name></author><category term="AQS" /><category term="ReentrantLock" /><category term="Java" /><summary type="html">本文转载自美团技术团队，原文链接</summary></entry><entry><title type="html">[Website] GitHub Pages 快速搭建个人博客</title><link href="https://lankee.blog/github-pages-build.html" rel="alternate" type="text/html" title="[Website] GitHub Pages 快速搭建个人博客" /><published>2019-08-03T00:00:00+08:00</published><updated>2019-08-03T00:00:00+08:00</updated><id>https://lankee.blog/github-pages-build</id><content type="html" xml:base="https://lankee.blog/github-pages-build.html">&lt;h2 id=&quot;github-pages配置&quot;&gt;GitHub Pages配置&lt;/h2&gt;
+&lt;p&gt;我们日常开发中使用并发的场景太多，但是对并发内部的基本框架原理了解的人却不多。由于篇幅原因，本文仅介绍了可重入锁ReentrantLock的原理和AQS原理，希望能够成为大家了解AQS和ReentrantLock等同步器的“敲门砖”。&lt;/p&gt;</content><author><name></name></author><category term="AQS" /><category term="ReentrantLock" /><category term="Java" /><summary type="html">本文转载自美团技术团队，原文链接</summary></entry><entry><title type="html">[Website] GitHub Pages 快速搭建个人博客</title><link href="https://lankee.blog/github-pages-build.html" rel="alternate" type="text/html" title="[Website] GitHub Pages 快速搭建个人博客" /><published>2019-08-03T00:00:00+08:00</published><updated>2019-08-03T00:00:00+08:00</updated><id>https://lankee.blog/github-pages-build</id><content type="html" xml:base="https://lankee.blog/github-pages-build.html">&lt;h2 id=&quot;github-pages-配置&quot;&gt;GitHub Pages 配置&lt;/h2&gt;
 
-&lt;p&gt;关于如何创建GitHub账号之类的步骤还是略过了。大概步骤：&lt;/p&gt;
+&lt;p&gt;关于如何创建 GitHub 账号之类的步骤还是略过了。大概步骤：&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;创建一个 &lt;strong&gt;Public Repository&lt;/strong&gt;。
-(&lt;em&gt;必须是公共仓库，如果要自定义域名，仓库名随意，如果使用GitHub提供的二级域名就需要使用’name.github.io’的格式命名。&lt;/em&gt;)&lt;/li&gt;
+(&lt;em&gt;必须是公共仓库，如果要自定义域名，仓库名随意，如果使用 GitHub 提供的二级域名就需要使用’name.github.io’的格式命名。&lt;/em&gt;)&lt;/li&gt;
   &lt;li&gt;选择静态站点生成器(Static Site Generator，SSG)  &lt;br /&gt;
-常见的SSG很多，常见不限于：&lt;strong&gt;&lt;a href=&quot;https://github.com/gohugoio/hugo&quot;&gt;Hugo&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/hexojs/hexo&quot;&gt;Hexo&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/getpelican/pelican&quot;&gt;Pelican&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/getgridea/gridea&quot;&gt;Gridea&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/gatsbyjs/gatsby&quot;&gt;Gatsby&lt;/a&gt;&lt;/strong&gt; 等等。它们各有各的优势和特点，这里就不一一列举分析了。&lt;br /&gt;
-本文选择GitHub&lt;a href=&quot;https://docs.github.com/zh/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll&quot;&gt;官方建议&lt;/a&gt;的Jekyll，需要注意GitHub当前&lt;a href=&quot;https://pages.github.com/versions/&quot;&gt;支持的版本&lt;/a&gt;。&lt;br /&gt;
+常见的 SSG 很多，常见不限于：&lt;strong&gt;&lt;a href=&quot;https://github.com/gohugoio/hugo&quot; target=&quot;_blank&quot;&gt;Hugo&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/hexojs/hexo&quot; target=&quot;_blank&quot;&gt;Hexo&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/getpelican/pelican&quot; target=&quot;_blank&quot;&gt;Pelican&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/getgridea/gridea&quot; target=&quot;_blank&quot;&gt;Gridea&lt;/a&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;a href=&quot;https://github.com/gatsbyjs/gatsby&quot; target=&quot;_blank&quot;&gt;Gatsby&lt;/a&gt;&lt;/strong&gt; 等等。它们各有各的优势和特点，这里就不一一列举分析了。&lt;br /&gt;
+本文选择 GitHub &lt;a href=&quot;https://docs.github.com/zh/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll&quot; target=&quot;_blank&quot;&gt;官方建议&lt;/a&gt;的Jekyll，需要注意 GitHub 当前&lt;a href=&quot;https://pages.github.com/versions/&quot; target=&quot;_blank&quot;&gt;支持的版本&lt;/a&gt;。&lt;br /&gt;
 当然你也可以直接上传生成好的静态文件。&lt;/li&gt;
   &lt;li&gt;搭建本地测试环境&lt;br /&gt;
-安装参考官方：&lt;a href=&quot;https://jekyllrb.com/docs/installation/macos/&quot;&gt;Jekyll on macOS&lt;/a&gt;。(&lt;em&gt;过程中需要注意Ruby和Jekyll的&lt;strong&gt;版本依赖&lt;/strong&gt;就可以杜绝大多错误。&lt;/em&gt;)&lt;br /&gt;
-新建Jekyll项目和本地运行主要代码：
+安装参考官方：&lt;a href=&quot;https://jekyllrb.com/docs/installation/macos/&quot; target=&quot;_blank&quot;&gt;Jekyll on macOS&lt;/a&gt;。(&lt;em&gt;过程中需要注意 Ruby 和 Jekyll 的&lt;strong&gt;版本依赖&lt;/strong&gt;就可以杜绝大多错误。&lt;/em&gt;)&lt;br /&gt;
+新建 Jekyll 项目和本地运行主要代码：
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;c&quot;&gt;# 安装bundler&lt;/span&gt;
   &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler
   &lt;span class=&quot;c&quot;&gt;# 创建一个项目，目录就是demo&lt;/span&gt;
@@ -1288,10 +1358,10 @@ A：AQS的Acquire会调用tryAcquire方法，tryAcquire由各个自定义同步�
   &lt;span class=&quot;c&quot;&gt;# 默认地址：http://127.0.0.1:4000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
-  &lt;li&gt;上传代码到GitHub仓库。&lt;/li&gt;
-  &lt;li&gt;域名DNS解析&lt;br /&gt;
+  &lt;li&gt;上传代码到 GitHub 仓库。&lt;/li&gt;
+  &lt;li&gt;域名 DNS 解析&lt;br /&gt;
 进入个人域名注册商管理界面，找到域名解析页面。
-添加4个 &lt;strong&gt;A&lt;/strong&gt; 类型记录，名称均为 &lt;strong&gt;@&lt;/strong&gt;，IP分别为：
+添加4个 &lt;strong&gt;A&lt;/strong&gt; 类型记录，名称均为 &lt;strong&gt;@&lt;/strong&gt;，IP 分别为：
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    185.199.108.153
   185.199.109.153
   185.199.110.153
@@ -1299,7 +1369,7 @@ A：AQS的Acquire会调用tryAcquire方法，tryAcquire由各个自定义同步�
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt; 是否解析成功，可以本地ping域名查看。&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Pages设置，开启HTTPS。&lt;br /&gt;
+  &lt;li&gt;Pages 设置，开启 HTTPS。&lt;br /&gt;
 进入仓库的 Settings –&amp;gt; Pages 页面进行设置，大致方式如图：
     &lt;center&gt;
   &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0001.pic.jpg&quot; /&gt;
@@ -1309,23 +1379,23 @@ A：AQS的Acquire会调用tryAcquire方法，tryAcquire由各个自定义同步�
   &lt;li&gt;到这里，不出意外你应该就能访问你的个人博客了 =。=&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;使用cloudflare加速和开启https注意事项&quot;&gt;使用Cloudflare&lt;del&gt;加速&lt;/del&gt;和开启HTTPS注意事项&lt;/h2&gt;
+&lt;h2 id=&quot;使用-cloudflare-加速和开启-https-注意事项&quot;&gt;使用 Cloudflare &lt;del&gt;加速&lt;/del&gt;和开启 HTTPS 注意事项&lt;/h2&gt;
 
-&lt;p&gt;由于之前存在过GitHub被墙的特殊情况，为了保证在国内环境的正常访问，所以选择将域名服务器切换到Cloudflare完成DNS解析。&lt;/p&gt;
+&lt;p&gt;由于之前存在过 GitHub 被墙的特殊情况，为了保证在国内环境的正常访问，所以选择将域名服务器切换到 Cloudflare 完成 DNS 解析。&lt;/p&gt;
 
 &lt;p&gt;依旧省略账号注册等基本操作，大致步骤如下：&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;添加域名到Cloudflare&lt;br /&gt;
-&lt;em&gt;如果就是在Cloudflare买的域名就忽略这一步。&lt;/em&gt;&lt;br /&gt;
-添加一个方案为Free的站点，各项一路continue。主要注意以下设置：&lt;br /&gt;
-** Encryption Mode 设为 Full (加密模式设为完全，注意不是strict)&lt;br /&gt;
-** 开启 Always Use HTTPS (始终开启HTTPS)&lt;br /&gt;
+  &lt;li&gt;添加域名到 Cloudflare&lt;br /&gt;
+&lt;em&gt;如果就是在 Cloudflare 买的域名就忽略这一步。&lt;/em&gt;&lt;br /&gt;
+添加一个方案为 Free 的站点，各项一路 continue。主要注意以下设置：&lt;br /&gt;
+** Encryption Mode 设为 Full (加密模式设为完全，注意不是 strict)&lt;br /&gt;
+** 开启 Always Use HTTPS (始终开启 HTTPS)&lt;br /&gt;
 ** 开启 Opportunistic Encryption (随机加密)&lt;br /&gt;
 ** 开启 Authenticated Origin Pulls (身份验证通过的源服务器拉取)&lt;br /&gt;
-最后将域名注册商原有的域名服务器替换为Cloudflare提供的域名服务器。&lt;/li&gt;
+最后将域名注册商原有的域名服务器替换为 Cloudflare 提供的域名服务器。&lt;/li&gt;
   &lt;li&gt;DNS解析&lt;br /&gt;
-还是添加4个 &lt;strong&gt;A&lt;/strong&gt; 类型记录，名称均为 &lt;strong&gt;@&lt;/strong&gt;，&lt;strong&gt;Proxy status(代理状态)设为DNS only(仅DNS)&lt;/strong&gt;(就是那朵橙色的云朵置灰)，IP仍是：
+还是添加4个 &lt;strong&gt;A&lt;/strong&gt; 类型记录，名称均为 &lt;strong&gt;@&lt;/strong&gt;，&lt;strong&gt;Proxy status(代理状态)设为 DNS only(仅DNS)&lt;/strong&gt;(就是那朵橙色的云朵置灰)，IP仍是：
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    185.199.108.153
   185.199.109.153
   185.199.110.153
@@ -1333,262 +1403,246 @@ A：AQS的Acquire会调用tryAcquire方法，tryAcquire由各个自定义同步�
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;GitHub Pages设置&lt;br /&gt;
-在仓库的Pages设置页面，勾选Enforce HTTPS，等待GitHub下发证书。&lt;br /&gt;
+在仓库的 Pages 设置页面，勾选 Enforce HTTPS，等待 GitHub 下发证书。&lt;br /&gt;
 确认证书下发成功后进行下一步。&lt;/li&gt;
-  &lt;li&gt;再次修改DNS解析记录&lt;br /&gt;
-将每条记录的&lt;strong&gt;Proxy status(代理状态)设为Proxied(已代理)&lt;/strong&gt;(即那朵灰色的云朵改回来)&lt;/li&gt;
+  &lt;li&gt;再次修改 DNS 解析记录&lt;br /&gt;
+将每条记录的 &lt;strong&gt;Proxy status(代理状态) 设为 Proxied(已代理)&lt;/strong&gt;(即那朵灰色的云朵改回来)&lt;/li&gt;
   &lt;li&gt;再将最初的 Encryption Mode 设为 Full(strict) (加密模式设为完全(严格))&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Full 和 Full(strict)的区别&lt;/strong&gt;&lt;br /&gt;
-Full(strict)模式使用的是由可信CA或Cloudflare Origin CA签名的有效证书并对每个请求验证证书，而Full模式使用的无需验证的自签名证书。GitHub Pages可以通过开启Enforce HTTPS来获取免费的可信证书，满足开启Full(strict)模式的条件。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Full 和 Full(strict) 的区别&lt;/strong&gt;&lt;br /&gt;
+Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有效证书并对每个请求验证证书，而 Full 模式使用的无需验证的自签名证书。GitHub Pages 可以通过开启 Enforce HTTPS 来获取免费的可信证书，满足开启 Full(strict) 模式的条件。&lt;/li&gt;
   &lt;li&gt;Done&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;dns解析记录类型列表&quot;&gt;DNS解析记录类型列表&lt;/h2&gt;
+&lt;h2 id=&quot;dns-解析记录类型列表&quot;&gt;DNS 解析记录类型列表&lt;/h2&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;参考&lt;a href=&quot;https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;参考&lt;a href=&quot;https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8&quot; target=&quot;_blank&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages配置</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;* &lt;em&gt;本文为可能出现纰漏, 详细可参考访问&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/6.0/topics/installation.html&quot;&gt;官方安装文档&lt;/a&gt;和Google&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;* &lt;em&gt;本文为可能出现纰漏, 详细可参考访问&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/6.0/topics/installation.html&quot; target=&quot;_blank&quot;&gt;官方安装文档&lt;/a&gt; 和Google&lt;/em&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;一-集群环境准备-参考官方文档&quot;&gt;一、	集群环境准备, 参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/installation_reqts.html&quot;&gt;官方文档&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;集群ip映射&quot;&gt;集群IP映射&lt;/h3&gt;
-
-    &lt;p&gt;为所有节点设置:&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.245 cdh-0001&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
- &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.28 cdh-0002&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
- &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.196 cdh-0003&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
- &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.170 cdh-0004&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;配置集群ssh免密登录&quot;&gt;配置集群ssh免密登录&lt;/h3&gt;
-
-    &lt;p&gt;获取密钥文件, 所有节点执行:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;将所有节点的 .ssh/id_rsa.pub文件传到主节点, 然后将每个节点的id_rsa.pub加入到 .ssh/authorized_keys文件中:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; id_rsa.pub &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; authorized_keys
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;将这个包含所有节点公钥的authorized_keys文件上传到每个节点的.ssh目录下&lt;/p&gt;
-
-    &lt;p&gt;&lt;em&gt;(这里使用的是root账户, 如使用其他账户, 请注意目录和.ssh文件夹的权限问题)&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;关闭selinux&quot;&gt;关闭SELinux&lt;/h3&gt;
-
-    &lt;p&gt;所有节点设置&lt;/p&gt;
-
-    &lt;p&gt;先查看SELinux状态, 如果为 &lt;em&gt;disabled&lt;/em&gt; 则无需修改, 命令:&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; /usr/sbin/sestatus &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;否则就 &lt;em&gt;/etc/selinux/config&lt;/em&gt; 文件中的 &lt;em&gt;SELINUX=enforcing&lt;/em&gt; 改为 &lt;em&gt;SELINUX=disabled&lt;/em&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;配置集群时间同步&quot;&gt;配置集群时间同步&lt;/h3&gt;
-
-    &lt;p&gt;所有节点安装Chrony:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;chrony
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;主节点配置 &lt;em&gt;/etc/chrony.conf&lt;/em&gt; 文件: 按需设置 &lt;em&gt;NTP Server&lt;/em&gt;, 可以保持使用默认4个Server配置, 也配置多个&lt;/p&gt;
-
-    &lt;p&gt;允许从节点IP访问: &lt;em&gt;allow 172.16.20.0/24&lt;/em&gt;&lt;/p&gt;
-
-    &lt;p&gt;从节点配置 &lt;em&gt;/etc/chrony.conf&lt;/em&gt; 文件: 注释其他server, 只把一个server指向主节点IP: &lt;em&gt;server 172.16.20.245 iburst&lt;/em&gt;&lt;/p&gt;
-
-    &lt;p&gt;所有节点启动Chrony服务:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;chronyd.service &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl restart chronyd.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;其他cdh建议配置&quot;&gt;其他CDH建议配置&lt;/h3&gt;
-
-    &lt;p&gt;禁用透明大页面压缩, 所有节点写入到 &lt;em&gt;/etc/rc.d/rc.local&lt;/em&gt; 文件:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;never &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/kernel/mm/transparent_hugepage/defrag
- &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;never &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/kernel/mm/transparent_hugepage/enabled
- &lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x /etc/rc.d/rc.local
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;优化交换分区, 所有节点执行:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;vm.swappiness = 10&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/sysctl.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;二-所需组件安装及初始化-参考官方文档&quot;&gt;二、	所需组件安装及初始化, 参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/install_cm_cdh.html&quot;&gt;官方文档&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;jdk-所有节点安装&quot;&gt;JDK, 所有节点安装:&lt;/h3&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;java-1.8.0-openjdk.x86_64
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;mysql-任选一个节点安装-建议主节点&quot;&gt;MySQL, 任选一个节点安装, 建议主节点&lt;/h3&gt;
-    &lt;p&gt;安装, 不做详述, 以下为主要命令:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; mysql-community-release-el7-5.noarch.rpm
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;mysql-server
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;mysqld &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start mysqld
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;/usr/bin/mysql_secure_installation
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;按需配置 &lt;em&gt;/etc/my.cnf&lt;/em&gt;, 可参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/cm_ig_mysql.html#cmig_topic_5_5&quot;&gt;CDH推荐配置&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;创建 CDH 所需 database 和 user:&lt;/p&gt;
-
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amon&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rman&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metastore&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentry&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navms&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oozie&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;h2 id=&quot;集群环境准备-参考官方文档&quot;&gt;集群环境准备, 参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/installation_reqts.html&quot; target=&quot;_blank&quot;&gt;官方文档&lt;/a&gt;&lt;/h2&gt;
 
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;scm&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;amon&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rman&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;rman&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;hue&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metastore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;metastore&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sentry&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;nav&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;navms&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oozie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;oozie&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;h3 id=&quot;集群ip映射&quot;&gt;集群IP映射&lt;/h3&gt;
 
- &lt;span class=&quot;n&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;mysql所在节点添加对应版本的-jdbc-驱动-主要命令&quot;&gt;MySQL所在节点添加对应版本的 jdbc 驱动, 主要命令:&lt;/h3&gt;
+&lt;p&gt;为所有节点设置:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.245 cdh-0001&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.28 cdh-0002&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.196 cdh-0003&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;172.16.20.170 cdh-0004&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/hosts 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf mysql-connector-java-5.1.46.tar.gz
- &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar &lt;span class=&quot;c&quot;&gt;##(主要去掉版本后缀)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&quot;配置集群ssh免密登录&quot;&gt;配置集群ssh免密登录&lt;/h3&gt;
 
-&lt;h2 id=&quot;三-cdh组件安装-参考官方文档&quot;&gt;三、	CDH组件安装, 参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/install_cm_cdh.html&quot;&gt;官方文档&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;获取密钥文件, 所有节点执行:&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;离线部署cloudera-manager-server及agent&quot;&gt;离线部署Cloudera Manager Server及Agent&lt;/h3&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;将所有节点的 .ssh/id_rsa.pub 文件传到主节点, 然后将每个节点的 id_rsa.pub 加入到 .ssh/authorized_keys 文件中:&lt;/p&gt;
 
-    &lt;p&gt;上传 cm6.3.1-redhat7.tar.gz 到所有节点并解压到 &lt;em&gt;/opt/cloudera-manager/&lt;/em&gt; 目录下&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;id_rsa.pub &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; authorized_keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;将这个包含所有节点公钥的 authorized_keys 文件上传到每个节点的 .ssh 目录下&lt;/p&gt;
 
-    &lt;p&gt;在&lt;strong&gt;主节点&lt;/strong&gt;使用 &lt;em&gt;rpm&lt;/em&gt; 离线安装 daemons, server 和 agent:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(这里使用的是root账户, 如使用其他账户, 请注意目录和.ssh文件夹的权限问题)&lt;/em&gt;&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/cloudera-manager/cm6.3.1/RPMS/x86_64/
- rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-daemons-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
- rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-server-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
- rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-agent-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;所有&lt;strong&gt;从节点&lt;/strong&gt;使用 &lt;em&gt;rpm&lt;/em&gt; 离线安装 daemons 和 agent:&lt;/p&gt;
+&lt;h3 id=&quot;关闭selinux&quot;&gt;关闭SELinux&lt;/h3&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/cloudera-manager/cm6.3.1/RPMS/x86_64/
- rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-daemons-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
- rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-agent-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;修改所有&lt;strong&gt;从节点&lt;/strong&gt;的 agent 配置, server 指向主节点 &lt;em&gt;cdh-0001&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;所有节点设置&lt;/p&gt;
 
-    &lt;p&gt;修改 &lt;em&gt;/etc/cloudera-scm-agent/config.ini&lt;/em&gt; : &lt;em&gt;server_host=cdh-0001&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;先查看 SELinux 状态, 如果为 &lt;em&gt;disabled&lt;/em&gt; 则无需修改, 命令:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/sbin/sestatus &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;否则就 &lt;em&gt;/etc/selinux/config&lt;/em&gt; 文件中的 &lt;em&gt;SELINUX=enforcing&lt;/em&gt; 改为 &lt;em&gt;SELINUX=disabled&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;修改&lt;strong&gt;主节点&lt;/strong&gt; &lt;em&gt;/etc/cloudera-scm-server/db.properties&lt;/em&gt; 配置:&lt;/p&gt;
+&lt;h3 id=&quot;配置集群时间同步&quot;&gt;配置集群时间同步&lt;/h3&gt;
 
-    &lt;p&gt;&lt;em&gt;(此处配置为上方 2.2.3 所创建的数据库和账号密码)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;所有节点安装Chrony:&lt;/p&gt;
 
-    &lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;cdh&lt;/span&gt;-&lt;span class=&quot;m&quot;&gt;0001&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;cdh123&lt;/span&gt;@&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;
- &lt;span class=&quot;c&quot;&gt;# If scm-server uses Embedded DB then it is set to EMBEDDED
-&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# If scm-server uses External DB then it is set to EXTERNAL
-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;setupType&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;EXTERNAL&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;chrony
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;启动 Cloudera Manager Server 和 Agent:&lt;/p&gt;
+&lt;p&gt;主节点配置 &lt;em&gt;/etc/chrony.conf&lt;/em&gt; 文件: 按需设置 &lt;em&gt;NTP Server&lt;/em&gt;, 可以保持使用默认4个 Server 配置, 也配置多个&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;# 启动CM:&lt;/span&gt;
- systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;cloudera-scm-server &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start cloudera-scm-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+&lt;p&gt;允许从节点IP访问: &lt;em&gt;allow 172.16.20.0/24&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;查看日志, 解决出现的问题:&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /var/log/cloudera-scm-server/cloudera-scm-server.log
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+&lt;p&gt;从节点配置 &lt;em&gt;/etc/chrony.conf&lt;/em&gt; 文件: 注释其他server, 只把一个server指向主节点IP: &lt;em&gt;server 172.16.20.245 iburst&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;CM 启动成功后, 所有节点启动 Agent:&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;cloudera-scm-agent &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start cloudera-scm-agent
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+&lt;p&gt;所有节点启动 Chrony 服务:&lt;/p&gt;
 
-    &lt;p&gt;浏览器启动 http://chd-0001:7180 页面配置集群&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;cloudera-manager-集群安装和设置&quot;&gt;Cloudera Manager 集群安装和设置&lt;/h3&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;chronyd.service &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl restart chronyd.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;欢迎页面, 一共三个步骤, 同意条款, 选择是否付费版本, 进入集群安装界面(&lt;em&gt;没有配图, 请自行脑补~&lt;/em&gt;)&lt;/p&gt;
+&lt;h3 id=&quot;其他cdh建议配置&quot;&gt;其他CDH建议配置&lt;/h3&gt;
 
-    &lt;p&gt;&lt;strong&gt;集群安装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;禁用透明大页面压缩, 所有节点写入到 &lt;em&gt;/etc/rc.d/rc.local&lt;/em&gt; 文件:&lt;/p&gt;
 
-    &lt;p&gt;1). 欢迎界面&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;never &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/kernel/mm/transparent_hugepage/defrag
+&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;never &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /sys/kernel/mm/transparent_hugepage/enabled
+&lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x /etc/rc.d/rc.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;2). 自定义集群名称&lt;/p&gt;
+&lt;p&gt;优化交换分区, 所有节点执行:&lt;/p&gt;
 
-    &lt;p&gt;3). 指定主机, 如果上面的 Agent 和配置全部正确, 不用搜索新主机, 所有主机会展示在 ‘当前管理的主机’ Tab下, 全选后进入下一步&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;vm.swappiness = 10&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /etc/sysctl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;4). 选择存储库&lt;/p&gt;
+&lt;h2 id=&quot;所需组件安装及初始化-参考官方文档&quot;&gt;所需组件安装及初始化, 参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/install_cm_cdh.html&quot; target=&quot;_blank&quot;&gt;官方文档&lt;/a&gt;&lt;/h2&gt;
 
-    &lt;p&gt; a. 将离线包: CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel 和 CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel.sha (此文件为parcel的hash码, 请不要随意修改文件) 拷贝到 &lt;em&gt;/opt/cloudera/parcel-repo&lt;/em&gt; 目录&lt;/p&gt;
+&lt;h3 id=&quot;jdk-所有节点安装&quot;&gt;JDK, 所有节点安装:&lt;/h3&gt;
 
-    &lt;p&gt; b. 修改改目录下所有文件权限:&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; cloudera-scm:cloudera-scm /opt/cloudera/parcel-repo/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;java-1.8.0-openjdk.x86_64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt; c. 点击 ‘使用Parcel(建议)’ 后的更多选项按钮, 移除所有远程Parcel库, 保存&lt;/p&gt;
+&lt;h3 id=&quot;mysql-任选一个节点安装-建议主节点&quot;&gt;MySQL, 任选一个节点安装, 建议主节点&lt;/h3&gt;
 
-    &lt;p&gt; d. 如果没有问题会默认选中拷贝的离线Parcel包&lt;/p&gt;
+&lt;p&gt;安装, 不做详述, 以下为主要命令:&lt;/p&gt;
 
-    &lt;p&gt; e. 点击继续&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; mysql-community-release-el7-5.noarch.rpm
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;yum &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;mysql-server
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;mysqld &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start mysqld
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;/usr/bin/mysql_secure_installation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;5). 安装 Parcel, 由于上一步配置好了离线 Parcel, 这里只需要等待分配, 解压和激活三个步骤自动完成&lt;/p&gt;
+&lt;p&gt;按需配置 &lt;em&gt;/etc/my.cnf&lt;/em&gt;, 可参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/cm_ig_mysql.html#cmig_topic_5_5&quot; target=&quot;_blank&quot;&gt;CDH推荐配置&lt;/a&gt;&lt;/p&gt;
 
-    &lt;p&gt;6). 检查集群&lt;/p&gt;
+&lt;p&gt;创建 CDH 所需 database 和 user:&lt;/p&gt;
 
-    &lt;p&gt; &lt;em&gt;可能会出现的问题包括上方步骤1.5出现两个配置项和修复 Psycopg2 版本较低(忽略)&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amon&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rman&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metastore&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentry&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navms&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oozie&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_general_ci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-    &lt;p&gt;7). 问题全部解决后进入集群设置&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;scm&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;amon&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rman&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;rman&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;hue&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metastore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;metastore&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sentry&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;nav&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;navms&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oozie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;oozie&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;cdh123@test&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-    &lt;p&gt;&lt;strong&gt;集群配置&lt;/strong&gt;&lt;/p&gt;
+&lt;span class=&quot;n&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;1). 选择需要的服务, 常用: HDFS, HIVE, YARN, Spark, Zookeeper 等, 根据需要执行选择&lt;/p&gt;
+&lt;h3 id=&quot;mysql-所在节点添加对应版本的-jdbc-驱动-主要命令&quot;&gt;MySQL 所在节点添加对应版本的 jdbc 驱动, 主要命令:&lt;/h3&gt;
 
-    &lt;p&gt;2). 自定义角色分配, 设置每个服务的角色和运行的节点, 根据情况设置&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;zxvf mysql-connector-java-5.1.46.tar.gz
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar &lt;span class=&quot;c&quot;&gt;##(主要去掉版本后缀)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;p&gt;3). 数据设置, 如果上一步没有选择‘Activity Monitor’, 这一步骤会被省略, 所以Activity Monitor最好选择cdh-0001(mysql安装的节点)&lt;/p&gt;
+&lt;h2 id=&quot;cdh-组件安装-参考官方文档&quot;&gt;CDH 组件安装, 参考&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/latest/topics/install_cm_cdh.html&quot; target=&quot;_blank&quot;&gt;官方文档&lt;/a&gt;&lt;/h2&gt;
 
-    &lt;p&gt; 输入数据库amon, 用户名amon和密码cdh123@test (2.2.3的设置), 测试连接&lt;/p&gt;
+&lt;h3 id=&quot;离线部署-cloudera-manager-server-及-agent&quot;&gt;离线部署 Cloudera Manager Server 及 Agent&lt;/h3&gt;
 
-    &lt;p&gt;4). 审核更改, 此步骤会设置所选角色的部分基础文件目录, 根据情况修改&lt;/p&gt;
+&lt;p&gt;上传 cm6.3.1-redhat7.tar.gz 到所有节点并解压到 &lt;em&gt;/opt/cloudera-manager/&lt;/em&gt; 目录下&lt;/p&gt;
 
-    &lt;p&gt;5). 执行命令详细信息, 等待自动运行完成, 全部通过后继续&lt;/p&gt;
+&lt;p&gt;在&lt;strong&gt;主节点&lt;/strong&gt;使用 &lt;em&gt;rpm&lt;/em&gt; 离线安装 daemons, server 和 agent:&lt;/p&gt;
 
-    &lt;p&gt;6). 至此所有安装步骤完成, 可进入 Cloudera Manager 进行集群监控和管理&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="Big Data" /><category term="CDH" /><summary type="html">* 本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换</summary></entry></feed>
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/cloudera-manager/cm6.3.1/RPMS/x86_64/
+rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-daemons-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-server-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-agent-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;所有&lt;strong&gt;从节点&lt;/strong&gt;使用 &lt;em&gt;rpm&lt;/em&gt; 离线安装 daemons 和 agent:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/cloudera-manager/cm6.3.1/RPMS/x86_64/
+rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-daemons-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+rpm &lt;span class=&quot;nt&quot;&gt;-ivh&lt;/span&gt; cloudera-manager-agent-6.3.1-1466458.el7.x86_64.rpm &lt;span class=&quot;nt&quot;&gt;--nodeps&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;修改所有&lt;strong&gt;从节点&lt;/strong&gt;的 agent 配置, server 指向主节点 &lt;em&gt;cdh-0001&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;修改 &lt;em&gt;/etc/cloudera-scm-agent/config.ini&lt;/em&gt; : &lt;em&gt;server_host=cdh-0001&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;修改&lt;strong&gt;主节点&lt;/strong&gt; &lt;em&gt;/etc/cloudera-scm-server/db.properties&lt;/em&gt; 配置:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(此处配置为上方 2.2.3 所创建的数据库和账号密码)&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;cdh&lt;/span&gt;-&lt;span class=&quot;m&quot;&gt;0001&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;scm&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;cdh123&lt;/span&gt;@&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# If scm-server uses Embedded DB then it is set to EMBEDDED
+# If scm-server uses External DB then it is set to EXTERNAL
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cloudera&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;cmf&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;setupType&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;EXTERNAL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;启动 Cloudera Manager Server 和 Agent:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 启动CM:&lt;/span&gt;
+systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;cloudera-scm-server &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start cloudera-scm-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;查看日志, 解决出现的问题:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /var/log/cloudera-scm-server/cloudera-scm-server.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;CM 启动成功后, 所有节点启动 Agent:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;cloudera-scm-agent &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl start cloudera-scm-agent
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;浏览器启动 http://chd-0001:7180 页面配置集群&lt;/p&gt;
+
+&lt;h3 id=&quot;cloudera-manager-集群安装和设置&quot;&gt;Cloudera Manager 集群安装和设置&lt;/h3&gt;
+
+&lt;p&gt;欢迎页面, 一共三个步骤, 同意条款, 选择是否付费版本, 进入集群安装界面(&lt;em&gt;没有配图, 请自行脑补~&lt;/em&gt;)&lt;/p&gt;
+
+&lt;h4 id=&quot;集群安装&quot;&gt;集群安装&lt;/h4&gt;
+
+&lt;p&gt;1). 欢迎界面&lt;/p&gt;
+
+&lt;p&gt;2). 自定义集群名称&lt;/p&gt;
+
+&lt;p&gt;3). 指定主机, 如果上面的 Agent 和配置全部正确, 不用搜索新主机, 所有主机会展示在 ‘当前管理的主机’ Tab下, 全选后进入下一步&lt;/p&gt;
+
+&lt;p&gt;4). 选择存储库&lt;/p&gt;
+
+&lt;p&gt; a. 将离线包: CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel 和 CDH-6.3.2-1.cdh6.3.2.p0.1605554-el7.parcel.sha (此文件为parcel的hash码, 注意不要随意修改) 拷贝到 &lt;em&gt;/opt/cloudera/parcel-repo&lt;/em&gt; 目录&lt;/p&gt;
+
+&lt;p&gt; b. 修改改目录下所有文件权限:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; cloudera-scm:cloudera-scm /opt/cloudera/parcel-repo/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt; c. 点击 ‘使用Parcel(建议)’ 后的更多选项按钮, 移除所有远程Parcel库, 保存&lt;/p&gt;
+
+&lt;p&gt; d. 如果没有问题会默认选中拷贝的离线Parcel包&lt;/p&gt;
+
+&lt;p&gt; e. 点击继续&lt;/p&gt;
+
+&lt;p&gt;5). 安装 Parcel, 由于上一步配置好了离线 Parcel, 这里只需要等待分配, 解压和激活三个步骤自动完成&lt;/p&gt;
+
+&lt;p&gt;6). 检查集群&lt;/p&gt;
+
+&lt;p&gt; &lt;em&gt;可能会出现的问题包括上方步骤1.5出现两个配置项和修复 Psycopg2 版本较低(忽略)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;7). 问题全部解决后进入集群设置&lt;/p&gt;
+
+&lt;h4 id=&quot;集群配置&quot;&gt;集群配置&lt;/h4&gt;
+
+&lt;p&gt;1). 选择需要的服务, 常用: HDFS, HIVE, YARN, Spark, Zookeeper 等, 根据需要执行选择&lt;/p&gt;
+
+&lt;p&gt;2). 自定义角色分配, 设置每个服务的角色和运行的节点, 根据情况设置&lt;/p&gt;
+
+&lt;p&gt;3). 数据设置, 如果上一步没有选择‘Activity Monitor’, 这一步骤会被省略, 所以 Activity Monitor 最好选择 cdh-0001(mysql安装的节点)&lt;/p&gt;
+
+&lt;p&gt; 输入数据库 amon, 用户名 amon 和密码 cdh123@test (2.2.3的设置), 测试连接&lt;/p&gt;
+
+&lt;p&gt;4). 审核更改, 此步骤会设置所选角色的部分基础文件目录, 根据情况修改&lt;/p&gt;
+
+&lt;p&gt;5). 执行命令详细信息, 等待自动运行完成, 全部通过后继续&lt;/p&gt;
+
+&lt;p&gt;6). 至此所有安装步骤完成, 可进入 Cloudera Manager 进行集群监控和管理&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="CDH" /><summary type="html">* 本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换</summary></entry></feed>

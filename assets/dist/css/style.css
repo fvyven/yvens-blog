@@ -124,7 +124,8 @@ h6::before {
 /* table */
 table {
   border-spacing: 0;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  font-size: 14px; }
 
 table th {
   padding: 6px 13px;
