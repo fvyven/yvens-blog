@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-02-27T17:07:38+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-03-02T16:27:47+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash 相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
 
@@ -1464,7 +1464,197 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[Database] Mysql 最左匹配原则</title><link href="https://lankee.blog/mysql-index-leftmost-prefix.html" rel="alternate" type="text/html" title="[Database] Mysql 最左匹配原则" /><published>2019-07-11T00:00:00+08:00</published><updated>2019-07-11T00:00:00+08:00</updated><id>https://lankee.blog/mysql-index-leftmost-prefix</id><content type="html" xml:base="https://lankee.blog/mysql-index-leftmost-prefix.html">&lt;p&gt;最左匹配原则（leftmost perfix，也可以翻译为最左前缀），一般现在网上通俗化的解释是：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;在 MySQL 建立联合索引时会遵守最左匹配原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;其实这个解释会让人搞不太清楚具体是什么意思，再看看官方文档是怎么描述的（在 MySQL 5.7 Reference Manual - &lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html&quot; target=&quot;_blank&quot;&gt;8.3.6 Multiple-Column Indexes&lt;/a&gt; 一节中）：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;MySQL can use multiple-column indexes for queries that test all the columns in the index, or queries that test just the first column, the first two columns, the first three columns, and so on. If you specify the columns in the right order in the index definition, a single composite index can speed up several kinds of queries on the same table.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;简单翻译一下：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;MySQL 可以使用联合索引来处理涉及到索引中的所有列或仅涉及索引中前几列的查询。如果你按正确的顺序在索引定义中指定这些列，那么联合索引就可以加速同一张表上多种类型的查询。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;不论是网上一般的解释，还是官方描述其实都比较简单，但在实际查询过程中情况就比较复杂了，那么下面通过几个 SQL 查询例子试着搞清楚。&lt;/p&gt;
+
+&lt;h2 id=&quot;来点-&quot;&gt;来点 🌰&lt;/h2&gt;
+
+&lt;p&gt;先创建一个测试表，然后添加一点测试数据（Mysql 版本 5.7）：&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- 建表&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;`test_tb`&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;`id`&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AUTO_INCREMENT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;`col1`&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;`col2`&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;varchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;`col3`&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;`col4`&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;`id`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;-- 主键索引&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;`idx1`&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;`col1`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;`col2`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;`col3`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;-- 联合索引&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ENGINE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InnoDB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AUTO_INCREMENT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CHARSET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utf8mb4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- 测试数据&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;102&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;103&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;202&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;202&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;203&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;204&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;301&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;302&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;303&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;304&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;402&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;403&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;501&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;502&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;503&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;504&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;601&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;602&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;603&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;604&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;701&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;702&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;703&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;704&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;801&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;802&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;803&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;804&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;901&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;902&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;903&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;904&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;insert&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_tb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;1002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1003&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1004&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;先看下面几条 SQL 的执行分析结果：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select * from test_tb where col1 = 1;  --索引生效
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref   | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | test_tb | NULL       | ref  | idx1          | idx1 | 5       | const |    1 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select * from test_tb where col1 = 1 and col2 = &apos;2&apos;;  --索引生效
++----+-------------+---------+------------+------+---------------+------+---------+-------------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref         | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+-------------+------+----------+-------+
+|  1 | SIMPLE      | test_tb | NULL       | ref  | idx1          | idx1 | 104     | const,const |    1 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+-------------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select * from test_tb where col1 = 1 and col2 = &apos;2&apos; and col3 = 3;  --索引生效
++----+-------------+---------+------------+------+---------------+------+---------+-------------------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref               | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+-------------------+------+----------+-------+
+|  1 | SIMPLE      | test_tb | NULL       | ref  | idx1          | idx1 | 109     | const,const,const |    1 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+-------------------+------+----------+-------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql&amp;gt; explain select * from test_tb where col2 = &apos;2&apos; and col1 = 1 and col3 = 3;  --索引生效
++----+-------------+---------+------------+------+---------------+------+---------+-------------------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref               | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+-------------------+------+----------+-------+
+|  1 | SIMPLE      | test_tb | NULL       | ref  | idx1          | idx1 | 109     | const,const,const |    1 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+-------------------+------+----------+-------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql&amp;gt; explain select * from test_tb where col2 = &apos;2&apos; and col3 = 3;  --索引不生效
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   10 |    10.00 | Using where |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select * from test_tb where col3 = 3 and col1 = 1;  --只有 col1 列索引生效
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-----------------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref   | rows | filtered | Extra                 |
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-----------------------+
+|  1 | SIMPLE      | test_tb | NULL       | ref  | idx1          | idx1 | 5       | const |    1 |    10.00 | Using index condition |
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-----------------------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;根据分析结果的 type 列和 ref 列（Explain 的详解可以参考官方文档 &lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/explain-output.html&quot; target=&quot;_blank&quot;&gt;8.8.2 EXPLAIN Output Format&lt;/a&gt;）可以发现，&lt;strong&gt;只要查询条件中的 N 列包含于联合索引的最左连续的 N 列，联合索引就会生效。&lt;/strong&gt;也就是说我们创建&lt;strong&gt;联合索引 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idx1(col1,col2,col3)&lt;/code&gt;，相当于创建了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(col1)、(col1,col2)、(col1,col2,col3)&lt;/code&gt; 这三个索引。&lt;/strong&gt;
+也可以发现&lt;strong&gt;查询条件中列顺序不会影响索引生效&lt;/strong&gt;，这是因为 &lt;strong&gt;Mysql 的查询优化器&lt;/strong&gt;，这点顺序问题还是能解决的。&lt;/p&gt;
+
+&lt;p&gt;但是下面这句 SQL 的分析结果：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select col1,col2,col3 from test_tb where col2 =&apos;2&apos; and col3 = 3;
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+--------------------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra                    |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+--------------------------+
+|  1 | SIMPLE      | test_tb | NULL       | index | NULL          | idx1 | 109     | NULL |   10 |    10.00 | Using where; Using index |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+--------------------------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到 type 不是 NULL，说明是走了索引的，但是这不符合联合索引需要最左连续列的定义，为什么呢？&lt;/p&gt;
+
+&lt;h3 id=&quot;覆盖索引&quot;&gt;覆盖索引&lt;/h3&gt;
+
+&lt;p&gt;我们知道在 InnoDB 中，表都是根据主键顺序以索引的形式存放的，这种存储方式的表称为索引组织表。而 InnoDB 使用了 B+ 树（本节对 B+ 树不做详解）索引模型，所以数据都是存储在 B+ 树中的。根据叶子节点的内容，索引类型分为主键索引和非主键索引。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;主键索引（clustered index）也就是&lt;strong&gt;聚簇索引&lt;/strong&gt;，在叶子节点的是整行数据。&lt;em&gt;&lt;font style=&quot;color:#999&quot;&gt;（注：聚簇索引默认是主键，如果表中没有定义主键，InnoDB 会选择一个唯一的非空索引代替。如果没有这样的索引，InnoDB 会隐式定义一个主键来作为聚簇索引。）&lt;/font&gt;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;非主键索引（secondary index）也就是&lt;strong&gt;二级索引&lt;/strong&gt;，在叶子节点的内容是主键的值。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;select * from test_tb where id =1;&lt;/code&gt; 这种主键查询方式，就只需要查询主键索引对应的那棵树。而使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;select * from test_tb where col1 = 1;&lt;/code&gt; 这样的非主键索引查询方式，就需要先查询 idx1 这个索引对应的那棵树得到 id 值之后，再到主键索引树查询，这个过程称之为&lt;strong&gt;回表&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;使用非主键查询需要多扫描一棵树，会降低查询效率，怎么尽量不回表呢？除了主键查询，就是&lt;strong&gt;覆盖索引&lt;/strong&gt;了。根据上面的概述，如果二级索引查询的时候只查询查询索引里包含的字段，也就是索引中覆盖了你查询的字段，那就不需要回表了。这就解释了上面的示例为什么是走了索引的，因为查询的字段包含在联合索引 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idx1(col1,col2,col3)&lt;/code&gt; 中，不需要回表，也就是覆盖索引。&lt;/p&gt;
+
+&lt;h3 id=&quot;中断匹配索引&quot;&gt;中断匹配索引&lt;/h3&gt;
+
+&lt;p&gt;之前的示例中，最后一条 SQL 条件列不连续会中断索引，还有哪些情况会中断联合索引，最常见的说法是遇到范围查询如（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;,&amp;gt;,between,like&lt;/code&gt;）就会中断匹配索引。&lt;/p&gt;
+
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select * from test_tb where col1 &amp;gt; 1 and col2 = &apos;2&apos; and col3 = 3;
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | ALL  | idx1          | NULL | NULL    | NULL |   10 |    10.00 | Using where |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;根据测试，确实如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;,&amp;gt;,between,!=,not in&lt;/code&gt; 这样的范围查询是会中断匹配的（因为篇幅没有把所有查询示例列出，感兴趣的可以自己执行查看），虽然 in 也是范围查询，但是不会中断匹配：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select * from test_tb where col1 in (1,2) and col2 = &apos;2&apos; and col3 = 3;  --(col1 = 1 or col1 =2)结果是一样的
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-----------------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra                 |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-----------------------+
+|  1 | SIMPLE      | test_tb | NULL       | range | idx1          | idx1 | 109     | NULL |    2 |   100.00 | Using index condition |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-----------------------+
+1 row in set, 1 warning (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;但是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like&lt;/code&gt; 的情况有些复杂：&lt;br /&gt;
+* 注：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like&lt;/code&gt; 默认是左匹配查询，也就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like &apos;x&apos;&lt;/code&gt; 等价于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like &apos;x%&apos;&lt;/code&gt;。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rlike&lt;/code&gt; 就是右匹配查询。&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select * from test_tb where col1 = 1 and col2 like &apos;1&apos; and col3 = 3;  
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-----------------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra                 |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-----------------------+
+|  1 | SIMPLE      | test_tb | NULL       | range | idx1          | idx1 | 109     | NULL |    1 |   100.00 | Using index condition |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-----------------------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql&amp;gt; explain select * from test_tb where col1 = 1 and col2 like &apos;%1&apos; and col3 = 3;  -- like &apos;%1%&apos; 执行分析结果相同
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-----------------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref   | rows | filtered | Extra                 |
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-----------------------+
+|  1 | SIMPLE      | test_tb | NULL       | ref  | idx1          | idx1 | 5       | const |    1 |    10.00 | Using index condition |
++----+-------------+---------+------------+------+---------------+------+---------+-------+------+----------+-----------------------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;可以发现，使用左匹配 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like &apos;1&apos;&lt;/code&gt; 不会中断匹配索引。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like &apos;%1&apos;&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;like &apos;%1%&apos;&lt;/code&gt; 才会中断匹配。&lt;/p&gt;
+
+&lt;p&gt;也就是说&lt;strong&gt;最左匹配原则不光指联合索引中的列，也是字符串索引中的字符。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;其他情况：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select * from test_tb where col1 = 1 or col2 = &apos;2&apos; and col3 = 3;   -- 列间使用 or
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | ALL  | idx1          | NULL | NULL    | NULL |   10 |    10.90 | Using where |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select * from test_tb where col1 - 1 = 1 and col2 = &apos;2&apos; and col3 = 3;  -- 列参与计算
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   10 |    10.00 | Using where |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select * from test_tb where date(col1) = 1 and col2 = &apos;2&apos; and col3 = 3;  -- 列包含在函数式里
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   10 |    10.00 | Using where |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="Database" /><category term="Mysql" /><category term="Index" /><summary type="html">最左匹配原则（leftmost perfix，也可以翻译为最左前缀），一般现在网上通俗化的解释是： 在 MySQL 建立联合索引时会遵守最左匹配原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;* &lt;em&gt;本文为可能出现纰漏, 详细可参考访问&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/6.0/topics/installation.html&quot; target=&quot;_blank&quot;&gt;官方安装文档&lt;/a&gt; 和Google&lt;/em&gt;&lt;/p&gt;
 
