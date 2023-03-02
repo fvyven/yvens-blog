@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-03-02T16:27:47+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-03-02T19:22:48+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash 相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
 
@@ -1464,7 +1464,136 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[Database] Mysql 最左匹配原则</title><link href="https://lankee.blog/mysql-index-leftmost-prefix.html" rel="alternate" type="text/html" title="[Database] Mysql 最左匹配原则" /><published>2019-07-11T00:00:00+08:00</published><updated>2019-07-11T00:00:00+08:00</updated><id>https://lankee.blog/mysql-index-leftmost-prefix</id><content type="html" xml:base="https://lankee.blog/mysql-index-leftmost-prefix.html">&lt;p&gt;最左匹配原则（leftmost perfix，也可以翻译为最左前缀），一般现在网上通俗化的解释是：&lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[Database] Mysql 关于 count() 不同用法的效率</title><link href="https://lankee.blog/mysql-count.html" rel="alternate" type="text/html" title="[Database] Mysql 关于 count() 不同用法的效率" /><published>2019-07-14T00:00:00+08:00</published><updated>2019-07-14T00:00:00+08:00</updated><id>https://lankee.blog/mysql-count</id><content type="html" xml:base="https://lankee.blog/mysql-count.html">&lt;p&gt;* &lt;em&gt;本文基于 Mysql 5.7 + InnoDB 引擎&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;count1-vs-countid-vs-countcolmun-vs-count--who-is-faster&quot;&gt;count(1) vs count(id) vs count(colmun) vs count(*) : Who is faster?&lt;/h2&gt;
+
+&lt;p&gt;对于这几种查询写法的效率问题，经常被面试官问到。&lt;/p&gt;
+
+&lt;p&gt;先说&lt;strong&gt;结论：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(*) = count(1) &amp;gt; count(id) &amp;gt; count(colmun)&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;解析&quot;&gt;解析&lt;/h2&gt;
+
+&lt;p&gt;首先说语义：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count()&lt;/code&gt; 是一个聚合函数，对于返回的结果集，server 层会维护一个名叫 count 的变量，然后一行行地循环判断，如果 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count()&lt;/code&gt; 的参数不是 NULL，count 就加 1，否则不加。最后返回 count 给客户端。&lt;/p&gt;
+
+&lt;p&gt;而 InnoDB 在循环的时候，是循环的索引。在官方文档（&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/aggregate-functions.html#function_count&quot;&gt;12.20.1 Aggregate Function Descriptions&lt;/a&gt;）中 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count()&lt;/code&gt; 函数说明有这么一段：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Prior to MySQL 5.7.18, InnoDB processes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; statements by scanning the clustered index. As of MySQL 5.7.18, InnoDB processes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; statements by traversing the smallest available secondary index unless an index or optimizer hint directs the optimizer to use a different index. If a secondary index is not present, the clustered index is scanned.&lt;br /&gt;
+&lt;br /&gt;
+在 MySQL 5.7.18 之前，InnoDB 通过扫描聚簇索引来处理 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; 语句。从 MySQL 5.7.18 开始，除非有一个索引或优化器提示指示优化器使用一个不同的索引，否则 InnoDB 会通过遍历可用的最小二级索引来处理 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; 语句。如果不存在二级索引，则扫描聚簇索引。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;虽然文档是写的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt;，事实上，不光是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(*)&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(1)&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(colmun)&lt;/code&gt; (colmun 为任何&lt;strong&gt;索引列&lt;/strong&gt;，包括主键索引) 也都是一样的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;没有二级索引：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select count(id) from test_tb1;
++----+-------------+----------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+| id | select_type | table    | partitions | type  | possible_keys | key     | key_len | ref  | rows | filtered | Extra       |
++----+-------------+----------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb1 | NULL       | index | NULL          | PRIMARY | 4       | NULL |    1 |   100.00 | Using index |
++----+-------------+----------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select count(1) from test_tb1;
++----+-------------+----------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+| id | select_type | table    | partitions | type  | possible_keys | key     | key_len | ref  | rows | filtered | Extra       |
++----+-------------+----------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb1 | NULL       | index | NULL          | PRIMARY | 4       | NULL |    1 |   100.00 | Using index |
++----+-------------+----------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key&lt;/code&gt; 列为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PRIMARY&lt;/code&gt;，走聚簇索引。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;有二级索引：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select count(id) from test_tb;
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | index | NULL          | idx1 | 109     | NULL |   10 |   100.00 | Using index |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql&amp;gt; explain select count(1) from test_tb;
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | index | NULL          | idx1 | 109     | NULL |   10 |   100.00 | Using index |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql&amp;gt; explain select count(col1) from test_tb;
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | index | NULL          | idx1 | 109     | NULL |   10 |   100.00 | Using index |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;key&lt;/code&gt; 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idx1&lt;/code&gt;，走二级索引 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idx1&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;为什么选择的是二级索引而不是聚簇索引呢？应该是因为相同数量的二级索引记录可以比聚簇索引记录占用更少的存储空间，所以二级索引树比聚簇索引树小，这样遍历二级索引的 I/O 成本比遍历聚簇索引的 I/O 成本小。&lt;/p&gt;
+
+&lt;h3 id=&quot;countcolmun&quot;&gt;count(colmun)&lt;/h3&gt;
+
+&lt;p&gt;先从最慢的说起，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(colmun)&lt;/code&gt; 有以下几种情况：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;如果”colmun”定义为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;not null&lt;/code&gt; 的话，一行行地从记录里面读出这个字段，判断不能为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;，按行累加。&lt;/li&gt;
+  &lt;li&gt;如果”colmun”定义允许为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;，那么执行的时候，判断到有可能是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;，还要把值取出来再判断一下，不是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt; 才累加。&lt;/li&gt;
+  &lt;li&gt;如果”colmun”不是索引列的话，还要执行全表扫描。
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select count(col1) from test_tb;
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | test_tb | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   10 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;countid&quot;&gt;count(id)&lt;/h3&gt;
+
+&lt;p&gt;会遍历表索引（二级索引，没有就是聚簇索引），把每一行的 id 值都取出来，返回给 server 层。server 层拿到 id 后，判断是不可能为空的，就按行累加。&lt;/p&gt;
+
+&lt;h3 id=&quot;count1&quot;&gt;count(1)&lt;/h3&gt;
+
+&lt;p&gt;遍历表索引（二级索引，没有就是聚簇索引），但&lt;strong&gt;&lt;font style=&quot;color:red&quot;&gt;不取值&lt;/font&gt;&lt;/strong&gt;。server 层对于返回的每一行，参数“1”很明显不可能为空的，按行累加。&lt;/p&gt;
+
+&lt;p&gt;可以看到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(1)&lt;/code&gt; 比 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(id)&lt;/code&gt; 少了一步取值，所以通常来说 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(1)&lt;/code&gt; 的执行效率会比比 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(id)&lt;/code&gt; 稍微高一点。&lt;/p&gt;
+
+&lt;h3 id=&quot;count&quot;&gt;count(*)&lt;/h3&gt;
+
+&lt;p&gt;还是这篇官方文档（&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/aggregate-functions.html#function_count&quot;&gt;12.20.1 Aggregate Function Descriptions&lt;/a&gt;），&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count()&lt;/code&gt; 函数说明下的这段讲的很清楚：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;InnoDB handles &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(1)&lt;/code&gt; operations in the same way. There is no performance difference.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;看执行过程建议也可以看出来：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; explain select count(*) from test_tb; show warnings;
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table   | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | test_tb | NULL       | index | NULL          | idx1 | 109     | NULL |   10 |   100.00 | Using index |
++----+-------------+---------+------------+-------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
++-------+------+-----------------------------------------------------------------------+
+| Level | Code | Message                                                               |
++-------+------+-----------------------------------------------------------------------+
+| Note  | 1003 | /* select#1 */ select count(0) AS `count(*)` from `test_db`.`test_tb` |
++-------+------+-----------------------------------------------------------------------+
+1 row in set (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; 其实就是执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(0)&lt;/code&gt;，执行逻辑和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT COUNT(1)&lt;/code&gt; 相同，所以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(*)&lt;/code&gt; = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;count(1)&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Database" /><category term="Mysql" /><summary type="html">* 本文基于 Mysql 5.7 + InnoDB 引擎</summary></entry><entry><title type="html">[Database] Mysql 最左匹配原则</title><link href="https://lankee.blog/mysql-index-leftmost-prefix.html" rel="alternate" type="text/html" title="[Database] Mysql 最左匹配原则" /><published>2019-07-11T00:00:00+08:00</published><updated>2019-07-11T00:00:00+08:00</updated><id>https://lankee.blog/mysql-index-leftmost-prefix</id><content type="html" xml:base="https://lankee.blog/mysql-index-leftmost-prefix.html">&lt;p&gt;* &lt;em&gt;本文基于 Mysql 5.7 + InnoDB 引擎&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;最左匹配原则（leftmost perfix，也可以翻译为最左前缀），一般现在网上通俗化的解释是：&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;在 MySQL 建立联合索引时会遵守最左匹配原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1483,7 +1612,7 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
 
 &lt;h2 id=&quot;来点-&quot;&gt;来点 🌰&lt;/h2&gt;
 
-&lt;p&gt;先创建一个测试表，然后添加一点测试数据（Mysql 版本 5.7）：&lt;/p&gt;
+&lt;p&gt;先创建一个测试表，然后添加一点测试数据：&lt;/p&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- 建表&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;`test_tb`&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
@@ -1578,8 +1707,8 @@ mysql&amp;gt; explain select * from test_tb where col3 = 3 and col1 = 1;  --只�
 
 &lt;p&gt;我们知道在 InnoDB 中，表都是根据主键顺序以索引的形式存放的，这种存储方式的表称为索引组织表。而 InnoDB 使用了 B+ 树（本节对 B+ 树不做详解）索引模型，所以数据都是存储在 B+ 树中的。根据叶子节点的内容，索引类型分为主键索引和非主键索引。&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;主键索引（clustered index）也就是&lt;strong&gt;聚簇索引&lt;/strong&gt;，在叶子节点的是整行数据。&lt;em&gt;&lt;font style=&quot;color:#999&quot;&gt;（注：聚簇索引默认是主键，如果表中没有定义主键，InnoDB 会选择一个唯一的非空索引代替。如果没有这样的索引，InnoDB 会隐式定义一个主键来作为聚簇索引。）&lt;/font&gt;&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;非主键索引（secondary index）也就是&lt;strong&gt;二级索引&lt;/strong&gt;，在叶子节点的内容是主键的值。&lt;/li&gt;
+  &lt;li&gt;主键索引（clustered index）也就是&lt;strong&gt;聚簇索引&lt;/strong&gt;，在叶子节点存的是整行数据。&lt;em&gt;&lt;font style=&quot;color:#999&quot;&gt;（注：聚簇索引默认是主键，如果表中没有定义主键，InnoDB 会选择一个唯一的非空索引代替。如果没有这样的索引，InnoDB 会隐式定义一个主键来作为聚簇索引。）&lt;/font&gt;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;非主键索引（secondary index）也就是&lt;strong&gt;二级索引&lt;/strong&gt;，在叶子节点存的是主键的值。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;所以使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;select * from test_tb where id =1;&lt;/code&gt; 这种主键查询方式，就只需要查询主键索引对应的那棵树。而使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;select * from test_tb where col1 = 1;&lt;/code&gt; 这样的非主键索引查询方式，就需要先查询 idx1 这个索引对应的那棵树得到 id 值之后，再到主键索引树查询，这个过程称之为&lt;strong&gt;回表&lt;/strong&gt;。&lt;/p&gt;
@@ -1654,7 +1783,7 @@ mysql&amp;gt; explain select * from test_tb where date(col1) = 1 and col2 = &apo
 |  1 | SIMPLE      | test_tb | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   10 |    10.00 | Using where |
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
 1 row in set, 1 warning (0.01 sec)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="Database" /><category term="Mysql" /><category term="Index" /><summary type="html">最左匹配原则（leftmost perfix，也可以翻译为最左前缀），一般现在网上通俗化的解释是： 在 MySQL 建立联合索引时会遵守最左匹配原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="Database" /><category term="Mysql" /><category term="Index" /><summary type="html">* 本文基于 Mysql 5.7 + InnoDB 引擎</summary></entry><entry><title type="html">[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署</title><link href="https://lankee.blog/cdh-cluster-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] CDH 3.2.1 on CentOS 7.5 集群安装(半)离线部署" /><published>2019-06-28T00:00:00+08:00</published><updated>2019-06-28T00:00:00+08:00</updated><id>https://lankee.blog/cdh-cluster-deploy</id><content type="html" xml:base="https://lankee.blog/cdh-cluster-deploy.html">&lt;p&gt;* &lt;em&gt;本文使用的是云服务器 CentOS 7.5 集群, 且使用 root 账户, 所有包管理工具, CDH版本和目录可能不一样, 请自行切换&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;* &lt;em&gt;本文为可能出现纰漏, 详细可参考访问&lt;a href=&quot;https://docs.cloudera.com/documentation/enterprise/6/6.0/topics/installation.html&quot; target=&quot;_blank&quot;&gt;官方安装文档&lt;/a&gt; 和Google&lt;/em&gt;&lt;/p&gt;
 
