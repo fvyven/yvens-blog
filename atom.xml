@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-03-03T12:09:49+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://lankee.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://lankee.blog/" rel="alternate" type="text/html" /><updated>2023-03-03T17:09:38+08:00</updated><id>https://lankee.blog/atom.xml</id><title type="html">LanKE.e 婪歌</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://lankee.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://lankee.blog/redash-macos-deploy</id><content type="html" xml:base="https://lankee.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
-&lt;p&gt;现在市面上有三大开源数据可视化工具, 分别是 Metebase, Superset 和 Redash. Redash 相对于前两种虽然功能性和可视化图表相对少了一些, 但是也因为操作简单, 用户体验更好, 而且代码的可读性更强, 更易于二次开发, 功能定制.&lt;/p&gt;
+&lt;p&gt;现在市面上有三大开源数据可视化工具，分别是 Metebase、Superset 和 Redash。Redash 相对于前两种虽然功能性和可视化图表相对少了一些，但是也因为操作简单，用户体验更好，而且代码的可读性更强，更易于二次开发，功能定制。&lt;/p&gt;
 
-&lt;p&gt;源码地址: &lt;a href=&quot;https://github.com/getredash/redash.git&quot; target=&quot;_blank&quot;&gt;https://github.com/getredash/redash.git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;源码地址：&lt;a href=&quot;https://github.com/getredash/redash.git&quot; target=&quot;_blank&quot;&gt;https://github.com/getredash/redash.git&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Redash 架构图:&lt;/p&gt;
+&lt;p&gt;Redash 架构图：&lt;/p&gt;
 
 &lt;center&gt;
     &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0002.pic.jpg&quot; /&gt;
@@ -16,7 +16,7 @@
 
 &lt;h3 id=&quot;docker-一键安装&quot;&gt;Docker 一键安装&lt;/h3&gt;
 
-&lt;p&gt;下载源码后, 切换到项目路径, 分别执行一下命令:&lt;/p&gt;
+&lt;p&gt;下载源码后，切换到项目路径，分别执行一下命令：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 拉取所有依赖镜像并初始化数据库&lt;/span&gt;
 docker-compose run –rm server create_db
 &lt;span class=&quot;c&quot;&gt;# 创建容器并运行, -d为后台执行&lt;/span&gt;
@@ -24,14 +24,14 @@ docker-compose up &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;然后访问 http://127.0.0.1:5000 即可进入 Redash&lt;/p&gt;
 
-&lt;p&gt;如果出现界面样式失效, 可能是因为 node 容器没有创建导致前端资源没有编译, 可以在执行以下命令手动编译:&lt;/p&gt;
+&lt;p&gt;如果出现界面样式失效，可能是因为 node 容器没有创建导致前端资源没有编译，可以在执行以下命令手动编译：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 下载所有依赖&lt;/span&gt;
 npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# 编译运行&lt;/span&gt;
 npm run build
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;如果需要自定义配置, 可以修改 docker-compose.yml 中的制定配置项&lt;/p&gt;
+&lt;p&gt;如果需要自定义配置，可以修改 docker-compose.yml 中的制定配置项。&lt;/p&gt;
 
 &lt;p&gt;其他命令&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 停止容器&lt;/span&gt;
@@ -42,7 +42,7 @@ docker-compose down
 
 &lt;h3 id=&quot;自助安装&quot;&gt;自助安装&lt;/h3&gt;
 
-&lt;p&gt;安装以下主要组件依赖, macOS 下可用 homebrew 一键安装&lt;/p&gt;
+&lt;p&gt;安装以下主要组件依赖，macOS 下可用 homebrew 一键安装&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;python3&lt;/li&gt;
@@ -52,7 +52,7 @@ docker-compose down
   &lt;li&gt;postgresql&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;postgresql 的初始化的主要命令:&lt;/p&gt;
+&lt;p&gt;postgresql 的初始化的主要命令：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 初始化&lt;/span&gt;
 initdb /usr/local/var/postgres
 &lt;span class=&quot;c&quot;&gt;# 根据当前用户创建一个db&lt;/span&gt;
@@ -73,9 +73,9 @@ ALTER ROLE postgres CREATEDB&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;p&gt;&lt;strong&gt;修改配置&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;所有配置项基本就在此文件下: &lt;em&gt;redash/settings/__init__.py&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;所有配置项基本就在此文件下： &lt;em&gt;redash/settings/__init__.py&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;如修改数据库配置 &lt;strong&gt;REDASH_DATABASE_URL&lt;/strong&gt; 改为如下内容:&lt;/p&gt;
+&lt;p&gt;如修改数据库配置 &lt;strong&gt;REDASH_DATABASE_URL&lt;/strong&gt; 改为如下内容：&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;SQLALCHEMY_DATABASE_URI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;&quot;REDASH_DATABASE_URL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DATABASE_URL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;postgresql://postgres:123456@127.0.0.1:5432/postgres&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -83,7 +83,7 @@ ALTER ROLE postgres CREATEDB&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;p&gt;&lt;strong&gt;python 相关&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;推荐使用 python 环境运行, 主要命令:&lt;/p&gt;
+&lt;p&gt;推荐使用 python 环境运行，主要命令：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 进入到项目目录下&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# 下载虚拟环境模块&lt;/span&gt;
 pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;virtualenv
@@ -93,24 +93,24 @@ virtualenv &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; python3 venv
 &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;venv/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;所有 python 依赖包拉取:&lt;/p&gt;
+&lt;p&gt;所有 python 依赖包拉取：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 安装所有基础依赖和数据库连接依赖&lt;/span&gt;
 pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements_all_ds.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;可能出现的问题:
+&lt;p&gt;可能出现的问题：
 安装 psycopg2 可能会出现: &lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error: pg_config executable not found.&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;解决: 把 postgresql 的 bin 目录加入环境变量, 或者不安装 psycopg2 直接安装 psycopy2-binary (requirements.txt 文件中注释掉该行)&lt;/p&gt;
+&lt;p&gt;解决：把 postgresql 的 bin 目录加入环境变量，或者不安装 psycopg2 直接安装 psycopy2-binary (requirements.txt 文件中注释掉该行)&lt;/p&gt;
 
 &lt;p&gt;安装 mysqlclient 可能会出现: &lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Error: mysql_config not found.&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;解决: 安装 mysql-connector-c 并加入环境变量, 如果已安装过 mysql 相关模块仍报此问题, 可能就是环境变量问题.&lt;/p&gt;
+&lt;p&gt;解决：安装 mysql-connector-c 并加入环境变量，如果已安装过 mysql 相关模块仍报此问题，可能就是环境变量问题。&lt;/p&gt;
 
-&lt;p&gt;安装完成后执行:&lt;/p&gt;
+&lt;p&gt;安装完成后执行：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py check_settings
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;如果没问题的话就会打印出当前所有设置项内容&lt;/p&gt;
+&lt;p&gt;如果没问题的话就会打印出当前所有设置项内容。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;前端编译&lt;/strong&gt;&lt;/p&gt;
 
@@ -126,9 +126,9 @@ pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n
 
 &lt;p&gt;&lt;strong&gt;运行&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;需要运行三个模块: &lt;strong&gt;Web Server&lt;/strong&gt; 和 &lt;strong&gt;RQ worker&lt;/strong&gt; &amp;amp; &lt;strong&gt;scheduler&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;需要运行三个模块： &lt;strong&gt;Web Server&lt;/strong&gt; 和 &lt;strong&gt;RQ worker&lt;/strong&gt; &amp;amp; &lt;strong&gt;scheduler&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;所以可以开三个终端窗口分别运行:&lt;/p&gt;
+&lt;p&gt;所以可以开三个终端窗口分别运行：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pyhton manage.py runserver –debugger –reload &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; 0.0.0.0 &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 5000
 python manage.py rq worker
 python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程序非必须运行)&lt;/span&gt;
@@ -136,7 +136,7 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 
 &lt;p&gt;&lt;strong&gt;Done&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧&lt;/p&gt;
+&lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧。&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[JAVA] Java 并发之 volatile 的实现原理</title><link href="https://lankee.blog/java-concurrency-volatile.html" rel="alternate" type="text/html" title="[JAVA] Java 并发之 volatile 的实现原理" /><published>2020-03-10T00:00:00+08:00</published><updated>2020-03-10T00:00:00+08:00</updated><id>https://lankee.blog/java-concurrency-volatile</id><content type="html" xml:base="https://lankee.blog/java-concurrency-volatile.html">&lt;p&gt;在多线程并发编程中，volatile 保证了共享变量的“可见性”。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 synchronized 也能达到相同的效果，但在恰当的使用 volatile 修饰变量的情况，是比 synchronized 效率更高的，因为它不会引起线程上下文的切换和调度。&lt;/p&gt;
 
@@ -1842,7 +1842,7 @@ mysql&amp;gt; explain select * from test_tb where date(col1) = 1 and col2 = &apo
 
 &lt;p&gt;主节点配置 &lt;em&gt;/etc/chrony.conf&lt;/em&gt; 文件: 按需设置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NTP Server&lt;/code&gt;, 可以保持使用默认4个 Server 配置, 也配置多个&lt;/p&gt;
 
-&lt;p&gt;允许从节点IP访问: &lt;em&gt;allow 172.16.20.0/24&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;允许从节点IP访问: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;allow 172.16.20.0/24&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;从节点配置 &lt;em&gt;/etc/chrony.conf&lt;/em&gt; 文件: 注释其他 server, 只把一个 server 指向主节点IP: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server 172.16.20.245 iburst&lt;/code&gt;&lt;/p&gt;
 
