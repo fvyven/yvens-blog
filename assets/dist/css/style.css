@@ -384,6 +384,9 @@ table td {
   line-height: 1.3em;
   font-size: 13px; }
 
+.highlight pre {
+  overflow: auto; }
+
 .language-shell code {
   font-size: 14px; }
 
