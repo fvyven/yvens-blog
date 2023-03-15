@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-15T18:33:34+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-15T19:08:56+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具，分别是 Metebase、Superset 和 Redash。Redash 相对于前两种虽然功能性和可视化图表相对少了一些，但是也因为操作简单，用户体验更好，而且代码的可读性更强，更易于二次开发，功能定制。&lt;/p&gt;
 
@@ -7,7 +7,7 @@
 &lt;p&gt;Redash 架构图：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0004.pic.jpg&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/460161524.pic.jpg&quot; /&gt;
     &lt;br /&gt;
     &lt;!-- &lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9;display: inline-block;color: #999;padding: 2px;&quot;&gt;图片来自网络, 侵删&lt;/div&gt; --&gt;
 &lt;/center&gt;
@@ -1421,7 +1421,7 @@ A：AQS 的 acquire 会调用 tryAcquire 方法，tryAcquire 由各个自定义�
   &lt;li&gt;Pages 设置，开启 HTTPS。&lt;br /&gt;
 进入仓库的 Settings –&amp;gt; Pages 页面进行设置，大致方式如图：
     &lt;center&gt;
-  &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0003.pic.jpg&quot; /&gt;
+  &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/849233690.pic.jpg&quot; /&gt;
   &lt;br /&gt;
 &lt;/center&gt;
   &lt;/li&gt;
@@ -1472,7 +1472,7 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
   &lt;p&gt;参考&lt;a href=&quot;https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8&quot; target=&quot;_blank&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[JAVA] Java Servlet 基础介绍</title><link href="https://outofmemory.blog/basic-java-servlets.html" rel="alternate" type="text/html" title="[JAVA] Java Servlet 基础介绍" /><published>2019-07-20T00:00:00+08:00</published><updated>2019-07-20T00:00:00+08:00</updated><id>https://outofmemory.blog/basic-java-servlets</id><content type="html" xml:base="https://outofmemory.blog/basic-java-servlets.html">&lt;blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[JAVA] Java Servlet 基础</title><link href="https://outofmemory.blog/basic-java-servlets.html" rel="alternate" type="text/html" title="[JAVA] Java Servlet 基础" /><published>2019-07-20T00:00:00+08:00</published><updated>2019-07-20T00:00:00+08:00</updated><id>https://outofmemory.blog/basic-java-servlets</id><content type="html" xml:base="https://outofmemory.blog/basic-java-servlets.html">&lt;blockquote&gt;
   &lt;p&gt;本文转译自 &lt;a href=&quot;https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/&quot; target=&quot;_blank&quot;&gt;Guide to Java Servlets&lt;/a&gt;，有部分增删和修改。有兴趣的可以直接阅读原文。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1608,13 +1608,17 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
 
 &lt;h2 id=&quot;packaging-and-deploying-servlet-into-tomcat-server&quot;&gt;Packaging and Deploying Servlet into Tomcat Server&lt;/h2&gt;
 
-&lt;p&gt;如果你在使用 IDE（比如 IDEA），可以创建一个 Maven 的 webapp 项目，导入各项依赖后，然后内嵌 Tomcat 运行调试。&lt;/p&gt;
+&lt;p&gt;如果你在使用 IDE（比如 IDEA），可以创建一个 webapp + Maven 项目，导入依赖(主要就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.servlet-api&lt;/code&gt;)并内嵌 Tomcat ，然后创建一个启动项(如下图)，就可以一键运行调试。&lt;/p&gt;
+&lt;center&gt;
+&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/575890352.pic.jpg&quot; /&gt;
+&lt;br /&gt;
+&lt;/center&gt;
 
 &lt;p&gt;如果你没在使用 IDE，那么你需要做一些额外的工作。比如，使用命令行工具编译应用，使用 ANT 去生成 war 文件等等。但我相信，现在的开发者都在使用 IDE 来开发，所以我就不在这方面浪费时间了。&lt;/p&gt;
 
 &lt;p&gt;运行上面的 Servlet ，在浏览器输入”http://localhost:8080/MyFirstServlet”：&lt;/p&gt;
 &lt;center&gt;
-&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0001.pic.jpg&quot; /&gt;
+&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/503491201.pic.jpg&quot; /&gt;
 &lt;br /&gt;
 &lt;/center&gt;
 
@@ -1666,7 +1670,7 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
 
 &lt;p&gt;调试运行，并在浏览器输入”http://localhost:8080/CalendarServlet”：&lt;/p&gt;
 &lt;center&gt;
-&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/0002.pic.jpg&quot; /&gt;
+&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/967332117.pic.jpg&quot; /&gt;
 &lt;br /&gt;
 &lt;/center&gt;
 
