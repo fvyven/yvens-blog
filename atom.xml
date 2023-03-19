@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-16T16:10:58+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-19T21:00:19+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具，分别是 Metebase、Superset 和 Redash。Redash 相对于前两种虽然功能性和可视化图表相对少了一些，但是也因为操作简单，用户体验更好，而且代码的可读性更强，更易于二次开发，功能定制。&lt;/p&gt;
 
@@ -138,67 +138,18 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 
 &lt;p&gt;访问 http://127.0.0.1:5000 注册一个账户开启 Redash 吧。&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[JAVA] Java 并发之 volatile 的实现原理</title><link href="https://outofmemory.blog/java-concurrency-volatile.html" rel="alternate" type="text/html" title="[JAVA] Java 并发之 volatile 的实现原理" /><published>2020-03-10T00:00:00+08:00</published><updated>2020-03-10T00:00:00+08:00</updated><id>https://outofmemory.blog/java-concurrency-volatile</id><content type="html" xml:base="https://outofmemory.blog/java-concurrency-volatile.html">&lt;p&gt;在多线程并发编程中，volatile 保证了共享变量的“可见性”。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 synchronized 也能达到相同的效果，但在恰当的使用 volatile 修饰变量的情况，是比 synchronized 效率更高的，因为它不会引起线程上下文的切换和调度。&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Big Data" /><category term="Redash" /><category term="Dashboard" /><summary type="html">Redash简介</summary></entry><entry><title type="html">[JAVA] Java 并发之 volatile 的实现原理</title><link href="https://outofmemory.blog/java-concurrency-volatile.html" rel="alternate" type="text/html" title="[JAVA] Java 并发之 volatile 的实现原理" /><published>2020-03-10T00:00:00+08:00</published><updated>2020-03-10T00:00:00+08:00</updated><id>https://outofmemory.blog/java-concurrency-volatile</id><content type="html" xml:base="https://outofmemory.blog/java-concurrency-volatile.html">&lt;p&gt;在多线程并发编程中，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 保证了共享变量的&lt;strong&gt;可见性&lt;/strong&gt;。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;synchronized&lt;/code&gt; 也能达到相同的效果，但在恰当的使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 修饰变量的情况，是比 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;synchronized&lt;/code&gt; 效率更高的，因为它不会引起线程上下文的切换和调度。&lt;/p&gt;
 
 &lt;h2 id=&quot;volatile-的定义&quot;&gt;volatile 的定义&lt;/h2&gt;
 
-&lt;p&gt;Java语言规范一文中对 volatile 的定义如下：&lt;/p&gt;
+&lt;p&gt;Java语言规范一文中对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 的定义如下：&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Java编程语言允许线程访问共享变量，为了确保共享变量能被准确和一致地更新，线程应该确保通过排他锁单独获得这个变量。Java语言提供了 volatile，在某些情况下比锁要更加方便。如果一个字段被声明成 volatile，Java线程内存模型确保所有线程看到这个变量的值时一致的。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;volatile-的实现原理&quot;&gt;volatile 的实现原理&lt;/h2&gt;
 
-&lt;p&gt;在了解它的实现原理之前，我们需要先了解一下与其实现原理相关的CPU术语：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;术 语&lt;/th&gt;
-      &lt;th&gt;英 文&lt;/th&gt;
-      &lt;th&gt;描 述&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;内存屏障&lt;/td&gt;
-      &lt;td&gt;memory barriers&lt;/td&gt;
-      &lt;td&gt;一组处理器指令，用于实现对内存操作的顺序限制&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;缓存行&lt;/td&gt;
-      &lt;td&gt;cache line&lt;/td&gt;
-      &lt;td&gt;CPU高速缓存中可以分配的最小存储单位。处理器填写缓存行时会加载整个缓存行，现代CPU需要执行几百次CPU指令&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;原子操作&lt;/td&gt;
-      &lt;td&gt;atomic operations&lt;/td&gt;
-      &lt;td&gt;不可中断的一个或一系列操作&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;缓存行填充&lt;/td&gt;
-      &lt;td&gt;cache line fill&lt;/td&gt;
-      &lt;td&gt;当CPU识别到从内存中读取操作数是可缓存的，CPU读取整个高速缓存行到适当的缓存区域(L1、L2、L3或所有)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;缓存命中&lt;/td&gt;
-      &lt;td&gt;cache hit&lt;/td&gt;
-      &lt;td&gt;如果进行高速缓存行填充操作的内存位置仍然是下次CPU访问的地址时，CPU从缓存中读取操作数，而不是从内存中读取&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;         &lt;br /&gt;写命中          &lt;/td&gt;
-      &lt;td&gt;                &lt;br /&gt;write hit                    &lt;/td&gt;
-      &lt;td&gt;当CPU将操作数写回到一个内存缓存的区域时，它首先会检查这个缓存的内存地址是否在缓存行中，如果存在一个有效的缓存行，则CPU将这个操作数写回到缓存，而不是写回到内存&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;写缺失&lt;/td&gt;
-      &lt;td&gt;write misses the cache&lt;/td&gt;
-      &lt;td&gt;一个有效的缓存行被写入到不存在的内存区域&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;volatile 具体是怎么保证可见性的，看看修改 volatile 变量时 JIT 编译器生成的汇编代码(编译处理器为 Intel Core i7，x86-64 指令集)：&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 具体是怎么保证可见性的，先通过一个例子来分析。这段简单的代码是修改 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 修饰的变量然后生成汇编代码(编译处理器为 Intel Core i7，x86-64 指令集)：&lt;/p&gt;
 
 &lt;p&gt;Java 代码：&lt;/p&gt;
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -208,7 +159,7 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
     &lt;span class=&quot;kd&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;volSum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
     &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 为了得到汇编代码循环100000次&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 为了得到汇编代码循环100000次 =。=&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;volSum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -236,23 +187,34 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
                                            ; - com.demo.Main::&amp;lt;init&amp;gt;@41 (line 12)
 ...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;通过对比可以发现，有 volatile 修饰的变量进行写操作的时候会多出 lock 前缀指令的汇编代码，而 lock 前缀指令在多核处理器下会触发两件事：&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;将这个处理器缓存行的数据写回到系统内存。&lt;/li&gt;
-  &lt;li&gt;这个写回内存的操作会使其他 CPU 里缓存了该内存地址的数据无效。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;通过对比可以发现，有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 修饰的变量进行写操作的时候会多出 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock addl&lt;/code&gt; 前缀指令的汇编代码。查询 &lt;a href=&quot;&quot;&gt;IA32 手册&lt;/a&gt;可知，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addl&lt;/code&gt; 指令是一个空操作，而 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock&lt;/code&gt; 的作用是将本处理器的缓存写回内存，相当于一个&lt;strong&gt;内存屏障 (Memory Barrier)&lt;/strong&gt;。&lt;/p&gt;
 
-&lt;p&gt;为了提高处理速度，处理器不直接和内存进行通行，而是先将系统内存的数据读取到内部缓存（L1、L2或其他）后再进行操作，但操作完不知道何时会写回到内存。如果对声明了 volatile 的变量进行写操作，JVM 就会向处理器发送一条 lock 前缀指令，将这个变量所在缓存行的数据写回到系统内存。但是，就算写回到内存，如果其他处理器缓存的值还是旧的，再执行计算操作就会有问题。所以，在多处理器下，为了保证各个处理器的缓存是一致的，就会实现缓存一致性协议，每个处理器通过嗅探在总线上传播的数据来检查自己的值是不是过期了，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置成无效状态，当处理器对这个数据进行修改操作时，就会重新从系统内存中把数据读取到处理器缓存中。&lt;/p&gt;
+&lt;p&gt;由于处理器和内存之间的运算速度有几个数量级的差距，为了提高处理速度，处理器不直接和内存进行通行，而是先将内存的数据读取到内部高速缓存（L1、L2或其他）后再进行操作。在多处理器下，每个处理器都有自己的高速缓存，然后又共享一个主内存，所以当多个处理器的操作涉及到了主内存的同一块区域，就可能导致各自的缓存数据不一致(过期)。为了解决这个&lt;strong&gt;缓存一致性 (Cache Coherence)&lt;/strong&gt; 问题，就要求各个处理器根据一些协议（如 MESI、MOSI、MSI、Firefly 等）来进行读写：每个处理器通过嗅探在总线上传播的数据来检查自己的值是不是过期了，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置成无效状态；当处理器对这个数据进行修改操作时，就会重新从主内存中把数据读取到处理器缓存中。&lt;/p&gt;
 
-&lt;p&gt;volatile 具体的两条实现原则：&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Lock 前缀指令会触发处理器缓存写回到内存。&lt;/strong&gt;&lt;br /&gt;
-Lock 前缀指令导致在执行指令期间，声言处理器的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOCK#&lt;/code&gt; 信号。在多处理器环境中，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOCK#&lt;/code&gt; 信号确保在声言改信号期间，处理器可以独占任何共享内存(因为它会锁住总线，导致其他处理器不能访问总线，不能访问总线就意味着不能访问系统内存)。但是，在最近的处理器里，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOCK#&lt;/code&gt; 信号一般不锁总线，而是锁缓存，毕竟锁总线的开销比较大。对于 Intel486 和 Pentium 处理器，在锁操作时，总是在总线上声言 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOCK#&lt;/code&gt; 信号。但是在 P6 和目前的处理器中，如果访问的内存区域已经缓存在处理器内部，则不会声言 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOCK#&lt;/code&gt; 信号。相反，它会锁定这块内存区域的缓存并写回到内存，并使用缓存一致性机制来确保修改的原子性，此操作被称为“缓存锁定”，缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域数据。&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;一个处理器的缓存写回到内存会导致其他处理器的缓存无效。&lt;/strong&gt;&lt;br /&gt;
-IA-32 处理器和 Intel 64 处理器使用 MESI (修改、独占、共享、无效)控制协议去维护内部缓存和其他处理器缓存的一致性。在多核处理器系统中进行操作的时候，IA-32 和 Intel 64 处理器能嗅探其他处理器访问系统内存和它们的内部缓存。处理器使用嗅探技术确保它的内部缓存、系统内存和其他处理器的缓存的数据在总线上保存一致。例如 Pentium 和 P6 family 处理器中，如果通过嗅探一个处理器来检测其他处理器打算写内存地址，而这个地址当前处于共享状态，那么正在嗅探的处理器将使它的缓存行无效，在下次访问相同内存地址时，强制执行缓存行填充。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;所以对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 修饰的变量进行写操作，JVM 就会向处理器发送一条 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock&lt;/code&gt; 前缀指令，将这个变量所在缓存行的数据写回到系统内存，然后通过缓存一致性协议，保证多核处理器下的各核数据一致。&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Java" /><category term="Concurrency" /><category term="volatile" /><summary type="html">在多线程并发编程中，volatile 保证了共享变量的“可见性”。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 synchronized 也能达到相同的效果，但在恰当的使用 volatile 修饰变量的情况，是比 synchronized 效率更高的，因为它不会引起线程上下文的切换和调度。</summary></entry><entry><title type="html">[转载][JAVA] 从 ReentrantLock 的实现看 AQS 的原理及应用</title><link href="https://outofmemory.blog/aqs-theory-and-apply.html" rel="alternate" type="text/html" title="[转载][JAVA] 从 ReentrantLock 的实现看 AQS 的原理及应用" /><published>2020-01-22T00:00:00+08:00</published><updated>2020-01-22T00:00:00+08:00</updated><id>https://outofmemory.blog/aqs-theory-and-apply</id><content type="html" xml:base="https://outofmemory.blog/aqs-theory-and-apply.html">&lt;blockquote&gt;
+&lt;p&gt;不过值得注意的一点是， &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 只是保证了变量的可见性，并不保证操作的原子性&lt;/strong&gt;。在一些操作下仍需要通过加锁来保证原子性，比如单例模式一种常见的线程安全实现方式，双重验证 (Double Check Lock)：&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;INSTANCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;INSTANCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;synchronized&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;INSTANCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;no&quot;&gt;INSTANCE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;INSTANCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Singleton.getInstance();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Java" /><category term="Concurrency" /><category term="volatile" /><summary type="html">在多线程并发编程中，volatile 保证了共享变量的可见性。可见性的意思是当一个线程修改了一个共享变量时，另一个线程能及时读到这个修改的值。当然 synchronized 也能达到相同的效果，但在恰当的使用 volatile 修饰变量的情况，是比 synchronized 效率更高的，因为它不会引起线程上下文的切换和调度。</summary></entry><entry><title type="html">[转载][JAVA] 从 ReentrantLock 的实现看 AQS 的原理及应用</title><link href="https://outofmemory.blog/aqs-theory-and-apply.html" rel="alternate" type="text/html" title="[转载][JAVA] 从 ReentrantLock 的实现看 AQS 的原理及应用" /><published>2020-01-22T00:00:00+08:00</published><updated>2020-01-22T00:00:00+08:00</updated><id>https://outofmemory.blog/aqs-theory-and-apply</id><content type="html" xml:base="https://outofmemory.blog/aqs-theory-and-apply.html">&lt;blockquote&gt;
   &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html&quot; target=&quot;_blank&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1472,7 +1434,7 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
   &lt;p&gt;参考&lt;a href=&quot;https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8&quot; target=&quot;_blank&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[JAVA] Java Servlet 基础</title><link href="https://outofmemory.blog/basic-java-servlets.html" rel="alternate" type="text/html" title="[JAVA] Java Servlet 基础" /><published>2019-07-20T00:00:00+08:00</published><updated>2019-07-20T00:00:00+08:00</updated><id>https://outofmemory.blog/basic-java-servlets</id><content type="html" xml:base="https://outofmemory.blog/basic-java-servlets.html">&lt;blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Website" /><category term="GitHub Pages" /><category term="DNS" /><summary type="html">GitHub Pages 配置</summary></entry><entry><title type="html">[JAVA] Java Servlet 基础简介</title><link href="https://outofmemory.blog/basic-java-servlets.html" rel="alternate" type="text/html" title="[JAVA] Java Servlet 基础简介" /><published>2019-07-20T00:00:00+08:00</published><updated>2019-07-20T00:00:00+08:00</updated><id>https://outofmemory.blog/basic-java-servlets</id><content type="html" xml:base="https://outofmemory.blog/basic-java-servlets.html">&lt;blockquote&gt;
   &lt;p&gt;本文转译自 &lt;a href=&quot;https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/&quot; target=&quot;_blank&quot;&gt;Guide to Java Servlets&lt;/a&gt;，有部分增删和修改。有兴趣的可以直接阅读原文。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1606,11 +1568,28 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
 
 &lt;h2 id=&quot;packaging-and-deploying-servlet-into-tomcat-server&quot;&gt;Packaging and Deploying Servlet into Tomcat Server&lt;/h2&gt;
 
-&lt;p&gt;如果你在使用 IDE（比如 IDEA），可以创建一个 webapp + Maven 项目，导入依赖(主要就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.servlet-api&lt;/code&gt;)并内嵌 Tomcat ，然后创建一个启动项(如下图)，就可以一键运行调试。&lt;/p&gt;
+&lt;p&gt;如果你在使用 IDE（比如 IntelliJ IDEA），可以创建一个 webapp + Maven 项目，导入依赖(主要就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.servlet-api&lt;/code&gt;)并内嵌 Tomcat ，然后创建一个运行配置(如下图)，就可以一键运行调试。&lt;/p&gt;
 &lt;center&gt;
-&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/575890352.pic.jpg&quot; /&gt;
+&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/575890352.pic.jpg&quot; id=&quot;575890352pic&quot; /&gt;
 &lt;br /&gt;
 &lt;/center&gt;
+&lt;script&gt;
+window.onresize = function() {
+  changeEl();
+};
+window.onload = function() {
+  changeEl();
+};
+function changeEl() {
+  var docWidth =  document.documentElement.clientWidth;
+  var el = document.getElementById(&quot;575890352pic&quot;);
+  if(docWidth &gt;= 750) {
+    el.setAttribute(&apos;width&apos;, &apos;75%&apos;);
+  } else {
+    el.setAttribute(&apos;width&apos;, &apos;100%&apos;);
+  }
+}
+&lt;/script&gt;
 
 &lt;p&gt;如果你没在使用 IDE，那么你需要做一些额外的工作。比如，使用命令行工具编译应用，使用 ANT 去生成 war 文件等等。但我相信，现在的开发者都在使用 IDE 来开发，所以我就不在这方面浪费时间了。&lt;/p&gt;
 
