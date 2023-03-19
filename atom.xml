@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-19T21:09:39+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-19T21:49:09+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具，分别是 Metebase、Superset 和 Redash。Redash 相对于前两种虽然功能性和可视化图表相对少了一些，但是也因为操作简单，用户体验更好，而且代码的可读性更强，更易于二次开发，功能定制。&lt;/p&gt;
 
@@ -142,9 +142,9 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 
 &lt;h2 id=&quot;volatile-的定义&quot;&gt;volatile 的定义&lt;/h2&gt;
 
-&lt;p&gt;Java语言规范一文中对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 的定义如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.3.1.4&quot; target=&quot;_blank&quot;&gt;Java 语言规范 8.3.1.4&lt;/a&gt; 一节中对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 的定义如下：&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;Java编程语言允许线程访问共享变量，为了确保共享变量能被准确和一致地更新，线程应该确保通过排他锁单独获得这个变量。Java语言提供了 volatile，在某些情况下比锁要更加方便。如果一个字段被声明成 volatile，Java线程内存模型确保所有线程看到这个变量的值时一致的。&lt;/p&gt;
+  &lt;p&gt;Java 编程语言允许线程访问共享变量，为了确保共享变量能被准确和一致地更新，线程应该确保通过排他锁单独获得这个变量。Java 语言提供了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt;，在某些情况下比锁要更加方便。如果一个字段被声明成 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt;，Java 线程内存模型确保所有线程看到这个变量的值时一致的。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;volatile-的实现原理&quot;&gt;volatile 的实现原理&lt;/h2&gt;
@@ -172,22 +172,22 @@ python manage.py rq scheduler  &lt;span class=&quot;c&quot;&gt;##(此调度程�
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;生成的汇编代码：&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# {method} {0x0000000129168270} &apos;&amp;lt;init&amp;gt;&apos; &apos;()V&apos; in &apos;com/demo/Main&apos;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# {method} {0x0000000129168270} &apos;&amp;lt;init&amp;gt;&apos; &apos;()V&apos; in &apos;org/demo/Main&apos;
 #           [sp+0x60]  (sp of caller)
 ...
 0x00000001111218a7: add %rax,%rbx
 0x00000001111218aa: mov %rbx,0x10(%rsi)  ;*putfield sum
-                                         ; - com.demo.Main::&amp;lt;init&amp;gt;@30 (line 11)
+                                         ; - org.demo.Main::&amp;lt;init&amp;gt;@30 (line 11)
 ...
 0x00000001111218b8: add %rax,%rbx
 0x00000001111218bb: mov %rbx,0x40(%rsp)
 0x00000001111218c0: vmovsd 0x40(%rsp),%xmm0
 0x00000001111218c6: vmovsd %xmm0,0x18(%rsi)
 0x00000001111218cb: lock addl $0x0,(%rsp)  ;*putfield volSum
-                                           ; - com.demo.Main::&amp;lt;init&amp;gt;@41 (line 12)
+                                           ; - org.demo.Main::&amp;lt;init&amp;gt;@41 (line 12)
 ...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;通过对比可以发现，有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 修饰的变量进行写操作的时候会多出 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock addl&lt;/code&gt; 前缀指令的汇编代码。查询 &lt;a href=&quot;&quot;&gt;IA32 手册&lt;/a&gt;可知，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addl&lt;/code&gt; 指令是一个空操作，而 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock&lt;/code&gt; 的作用是将本处理器的缓存写回内存，相当于一个&lt;strong&gt;内存屏障 (Memory Barrier)&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;通过对比可以发现，有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;volatile&lt;/code&gt; 修饰的变量进行写操作的时候会多出 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock addl&lt;/code&gt; 前缀指令的汇编代码。查询 &lt;a href=&quot;https://www.intel.cn/content/www/cn/zh/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html&quot; target=&quot;_blank&quot;&gt;IA32 手册&lt;/a&gt;可知，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addl&lt;/code&gt; 指令是一个空操作，而 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lock&lt;/code&gt; 的作用是将本处理器的缓存写回内存，相当于一个&lt;strong&gt;内存屏障 (Memory Barrier)&lt;/strong&gt;。&lt;/p&gt;
 
 &lt;p&gt;由于处理器和内存之间的运算速度有几个数量级的差距，为了提高处理速度，处理器不直接和内存进行通行，而是先将内存的数据读取到内部高速缓存（L1、L2或其他）后再进行操作。在多处理器下，每个处理器都有自己的高速缓存，然后又共享一个主内存，所以当多个处理器的操作涉及到了主内存的同一块区域，就可能导致各自的缓存数据不一致(过期)。为了解决这个&lt;strong&gt;缓存一致性 (Cache Coherence)&lt;/strong&gt; 问题，就要求各个处理器根据一些协议（如 MESI、MOSI、MSI、Firefly 等）来进行读写：每个处理器通过嗅探在总线上传播的数据来检查自己的值是不是过期了，当处理器发现自己缓存行对应的内存地址被修改，就会将当前处理器的缓存行设置成无效状态；当处理器对这个数据进行修改操作时，就会重新从主内存中把数据读取到处理器缓存中。&lt;/p&gt;
 
@@ -1438,7 +1438,7 @@ Full(strict)模式使用的是由可信 CA 或 Cloudflare Origin CA 签名的有
   &lt;p&gt;本文转译自 &lt;a href=&quot;https://howtodoinjava.com/java/servlets/complete-java-servlets-tutorial/&quot; target=&quot;_blank&quot;&gt;Guide to Java Servlets&lt;/a&gt;，有部分增删和修改。有兴趣的可以直接阅读原文。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Java Servlet 是一些遵从 &lt;strong&gt;Java Servlet API&lt;/strong&gt; 的 Java 类，这些 Java 类可以响应请求。尽管 Servlet 可以响应任意类型的请求，但是它们使用最广泛的是响应 Web 请求。 Java Servlet 也必须部署在 Servlet 容器才能使用。 Servlet 容器是一个运行在 Web 服务器上的组件，它负责管理 Servlets 的生命周期，接收客户端请求，调用相应的 Servlet 方法，并将响应发送回客户端。常见的 Servlet 容器有 Tomcat、Jetty、GlassFish 等。&lt;/p&gt;
+&lt;p&gt;Java Servlet 是一些遵从 &lt;strong&gt;Java Servlet API&lt;/strong&gt; 的 Java 类，这些 Java 类可以响应请求。尽管 Servlet 可以响应任意类型的请求，但是它们使用最广泛的是响应 Web 请求。 Java Servlet 也必须部署在 Servlet 容器才能使用。 Servlet 容器是一个运行在 Web 服务器上的组件，它负责管理 Servlets 的生命周期，接收客户端请求，调用相应的 Servlet 方法，并将响应发送回客户端。常见的 Servlet 容器有 &lt;a href=&quot;https://github.com/apache/tomcat&quot; target=&quot;_blank&quot;&gt;Tomcat&lt;/a&gt;、&lt;a href=&quot;https://github.com/eclipse/jetty.project&quot; target=&quot;_blank&quot;&gt;Jetty&lt;/a&gt;、&lt;a href=&quot;https://www.oracle.com/middleware/technologies/glassfish-server.html&quot; target=&quot;_blank&quot;&gt;GlassFish&lt;/a&gt; 等。&lt;/p&gt;
 
 &lt;p&gt;虽然很多开发者都使用 &lt;a href=&quot;https://zh.wikipedia.org/wiki/JSP&quot; target=&quot;_blank&quot;&gt;Java Server Pages（JSP）&lt;/a&gt;和 &lt;a href=&quot;https://zh.wikipedia.org/wiki/JavaServer_Faces&quot; target=&quot;_blank&quot;&gt;Java Server Faces（JSF）&lt;/a&gt;等 Servlet 框架，但是这些技术都要在幕后通过 Servlet 容器把页面编译为 Java Servlet。所以说了解 Servlet 对于理解 Web 开发中的基本概念和原理是很有帮助的。&lt;/p&gt;
 
