@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-19T21:00:19+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-03-19T21:09:39+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[BIG DATA] Redash 9.0 on macOS 安装部署</title><link href="https://outofmemory.blog/redash-macos-deploy.html" rel="alternate" type="text/html" title="[BIG DATA] Redash 9.0 on macOS 安装部署" /><published>2020-05-27T00:00:00+08:00</published><updated>2020-05-27T00:00:00+08:00</updated><id>https://outofmemory.blog/redash-macos-deploy</id><content type="html" xml:base="https://outofmemory.blog/redash-macos-deploy.html">&lt;h2 id=&quot;redash简介&quot;&gt;Redash简介&lt;/h2&gt;
 
 &lt;p&gt;现在市面上有三大开源数据可视化工具，分别是 Metebase、Superset 和 Redash。Redash 相对于前两种虽然功能性和可视化图表相对少了一些，但是也因为操作简单，用户体验更好，而且代码的可读性更强，更易于二次开发，功能定制。&lt;/p&gt;
 
@@ -1582,11 +1582,17 @@ window.onload = function() {
 };
 function changeEl() {
   var docWidth =  document.documentElement.clientWidth;
-  var el = document.getElementById(&quot;575890352pic&quot;);
+  var el1 = document.getElementById(&quot;575890352pic&quot;);
+  var el2 = document.getElementById(&quot;503491201pic&quot;);
+  var el3 = document.getElementById(&quot;967332117pic&quot;);
   if(docWidth &gt;= 750) {
-    el.setAttribute(&apos;width&apos;, &apos;75%&apos;);
+    el1.setAttribute(&apos;width&apos;, &apos;75%&apos;);
+    el2.setAttribute(&apos;width&apos;, &apos;65%&apos;);
+    el3.setAttribute(&apos;width&apos;, &apos;65%&apos;);
   } else {
-    el.setAttribute(&apos;width&apos;, &apos;100%&apos;);
+    el1.setAttribute(&apos;width&apos;, &apos;100%&apos;);
+    el2.setAttribute(&apos;width&apos;, &apos;100%&apos;);
+    el3.setAttribute(&apos;width&apos;, &apos;100%&apos;);
   }
 }
 &lt;/script&gt;
@@ -1595,7 +1601,7 @@ function changeEl() {
 
 &lt;p&gt;运行上面的 Servlet ，在浏览器输入”http://localhost:8080/MyFirstServlet”：&lt;/p&gt;
 &lt;center&gt;
-&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/503491201.pic.jpg&quot; /&gt;
+&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/503491201.pic.jpg&quot; id=&quot;503491201pic&quot; /&gt;
 &lt;br /&gt;
 &lt;/center&gt;
 
@@ -1643,7 +1649,7 @@ function changeEl() {
 
 &lt;p&gt;调试运行，并在浏览器输入”http://localhost:8080/CalendarServlet”：&lt;/p&gt;
 &lt;center&gt;
-&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/967332117.pic.jpg&quot; /&gt;
+&lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/967332117.pic.jpg&quot; id=&quot;967332117pic&quot; /&gt;
 &lt;br /&gt;
 &lt;/center&gt;
 
