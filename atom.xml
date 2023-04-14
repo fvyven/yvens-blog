@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-04-13T18:42:56+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[转载][JAVA] Java 线程池实现原理及其在业务中的实践</title><link href="https://outofmemory.blog/java-thread-pooling-pratice.html" rel="alternate" type="text/html" title="[转载][JAVA] Java 线程池实现原理及其在业务中的实践" /><published>2020-06-03T00:00:00+08:00</published><updated>2020-06-03T00:00:00+08:00</updated><id>https://outofmemory.blog/java-thread-pooling-pratice</id><content type="html" xml:base="https://outofmemory.blog/java-thread-pooling-pratice.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-04-14T12:48:24+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[转载][JAVA] Java 线程池实现原理及其在业务中的实践</title><link href="https://outofmemory.blog/java-thread-pooling-pratice.html" rel="alternate" type="text/html" title="[转载][JAVA] Java 线程池实现原理及其在业务中的实践" /><published>2020-06-03T00:00:00+08:00</published><updated>2020-06-03T00:00:00+08:00</updated><id>https://outofmemory.blog/java-thread-pooling-pratice</id><content type="html" xml:base="https://outofmemory.blog/java-thread-pooling-pratice.html">&lt;blockquote&gt;
   &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html&quot; target=&quot;_blank&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -160,10 +160,10 @@
 
 &lt;ol&gt;
   &lt;li&gt;首先检测线程池运行状态，如果不是 RUNNING，则直接拒绝，线程池要保证在 RUNNING 的状态下执行任务。&lt;/li&gt;
-  &lt;li&gt;如果 workerCount &amp;lt; corePoolSize，则创建并启动一个线程来执行新提交的任务。&lt;/li&gt;
-  &lt;li&gt;如果 workerCount &amp;gt;= corePoolSize，且线程池内的阻塞队列未满，则将任务添加到该阻塞队列中。&lt;/li&gt;
-  &lt;li&gt;如果 workerCount &amp;gt;= corePoolSize &amp;amp;&amp;amp; workerCount &amp;lt; maximumPoolSize，且线程池内的阻塞队列已满，则创建并启动一个线程来执行新提交的任务。&lt;/li&gt;
-  &lt;li&gt;如果 workerCount &amp;gt;= maximumPoolSize，并且线程池内的阻塞队列已满, 则根据拒绝策略来处理该任务, 默认的处理方式是直接抛异常。&lt;/li&gt;
+  &lt;li&gt;如果 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;workerCount &amp;lt; corePoolSize&lt;/code&gt;，则创建并启动一个线程来执行新提交的任务。&lt;/li&gt;
+  &lt;li&gt;如果 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;workerCount &amp;gt;= corePoolSize&lt;/code&gt;，且线程池内的阻塞队列未满，则将任务添加到该阻塞队列中。&lt;/li&gt;
+  &lt;li&gt;如果 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;workerCount &amp;gt;= corePoolSize &amp;amp;&amp;amp; workerCount &amp;lt; maximumPoolSize&lt;/code&gt;，且线程池内的阻塞队列已满，则创建并启动一个线程来执行新提交的任务。&lt;/li&gt;
+  &lt;li&gt;如果 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;workerCount &amp;gt;= maximumPoolSize&lt;/code&gt;，并且线程池内的阻塞队列已满, 则根据拒绝策略来处理该任务, 默认的处理方式是直接抛异常。&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;其执行流程如下图所示：&lt;/p&gt;
@@ -236,7 +236,7 @@
 &lt;p&gt;线程需要从任务缓存模块中不断地取任务执行，帮助线程从阻塞队列中获取任务，实现线程管理模块和任务管理模块之间的通信。这部分策略由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getTask&lt;/code&gt; 方法实现，其执行流程如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49d8041f8480aba5ef59079fcc7143b996706.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49d8041f8480aba5ef59079fcc7143b996706.png&quot; img-w=&quot;iw75&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;获取任务流程图&lt;/div&gt;
 &lt;/center&gt;
@@ -325,7 +325,7 @@
 &lt;p&gt;增加线程是通过线程池中的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addWorker&lt;/code&gt; 方法，该方法的功能就是增加一个线程，该方法不考虑线程池是在哪个阶段增加的该线程，这个分配线程的策略是在上个步骤完成的，该步骤仅仅完成增加线程，并使它运行，最后返回是否成功这个结果。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addWorker&lt;/code&gt; 方法有两个参数：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;firstTask&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core&lt;/code&gt;。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;firstTask&lt;/code&gt; 参数用于指定新增的线程执行的第一个任务，该参数可以为空；&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core&lt;/code&gt; 参数为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; 表示在新增线程时会判断当前活动线程数是否少于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; 表示新增线程前需要判断当前活动线程数是否少于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maximumPoolSize&lt;/code&gt;，其执行流程如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49527b1bb385f0f43529e57b614f59ae145454.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49527b1bb385f0f43529e57b614f59ae145454.png&quot; img-w=&quot;iw85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;申请线程执行流程图&lt;/div&gt;
 &lt;/center&gt;
@@ -397,7 +397,7 @@
 &lt;p&gt;&lt;strong&gt;分析&lt;/strong&gt;：这种场景需要执行大量的任务，我们也会希望任务执行的越快越好。这种情况下，也应该使用多线程策略，并行计算。但与响应速度优先的场景区别在于，这类场景任务量巨大，并不需要瞬时的完成，而是关注如何使用有限的资源，尽可能在单位时间内处理更多的任务，也就是吞吐量优先的问题。所以应该设置队列去缓冲并发任务，调整合适的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt; 去设置处理任务的线程数。在这里，设置的线程数过多可能还会引发线程上下文切换频繁的问题，也会降低处理任务的速度，降低吞吐量。&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/1a1746f33bfdcb03da074d8539ebb2f367563.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/1a1746f33bfdcb03da074d8539ebb2f367563.png&quot; img-w=&quot;iw65&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;并行执行任务提升批量任务执行速度&lt;/div&gt;
 &lt;/center&gt;
@@ -525,7 +525,7 @@
 &lt;strong&gt;权限校验&lt;/strong&gt;：只有应用开发负责人才能够修改应用的线程池参数。&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/6c0091e92e90f50f89fd83f3b9eb5472135718.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/6c0091e92e90f50f89fd83f3b9eb5472135718.png&quot; img-w=&quot;iw85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;动态化线程池功能架构&lt;/div&gt;
 &lt;/center&gt;
@@ -535,7 +535,7 @@
 &lt;p&gt;JDK 原生线程池 ThreadPoolExecutor 提供了如下几个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setter&lt;/code&gt; 方法，如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/efd32f1211e9cf0a3ca9d35b0dc5de8588353.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/efd32f1211e9cf0a3ca9d35b0dc5de8588353.png&quot; img-w=&quot;iw85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;JDK 线程池参数设置接口&lt;/div&gt;
 &lt;/center&gt;
@@ -543,7 +543,7 @@
 &lt;p&gt;JDK 允许线程池使用方通过 ThreadPoolExecutor 的实例来动态设置线程池的核心策略，以s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;etCorePoolSize&lt;/code&gt; 为方法例，在运行期线程池使用方调用此方法设置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt; 之后，线程池会直接覆盖原来的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt; 值，并且基于当前值和原始值的比较结果采取不同的处理策略。对于当前值小于当前工作线程数的情况，说明有多余的 worker 线程，此时会向当前 idle 的 worker 线程发起中断请求以实现回收，多余的 worker 在下次 idel 的时候也会被回收；对于当前值大于原始值且当前队列中有待执行任务，则线程池会创建新的 worker 线程来执行队列任务，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setCorePoolSize&lt;/code&gt; 具体流程如下：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/9379fe1666818237f842138812bf63bd85645.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/9379fe1666818237f842138812bf63bd85645.png&quot; img-w=&quot;iw75&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;setCorePoolSize 方法执行流程&lt;/div&gt;
 &lt;/center&gt;
@@ -551,7 +551,7 @@
 &lt;p&gt;线程池内部会处理好当前状态做到平滑修改，其他几个方法限于篇幅，这里不一一介绍。重点是基于这几个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 方法，我们只需要维护 ThreadPoolExecutor 的实例，并且在需要修改的时候拿到实例修改其参数即可。基于以上的思路，我们实现了线程池参数的动态化、线程池参数在管理平台可配置可修改，其效果图如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/414ba7f3abd11e5f805c58635ae10988166121.png&quot; id=&quot;88166121pic&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/414ba7f3abd11e5f805c58635ae10988166121.png&quot; img-w=&quot;iw55&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;可动态修改线程池参数&lt;/div&gt;
 &lt;/center&gt;
@@ -564,19 +564,33 @@ window.onload = function() {
   changeEl();
 };
 function changeEl() {
-  var docWidth =  document.documentElement.clientWidth;
-  var el1 = document.getElementById(&quot;88166121pic&quot;);
-  var el2 = document.getElementById(&quot;4a318600pic&quot;);
-  var el3 = document.getElementById(&quot;6f113233pic&quot;);
+  let docWidth =  document.documentElement.clientWidth;
+
+  let imgs55 = document.querySelectorAll(&quot;[img-w=iw55]&quot;);
+  let imgs65 = document.querySelectorAll(&quot;[img-w=iw65]&quot;);
+  let imgs75 = document.querySelectorAll(&quot;[img-w=iw75]&quot;);
+  let imgs85 = document.querySelectorAll(&quot;[img-w=iw85]&quot;);
+  
   if(docWidth &gt;= 750) {
-    el1.setAttribute(&apos;width&apos;, &apos;55%&apos;);
-    el2.setAttribute(&apos;width&apos;, &apos;55%&apos;);
-    el3.setAttribute(&apos;width&apos;, &apos;55%&apos;);
+    imgs55.forEach(cw);
+    imgs65.forEach(cw);
+    imgs75.forEach(cw);
+    imgs85.forEach(cw);
   } else {
-    el1.setAttribute(&apos;width&apos;, &apos;100%&apos;);
-    el2.setAttribute(&apos;width&apos;, &apos;100%&apos;);
-    el3.setAttribute(&apos;width&apos;, &apos;100%&apos;);
+    imgs55.forEach(cw100);
+    imgs65.forEach(cw100);
+    imgs75.forEach(cw100);
+    imgs85.forEach(cw100);
   }
+}
+
+function cw(obj) {
+    let iw = obj.getAttribute(&apos;img-w&apos;);
+    obj.setAttribute(&apos;width&apos;, iw.substr(iw.length - 2)+&apos;%&apos;);
+}
+
+function cw100(obj) {
+    obj.setAttribute(&apos;width&apos;,&apos;100%&apos;);
 }
 &lt;/script&gt;
 
@@ -591,7 +605,7 @@ function changeEl() {
 &lt;p&gt;线程池负载关注的核心问题是：基于当前线程池参数分配的资源够不够。对于这个问题，我们可以从事前和事中两个角度来看。事前，线程池定义了“活跃度”这个概念，来让用户在发生 Reject 异常之前能够感知线程池负载问题，线程池活跃度计算公式为：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;线程池活跃度 = activeCount/maximumPoolSize&lt;/code&gt;。这个公式代表当活跃线程数趋向于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maximumPoolSize&lt;/code&gt; 的时候，代表线程负载趋高。事中，也可以从两方面来看线程池的过载判定条件，一个是发生了 Reject 异常，一个是队列中有等待任务（支持定制阈值）。以上两种情况发生了都会触发告警，告警信息会通过大象推送给服务所关联的负责人。&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/04e73f7186a91d99181e1b5615ce9e4a318600.png&quot; id=&quot;4a318600pic&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/04e73f7186a91d99181e1b5615ce9e4a318600.png&quot; img-w=&quot;iw55&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;大象告警通知&lt;/div&gt;
 &lt;/center&gt;
@@ -615,7 +629,7 @@ function changeEl() {
 &lt;p&gt;用户基于 JDK 原生线程池 ThreadPoolExecutor 提供的几个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getter&lt;/code&gt; 方法，可以读取到当前线程池的运行状态以及参数，如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/aba8d9c09e6f054c7061ddd720a04a26147951.png&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/aba8d9c09e6f054c7061ddd720a04a26147951.png&quot; img-w=&quot;iw85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;线程池实时运行情况&lt;/div&gt;
 &lt;/center&gt;
@@ -623,7 +637,7 @@ function changeEl() {
 &lt;p&gt;动态化线程池基于这几个接口封装了运行时状态实时查看的功能，用户基于这个功能可以了解线程池的实时状态，比如当前有多少个工作线程，执行了多少个任务，队列中等待的任务数等等。效果如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/38d5fbeaebd4998f3a30d44bd20b996f113233.png&quot; id=&quot;6f113233pic&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/38d5fbeaebd4998f3a30d44bd20b996f113233.png&quot; img-w=&quot;iw55&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;线程池实时运行情况&lt;/div&gt;
 &lt;/center&gt;

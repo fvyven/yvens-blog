@@ -159,7 +159,8 @@ table td {
   margin-right: auto;
   max-width: 900px;
   padding: 0 1ch;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  letter-spacing: 0.2px; }
 
 .ui-flex {
   display: flex;
