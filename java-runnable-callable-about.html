@@ -29,12 +29,12 @@
 <span class="o">}</span>
 
 <span class="c1">// 调用方式</span>
-<span class="c1">// Callable 需要结合 FutureTask 或线程池使用</span>
+<span class="c1">// Callable 需要结合 FutureTask 或线程池(内部还是Future)使用</span>
 <span class="c1">// var task = new FutureTask(new MyCallable());</span>
 <span class="c1">// new Thread(task);</span>
 <span class="c1">// 通过 task.get() 可以获取返回值</span>
-</code></pre></div></div> <h3 id="线程池">线程池</h3> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ExecutorService</span> <span class="n">service</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
-<span class="n">service</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
+</code></pre></div></div> <h3 id="线程池">线程池</h3> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">es</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newSingleThreadExecutor</span><span class="o">();</span>
+<span class="n">es</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
         <span class="c1">// do something</span>
@@ -52,7 +52,7 @@
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Callable</span><span class="o">&lt;</span><span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="no">V</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre></div></div> <p>可以看到，两者其实都只是一个函数式接口，Runnable 甚至还不是 J.U.C 提供的。它们本身<strong>和线程是没有关系的</strong>，只是提供任务逻辑，交给 Thread 执行。</p> <p>所以 Thread 还也可以更简单直接的传递一个匿名函数：</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</code></pre></div></div> <p>可以看到，两者其实都只是函数式接口，Runnable 甚至还不是 J.U.C 提供的。它们本身<strong>和线程是没有关系的</strong>，只是提供任务逻辑，交给 Thread 执行。</p> <p>所以 Thread 还也可以更简单直接的给它传递一个匿名函数：</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
     <span class="c1">// do something</span>
 <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
 </code></pre></div></div> <p>Callable 因为有返回值，所以使用稍微麻烦一点，一般可以结合 FutureTask 调用。</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// java.util.concurrent.FutureTask</span>
@@ -71,4 +71,4 @@
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RunnableFuture</span><span class="o">&lt;</span><span class="no">V</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">Runnable</span><span class="o">,</span> <span class="nc">Future</span><span class="o">&lt;</span><span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">run</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre></div></div> <h2 id="关于继承-thread">关于继承 Thread</h2> <p>一般是不建议通过继承 Thread 类来实现线程。</p> <p>使用继承 Thread 类方式，每次执行一次任务，都需要新建一个独立的线程，执行完任务后线程走完生命周期被销毁，如果还想执行这个任务，就必须再新建一个继承了 Thread 类的类，如果执行的内容比较少，比如只是在 <code class="language-plaintext highlighter-rouge">run()</code> 方法里简单打印一行文字，那么它带来的开销并不大，相比于整个线程从开始创建到执行完毕被销毁，这一系列的操作比 <code class="language-plaintext highlighter-rouge">run()</code> 方法打印文字本身带来的开销要大得多。如果我们使用实现 Runnable 接口的方式，就可以把任务直接传入线程池，使用一些固定的线程来完成任务，不需要每次新建销毁线程，从而降低了性能开销。</p> <p>Java 语言不支持双继承，如果我们的类一旦继承了 Thread 类，那么它后续就没有办法再继承其他的类，这样一来，如果未来这个类需要继承其他类实现一些功能上的拓展，它就没有办法做到了，相当于限制了代码的可拓展性。</p> <div class="post-tags"> <nav class="nav-post-tags-list"> <ul class="tags"> <li><a href="/tag/java/">Java</a></li> <li><a href="/tag/concurrency/">Concurrency</a></li> <li><a href="/tag/thread/">Thread</a></li> </ul> </nav> </div> </main> <footer> <hr class="footer-hr"> <div class="ui-flex"> <div class='wrapper-footer'> © 2023 Out of Memory.blog | <a href="mailto:yvens.fv@gmail.com">Yven Fong</a> </div> </div> </footer> </div> </body> </html>
+</code></pre></div></div> <h2 id="关于继承-thread">关于继承 Thread</h2> <p>一般是不建议通过继承 Thread 类来实现线程。</p> <p>使用继承 Thread 类方式，每次执行一次任务，都需要新建一个独立的线程，执行完任务后线程走完生命周期被销毁，如果还想执行这个任务，就必须再新建一个继承了 Thread 类的类，如果执行的内容比较少，比如只是在 <code class="language-plaintext highlighter-rouge">run()</code> 方法里简单打印一行文字，那么它带来的开销并不大，相比于整个线程从开始创建到执行完毕被销毁，这一系列的操作比 <code class="language-plaintext highlighter-rouge">run()</code> 方法打印文字本身带来的开销要大得多。如果我们使用实现 Runnable 接口的方式，就可以把任务直接传入线程池，使用一些固定的线程来完成任务，不需要每次新建销毁线程，从而降低了性能开销。</p> <p>Java 中类不支持多继承，如果我们的类一旦继承了 Thread 类，那么它后续就没有办法再继承其他的类，这样一来，如果未来这个类需要继承其他类实现一些功能上的拓展，它就没有办法做到了，相当于限制了代码的可拓展性。</p> <div class="post-tags"> <nav class="nav-post-tags-list"> <ul class="tags"> <li><a href="/tag/java/">Java</a></li> <li><a href="/tag/concurrency/">Concurrency</a></li> <li><a href="/tag/thread/">Thread</a></li> </ul> </nav> </div> </main> <footer> <hr class="footer-hr"> <div class="ui-flex"> <div class='wrapper-footer'> © 2023 Out of Memory.blog | <a href="mailto:yvens.fv@gmail.com">Yven Fong</a> </div> </div> </footer> </div> </body> </html>
