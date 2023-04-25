@@ -40,7 +40,7 @@
         <span class="c1">// do something</span>
     <span class="o">}</span>
 <span class="o">});</span>
-</code></pre></div></div> <p>通过代码可以很清楚的看到，不管哪种方式，<strong>最后都是要通过 Thread 调用完成线程的创建和运行</strong>（线程池调用虽然没直观的展示，但深入源码可以发现，线程工厂 DefaultThreadFactory 本质还是通过 new Thread 创建线程，这里不做展开）。</p> <h2 id="runnable-和-callable-的区别">Runnable 和 Callable 的区别</h2> <p>从使用上看，最直观的区别就是实现需要重写的方法，一个有返回值，一个没有返回值。而且 Callable 的调用似乎更复杂一点。</p> <p>先看一下源码：</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// java.lang.Runnable</span>
+</code></pre></div></div> <p>实际上这些所谓的线程创建方式，不管哪种，<strong>最后都是要通过 Thread 调用完成线程的创建和运行</strong>（线程池调用虽然没直观的展示，但深入源码可以发现，线程工厂 DefaultThreadFactory 本质还是通过 new Thread 创建线程，这里不做展开）。</p> <h2 id="runnable-和-callable-的区别">Runnable 和 Callable 的区别</h2> <p>从使用上看，最直观的区别就是实现需要重写的方法，一个有返回值，一个没有返回值。而且 Callable 的调用似乎更复杂一点。</p> <p>先看一下源码：</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// java.lang.Runnable</span>
 
 <span class="nd">@FunctionalInterface</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Runnable</span> <span class="o">{</span>
@@ -52,7 +52,7 @@
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Callable</span><span class="o">&lt;</span><span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="no">V</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre></div></div> <p>可以看到，两者其实都只是函数式接口，Runnable 甚至还不是 J.U.C 提供的。它们本身<strong>和线程是没有关系的</strong>，只是提供任务逻辑，交给 Thread 执行。</p> <p>所以 Thread 还也可以更简单直接的给它传递一个匿名函数：</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</code></pre></div></div> <p>两者其实都只是函数式接口，Runnable 甚至还不是 J.U.C 提供的。它们本身<strong>和线程是没有关系的</strong>，只是提供任务逻辑，交给 Thread 执行。</p> <p>所以 Thread 还也可以更简单直接的给它传递一个匿名函数：</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
     <span class="c1">// do something</span>
 <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
 </code></pre></div></div> <p>Callable 因为有返回值，所以使用稍微麻烦一点，一般可以结合 FutureTask 调用。</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// java.util.concurrent.FutureTask</span>
