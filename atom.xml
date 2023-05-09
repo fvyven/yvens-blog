@@ -1,12 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-04-25T12:44:46+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[JAVA] Java 对象的内存分配：Heap OR Stack</title><link href="https://outofmemory.blog/java-object-allocation-of-memory.html" rel="alternate" type="text/html" title="[JAVA] Java 对象的内存分配：Heap OR Stack" /><published>2021-01-11T00:00:00+08:00</published><updated>2021-01-11T00:00:00+08:00</updated><id>https://outofmemory.blog/java-object-allocation-of-memory</id><content type="html" xml:base="https://outofmemory.blog/java-object-allocation-of-memory.html">&lt;p&gt;Java 有句古话：一切皆对象。又众所周知：Java 对象都是在堆上创建的。可得：Java 都是分配在堆中。ok，&lt;del&gt;本文完&lt;/del&gt;。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2023-05-09T17:58:02+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">[JAVA] Java 对象的内存分配：Heap OR Stack</title><link href="https://outofmemory.blog/java-object-allocation-of-memory.html" rel="alternate" type="text/html" title="[JAVA] Java 对象的内存分配：Heap OR Stack" /><published>2021-01-11T00:00:00+08:00</published><updated>2021-01-11T00:00:00+08:00</updated><id>https://outofmemory.blog/java-object-allocation-of-memory</id><content type="html" xml:base="https://outofmemory.blog/java-object-allocation-of-memory.html">&lt;p&gt;Java 有句古话：一切皆对象。又众所周知：Java 对象都是在堆上创建的。可得：Java 都是分配在堆中。ok，&lt;del&gt;本文完&lt;/del&gt;。&lt;/p&gt;
 
-&lt;h2 id=&quot;jvm-内存区域划分&quot;&gt;JVM 内存区域划分&lt;/h2&gt;
+&lt;h2 id=&quot;jvm-运行时内存区域划分&quot;&gt;JVM 运行时内存区域划分&lt;/h2&gt;
+
+&lt;p&gt;说到 JVM 的运行时数据区域，可能就会想到&lt;strong&gt;堆&lt;/strong&gt;和&lt;strong&gt;栈&lt;/strong&gt;。虽然这样的划分有些笼统，但也算不上错，确实可以大致划分为这两大区域。&lt;/p&gt;
+
+&lt;p&gt;从数据隔离上区分，堆一般可以看作是所有线程共享的区域，而栈空间则是线程私有的，较细化的划分如下图：&lt;/p&gt;
+
+&lt;center&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;/assets/dist/images/683371445.pic.jpg&quot; img-w=&quot;55&quot; /&gt;
+    &lt;br /&gt;
+    &lt;div style=&quot;color:orange;display:inline-block;color:#999;padding:2px;font-size:12px;&quot;&gt;JVM 运行时数据区 (自《深入理解Java虚拟机》)&lt;/div&gt;
+&lt;/center&gt;
+
+&lt;h3 id=&quot;java-堆-java-heap&quot;&gt;Java 堆 (Java Heap)&lt;/h3&gt;
+
+&lt;p&gt;Java 堆，又叫 GC 堆，是 JVM 管理的内存中最大的一块。绝大多数的对象实例都在这里分配内存，前面提到那句”众所周知”的话，其实出自&lt;a href=&quot;https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.3&quot; target=&quot;_blank&quot;&gt;《Java 虚拟机规范》&lt;/a&gt;，原文：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The heap is the runtime data area from which memory for all class instances and arrays is alloacated.&lt;br /&gt;
+所有的对象实例和数组都应当在堆上分配。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Java 堆是线程共享的，可通过参数 -Xmx 和 -Xms 扩展。默认大小一般是物理内存的 1/64 到 1/4，server 模式下有所不同。官方文档描述：&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/parallel.html#default_heap_size&quot; target=&quot;_blank&quot;&gt;Default Heap Size (JDK8)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;方法区-method-area&quot;&gt;方法区 (Method Area)&lt;/h3&gt;
+
+&lt;p&gt;方法区又叫非堆(Non-Heap)，就是为了和堆区分开。因为很多人会把 HotSpot 之前的”永久代”直接理解为方法区，&lt;a href=&quot;https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.4&quot; target=&quot;_blank&quot;&gt;《Java 虚拟机规范》&lt;/a&gt;也有描述：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Although the method area is logically part of the heap, simple implementations may choose not to either garbage collect or compact it.&lt;br /&gt;
+尽管所有的方法区在逻辑上是属于堆的一部分，但一些简单的实现可能不会选择去进行垃圾收集或者进行压缩。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;方法区和堆一样是线程共享的，用于储存已被虚拟机加载的类型信息、常量、静态变量 (&lt;em&gt;JDK7及之后的版本，HotSpot 已经把字符串常量池和静态变量移至堆中&lt;/em&gt;)、即时编译器编译后的代码缓存等数据。运行时常量池也属于方法区。&lt;/p&gt;
+
+&lt;h3 id=&quot;虚拟机栈-virtual-machine-stack&quot;&gt;虚拟机栈 (Virtual Machine Stack)&lt;/h3&gt;
+
+&lt;p&gt;虚拟机栈，就是我们常说的”栈”。每个方法被执行的时候，都会同步创建一个栈帧(Stack Frame)用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每个方法被调用到执行完毕的过程，就对应一个栈帧在虚拟机栈中从入栈到出栈的过程。&lt;/p&gt;
+
+&lt;p&gt;局部变量表里就是我们编码时在方法中定义的基本类型和对象引用，注意&lt;strong&gt;对象引用&lt;/strong&gt;并不是指对象本身，可以理解为指向对象实际存储位置的一个指针。&lt;/p&gt;
+
+&lt;p&gt;虚拟机栈是线程私有的，生命周期和线程相同。&lt;/p&gt;
+
+&lt;h3 id=&quot;本地方法栈-native-method-stacks&quot;&gt;本地方法栈 (Native Method Stacks)&lt;/h3&gt;
+
+&lt;p&gt;本地方法栈和虚拟机栈的作用基本相同，区别是虚拟机栈为虚拟机执行 Java 方法服务，而本地方法栈则是为虚拟机使用到的本地(Native)方法服务。但在我们现在常用的 HotSpot 虚拟机中，其实已经把两者合并了。&lt;/p&gt;
+
+&lt;h3 id=&quot;程序计数器-program-counter-register&quot;&gt;程序计数器 (Program Counter Register)&lt;/h3&gt;
+
+&lt;p&gt;程序计数器和虚拟机栈一样也是线程私有的，它只占很小一块内存(32位 JVM 中占 4 byte，64位 JVM 中占 8 byte)，而且是唯一一个不会发生 OOM 的区域。&lt;/p&gt;
+
+&lt;p&gt;它可以看作是当前线程执行的字节码的行号指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过一个简单代码抽象的理解一下编码中对象的内存分配：&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;ClassA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClassA&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ClassA:  类的定义，存放在方法区&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// a:       局部变量的引用，存放在虚拟机栈的局部变量表中&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// new ClassA():  对象实例本身，存放在 Java 堆中 (先不考虑逃逸分析)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;栈上分配&quot;&gt;栈上分配&lt;/h2&gt;
 
+&lt;p&gt;我们应该知道，Java 程序在运行时 JVM 会通过即时编译器 (Just In Time Compilation, JIT) 将热点代码尽可能的优化后编译为本地机器码，从而提高执行效率。&lt;/p&gt;
+
+&lt;p&gt;栈上分配 (Stack Allocations) 就是一种基于&lt;strong&gt;逃逸分析&lt;/strong&gt;技术从而更加灵活使用栈内存的即时编译器优化技术。&lt;em&gt;(需要注意的是，严格来说目前 HotSpot 并没有使用这项优化，只使用了逃逸程度要求更高的标量替换，但这其实也是属于栈上分配的另一种形式。)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;逃逸分析-escape-analysis&quot;&gt;逃逸分析 (Escape Analysis)&lt;/h3&gt;
+
+&lt;p&gt;逃逸分析的基本原理其实很简单：分析对象的动态作用域，当一个对象在方法里被定义后，它可能会被外部方法所引用。比如作为返回值传递到外部或其他方法中，这种就是&lt;strong&gt;方法逃逸&lt;/strong&gt;；还可能被其他线程访问到，比如赋值给可以被其他线程访问的实例中，这种就是&lt;strong&gt;线程逃逸&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;对象由高到低的逃逸程度是：线程逃逸 » 方法逃逸 » 不逃逸&lt;/p&gt;
+
+&lt;h3 id=&quot;标量替换-scalar-replacement&quot;&gt;标量替换 (Scalar Replacement)&lt;/h3&gt;
+
+&lt;p&gt;数据可以根据是否可再分解分为&lt;strong&gt;标量&lt;/strong&gt;和&lt;strong&gt;聚合量&lt;/strong&gt;。如 JVM 中的原始基本数据类型 (八大基本类型和 references 类型等) 就是标量，而对象就是可以继续分解的聚合量。&lt;/p&gt;
+
+&lt;p&gt;标量替换就是通过逃逸分析确定一个对象不会发生方法逃逸后，再将其拆散为基本类型来访问，就可以实现不把这个对象存放在堆中而是存在栈中。(前面提到过方法体中的局部基本类型变量是存放在虚拟机栈的局部变量表中的)&lt;/p&gt;
+
+&lt;p&gt;根据逃逸分析还有另一项优化就是&lt;strong&gt;同步消除&lt;/strong&gt; (Synchronization Elimination)：当确认一个变量不会发生线程逃逸后，这个变量就肯定是线程安全的了，如果代码中对它有实施的同步操作也就可以直接消除掉。&lt;/p&gt;
+
+&lt;h2 id=&quot;堆外分配&quot;&gt;堆外分配&lt;/h2&gt;
+
+&lt;p&gt;实际上，JVM 运行时对象不光可以分配在堆或栈，还有第三个选择就是堆外分配 (Off-Heap Allocation)。这个”堆外”不是指”Java 堆之外”，而是整个运行时数据区以外。是系统分配的&lt;strong&gt;直接内存&lt;/strong&gt; (Direct Memory)，不受 Java 堆的大小限制。&lt;/p&gt;
+
+&lt;p&gt;我们常用的 JDK 1.4 加入的 NIO 类库就是使用这一机制，避免 Java 堆和直接内存来回交互，提供高效的 I/O 操作。&lt;/p&gt;
+
+&lt;p&gt;NIO 核心类 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ByteBuffer&lt;/code&gt; 中的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;allocateDirect()&lt;/code&gt; 方法进行内存分配。实现是通过实例化非公开类 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DirectByteBuffer&lt;/code&gt; ，内使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UNSAFE.allocateMemory()&lt;/code&gt; 完成。&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// java.nio.DirectByteBuffer&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DirectByteBuffer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MappedByteBuffer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DirectBuffer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Primary constructor&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;DirectByteBuffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// package-private&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ps&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UNSAFE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allocateMemory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;OutOfMemoryError&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;Bits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;unreserveMemory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;UNSAFE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setMemory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;tlab-分配&quot;&gt;TLAB 分配&lt;/h2&gt;
 
-&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;</content><author><name></name></author><category term="Java" /><category term="JVM" /><summary type="html">Java 有句古话：一切皆对象。又众所周知：Java 对象都是在堆上创建的。可得：Java 都是分配在堆中。ok，本文完。</summary></entry><entry><title type="html">[转载][JAVA] Java 线程池实现原理及其在业务中的实践</title><link href="https://outofmemory.blog/java-thread-pooling-pratice.html" rel="alternate" type="text/html" title="[转载][JAVA] Java 线程池实现原理及其在业务中的实践" /><published>2020-06-03T00:00:00+08:00</published><updated>2020-06-03T00:00:00+08:00</updated><id>https://outofmemory.blog/java-thread-pooling-pratice</id><content type="html" xml:base="https://outofmemory.blog/java-thread-pooling-pratice.html">&lt;blockquote&gt;
+&lt;p&gt;为了提高多线程环境下的对象分配性能，JVM 提供了&lt;strong&gt;线程本地分配缓存&lt;/strong&gt; (TLAB - Thread Local Allocation Buffer)。但它是从 Java 堆中划分出来的线程私有的空间，本质还是属于堆分配。&lt;/p&gt;
+
+&lt;p&gt;这里提一下是因为机制比较常见，可能会让人误以为是一种和栈上分配一样的特殊内存分配机制。&lt;/p&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;看完，相信你心里已经有自己的结论了。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;script&gt;
+window.onresize = () =&gt; ce();
+window.onload = () =&gt; ce();
+const ce = () =&gt; {
+    let docWidth =  document.documentElement.clientWidth;
+
+    document.querySelectorAll(&quot;[img-w]&quot;)?.forEach(cw(docWidth));
+};
+const ckw = (dw,o) =&gt; dw &gt;= 750 ? o.getAttribute(&apos;img-w&apos;) + &apos;%&apos; : &apos;100%&apos;;
+const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
+&lt;/script&gt;</content><author><name></name></author><category term="Java" /><category term="JVM" /><category term="Java Heap" /><category term="VM Stack" /><summary type="html">Java 有句古话：一切皆对象。又众所周知：Java 对象都是在堆上创建的。可得：Java 都是分配在堆中。ok，本文完。</summary></entry><entry><title type="html">[转载][JAVA] Java 线程池实现原理及其在业务中的实践</title><link href="https://outofmemory.blog/java-thread-pooling-pratice.html" rel="alternate" type="text/html" title="[转载][JAVA] Java 线程池实现原理及其在业务中的实践" /><published>2020-06-03T00:00:00+08:00</published><updated>2020-06-03T00:00:00+08:00</updated><id>https://outofmemory.blog/java-thread-pooling-pratice</id><content type="html" xml:base="https://outofmemory.blog/java-thread-pooling-pratice.html">&lt;blockquote&gt;
   &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html&quot; target=&quot;_blank&quot;&gt;原文链接&lt;/a&gt; （建议本文结合 J.U.C.ThreadPoolExecutor 类和相关源码阅读，理解效果会更好。）&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -248,7 +377,7 @@
 &lt;p&gt;线程需要从任务缓存模块中不断地取任务执行，帮助线程从阻塞队列中获取任务，实现线程管理模块和任务管理模块之间的通信。这部分策略由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getTask&lt;/code&gt; 方法实现，其执行流程如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49d8041f8480aba5ef59079fcc7143b996706.png&quot; img-w=&quot;iw75&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49d8041f8480aba5ef59079fcc7143b996706.png&quot; img-w=&quot;75&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;获取任务流程图&lt;/div&gt;
 &lt;/center&gt;
@@ -343,7 +472,7 @@
 &lt;p&gt;增加线程是通过线程池中的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addWorker&lt;/code&gt; 方法，该方法的功能就是增加一个线程，该方法不考虑线程池是在哪个阶段增加的该线程，这个分配线程的策略是在上个步骤完成的，该步骤仅仅完成增加线程，并使它运行，最后返回是否成功这个结果。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;addWorker&lt;/code&gt; 方法有两个参数：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;firstTask&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core&lt;/code&gt;。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;firstTask&lt;/code&gt; 参数用于指定新增的线程执行的第一个任务，该参数可以为空；&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core&lt;/code&gt; 参数为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; 表示在新增线程时会判断当前活动线程数是否少于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; 表示新增线程前需要判断当前活动线程数是否少于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maximumPoolSize&lt;/code&gt;，其执行流程如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49527b1bb385f0f43529e57b614f59ae145454.png&quot; img-w=&quot;iw85&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/49527b1bb385f0f43529e57b614f59ae145454.png&quot; img-w=&quot;85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;申请线程执行流程图&lt;/div&gt;
 &lt;/center&gt;
@@ -419,7 +548,7 @@
 &lt;p&gt;&lt;strong&gt;分析&lt;/strong&gt;：这种场景需要执行大量的任务，我们也会希望任务执行的越快越好。这种情况下，也应该使用多线程策略，并行计算。但与响应速度优先的场景区别在于，这类场景任务量巨大，并不需要瞬时的完成，而是关注如何使用有限的资源，尽可能在单位时间内处理更多的任务，也就是吞吐量优先的问题。所以应该设置队列去缓冲并发任务，调整合适的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt; 去设置处理任务的线程数。在这里，设置的线程数过多可能还会引发线程上下文切换频繁的问题，也会降低处理任务的速度，降低吞吐量。&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/1a1746f33bfdcb03da074d8539ebb2f367563.png&quot; img-w=&quot;iw65&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/1a1746f33bfdcb03da074d8539ebb2f367563.png&quot; img-w=&quot;65&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;并行执行任务提升批量任务执行速度&lt;/div&gt;
 &lt;/center&gt;
@@ -547,7 +676,7 @@
 &lt;strong&gt;权限校验&lt;/strong&gt;：只有应用开发负责人才能够修改应用的线程池参数。&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/6c0091e92e90f50f89fd83f3b9eb5472135718.png&quot; img-w=&quot;iw85&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/6c0091e92e90f50f89fd83f3b9eb5472135718.png&quot; img-w=&quot;85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;动态化线程池功能架构&lt;/div&gt;
 &lt;/center&gt;
@@ -557,7 +686,7 @@
 &lt;p&gt;JDK 原生线程池 ThreadPoolExecutor 提供了如下几个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setter&lt;/code&gt; 方法，如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/efd32f1211e9cf0a3ca9d35b0dc5de8588353.png&quot; img-w=&quot;iw85&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/efd32f1211e9cf0a3ca9d35b0dc5de8588353.png&quot; img-w=&quot;85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;JDK 线程池参数设置接口&lt;/div&gt;
 &lt;/center&gt;
@@ -565,7 +694,7 @@
 &lt;p&gt;JDK 允许线程池使用方通过 ThreadPoolExecutor 的实例来动态设置线程池的核心策略，以s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;etCorePoolSize&lt;/code&gt; 为方法例，在运行期线程池使用方调用此方法设置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt; 之后，线程池会直接覆盖原来的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;corePoolSize&lt;/code&gt; 值，并且基于当前值和原始值的比较结果采取不同的处理策略。对于当前值小于当前工作线程数的情况，说明有多余的 worker 线程，此时会向当前 idle 的 worker 线程发起中断请求以实现回收，多余的 worker 在下次 idel 的时候也会被回收；对于当前值大于原始值且当前队列中有待执行任务，则线程池会创建新的 worker 线程来执行队列任务，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setCorePoolSize&lt;/code&gt; 具体流程如下：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/9379fe1666818237f842138812bf63bd85645.png&quot; img-w=&quot;iw75&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/9379fe1666818237f842138812bf63bd85645.png&quot; img-w=&quot;75&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;setCorePoolSize 方法执行流程&lt;/div&gt;
 &lt;/center&gt;
@@ -573,7 +702,7 @@
 &lt;p&gt;线程池内部会处理好当前状态做到平滑修改，其他几个方法限于篇幅，这里不一一介绍。重点是基于这几个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 方法，我们只需要维护 ThreadPoolExecutor 的实例，并且在需要修改的时候拿到实例修改其参数即可。基于以上的思路，我们实现了线程池参数的动态化、线程池参数在管理平台可配置可修改，其效果图如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/414ba7f3abd11e5f805c58635ae10988166121.png&quot; img-w=&quot;iw55&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/414ba7f3abd11e5f805c58635ae10988166121.png&quot; img-w=&quot;55&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;可动态修改线程池参数&lt;/div&gt;
 &lt;/center&gt;
@@ -584,9 +713,9 @@ window.onload = () =&gt; ce();
 const ce = () =&gt; {
     let docWidth =  document.documentElement.clientWidth;
 
-    document.querySelectorAll(&quot;[img-w^=iw]&quot;)?.forEach(cw(docWidth));
+    document.querySelectorAll(&quot;[img-w]&quot;)?.forEach(cw(docWidth));
 };
-const ckw = (dw,o) =&gt; dw &gt;= 750 ? o.getAttribute(&apos;img-w&apos;).substr(o.getAttribute(&apos;img-w&apos;).length - 2) + &apos;%&apos; : &apos;100%&apos;;
+const ckw = (dw,o) =&gt; dw &gt;= 750 ? o.getAttribute(&apos;img-w&apos;) + &apos;%&apos; : &apos;100%&apos;;
 const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
 &lt;/script&gt;
 
@@ -601,7 +730,7 @@ const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
 &lt;p&gt;线程池负载关注的核心问题是：基于当前线程池参数分配的资源够不够。对于这个问题，我们可以从事前和事中两个角度来看。事前，线程池定义了“活跃度”这个概念，来让用户在发生 Reject 异常之前能够感知线程池负载问题，线程池活跃度计算公式为：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;线程池活跃度 = activeCount/maximumPoolSize&lt;/code&gt;。这个公式代表当活跃线程数趋向于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maximumPoolSize&lt;/code&gt; 的时候，代表线程负载趋高。事中，也可以从两方面来看线程池的过载判定条件，一个是发生了 Reject 异常，一个是队列中有等待任务（支持定制阈值）。以上两种情况发生了都会触发告警，告警信息会通过大象推送给服务所关联的负责人。&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/04e73f7186a91d99181e1b5615ce9e4a318600.png&quot; img-w=&quot;iw55&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/04e73f7186a91d99181e1b5615ce9e4a318600.png&quot; img-w=&quot;55&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;大象告警通知&lt;/div&gt;
 &lt;/center&gt;
@@ -625,7 +754,7 @@ const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
 &lt;p&gt;用户基于 JDK 原生线程池 ThreadPoolExecutor 提供的几个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt; 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getter&lt;/code&gt; 方法，可以读取到当前线程池的运行状态以及参数，如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/aba8d9c09e6f054c7061ddd720a04a26147951.png&quot; img-w=&quot;iw85&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p0.meituan.net/travelcube/aba8d9c09e6f054c7061ddd720a04a26147951.png&quot; img-w=&quot;85&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;线程池实时运行情况&lt;/div&gt;
 &lt;/center&gt;
@@ -633,7 +762,7 @@ const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
 &lt;p&gt;动态化线程池基于这几个接口封装了运行时状态实时查看的功能，用户基于这个功能可以了解线程池的实时状态，比如当前有多少个工作线程，执行了多少个任务，队列中等待的任务数等等。效果如下图所示：&lt;/p&gt;
 
 &lt;center&gt;
-    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/38d5fbeaebd4998f3a30d44bd20b996f113233.png&quot; img-w=&quot;iw55&quot; /&gt;
+    &lt;img style=&quot;border-radius: 0.3125em;box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&quot; src=&quot;https://p1.meituan.net/travelcube/38d5fbeaebd4998f3a30d44bd20b996f113233.png&quot; img-w=&quot;55&quot; /&gt;
     &lt;br /&gt;
     &lt;div style=&quot;color:orange; display: inline-block;color: #999;padding: 2px;font-size: 12px;&quot;&gt;线程池实时运行情况&lt;/div&gt;
 &lt;/center&gt;
