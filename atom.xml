@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2024-08-15T18:11:39+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">一文讲清多线程和多线程同步</title><link href="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html" rel="alternate" type="text/html" title="一文讲清多线程和多线程同步" /><published>2024-07-25T00:00:00+08:00</published><updated>2024-07-25T00:00:00+08:00</updated><id>https://outofmemory.blog/multi-threading-and-multi-thread-synchronization</id><content type="html" xml:base="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2024-08-20T17:30:49+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">一文讲清多线程和多线程同步</title><link href="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html" rel="alternate" type="text/html" title="一文讲清多线程和多线程同步" /><published>2024-07-25T00:00:00+08:00</published><updated>2024-07-25T00:00:00+08:00</updated><id>https://outofmemory.blog/multi-threading-and-multi-thread-synchronization</id><content type="html" xml:base="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html">&lt;blockquote&gt;
   &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2024/07/19/multi-threading-and-multi-thread-synchronization.html&quot; target=&quot;_blank&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -58,7 +58,7 @@
 
 &lt;p&gt;与逻辑线程对应的是硬件线程，这是逻辑线程被执行的物质基础。&lt;/p&gt;
 
-&lt;p&gt;芯片设计领域，一个硬件线程通常指为执行指令序列而配套的硬件单元，一个 CPU 可能有多个核心，然后核心还可能支持超线程，1个核心的2个超线程复用一些硬件。从软件的视角来看，无须区分是真正的 Core 和超出来的 VCore，基本上可以认为是2个独立的执行单元，每个执行单元是一个逻辑 CPU，从软件的视角看 CPU 只需关注逻辑 CPU。一个软件线程由哪个 CPU/核心 去执行，以及何时执行，不归应用程序员管，它由操作系统决定，操作系统中的调度系统负责此项工作。&lt;/p&gt;
+&lt;p&gt;芯片设计领域，一个硬件线程通常指为执行指令序列而配套的硬件单元，一个 CPU 可能有多个核心，然后核心还可能支持超线程，1个核心的2个超线程复用一些硬件。从软件的视角来看，无须区分是真正的 Core 和超出来的 VCore，基本上可以认为是2个独立的执行单元，每个执行单元是一个逻辑 CPU，从软件的视角看 CPU 只需关注逻辑 CPU。一个软件线程由哪个 CPU/Core 去执行，以及何时执行，不归应用程序员管，它由操作系统决定，操作系统中的调度系统负责此项工作。&lt;/p&gt;
 
 &lt;h3 id=&quot;2-线程核心函数的关系&quot;&gt;2 线程、核心、函数的关系&lt;/h3&gt;
 
@@ -600,7 +600,7 @@
       &lt;span class=&quot;c1&quot;&gt;// operation2&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;// step3: 解锁&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;shared_resource_mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shared_resource_visitor1()&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shared_resource_visitor2()&lt;/code&gt; 代表对共享资源的不同操作，多个线程可能调用同一个操作函数，也可能调用不同的操作函数。&lt;/p&gt;
@@ -651,7 +651,7 @@
 
 &lt;p&gt;而运行在用户态的应用程序，则推荐使用互斥锁等睡眠锁。因为运行在用户态应用程序，虽然很容易满足临界区代码简短，但持有锁时间依然可能很长。在分时共享的多任务系统上、当用户态线程的时间配额耗尽，或者在支持抢占式的系统上、有更高优先级的任务就绪，那么持有自旋锁的线程就会被系统调度走，这样持有锁的过程就有可能很长，而忙等自旋锁的其他线程就会白白消耗 CPU 资源，这样的话，就跟自旋锁的理念相背。&lt;/p&gt;
 
-&lt;p&gt;Linux 系统优化过后的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mutex&lt;/code&gt; 实现，在加锁的时候会先做有限次数的自旋，只有有限次自旋失败后，才会进入睡眠让出CPU，所以，实际使用中，它的性能也足够好。此外，自旋锁必须在多 CPU 或者多 Core 架构下，试想如果只有一个核，那么它执行自旋逻辑的时候，别的线程没有办法运行，也就没有机会释放锁。&lt;/p&gt;
+&lt;p&gt;Linux 系统优化过后的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mutex&lt;/code&gt; 实现，在加锁的时候会先做有限次数的自旋，只有有限次自旋失败后，才会进入睡眠让出 CPU，所以，实际使用中，它的性能也足够好。此外，自旋锁必须在多 CPU 或者多 Core 架构下，试想如果只有一个核，那么它执行自旋逻辑的时候，别的线程没有办法运行，也就没有机会释放锁。&lt;/p&gt;
 
 &lt;h4 id=&quot;64-锁的粒度&quot;&gt;6.4 锁的粒度&lt;/h4&gt;
 
@@ -744,7 +744,7 @@
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::lock_guard&lt;/code&gt; 是互斥量的一个RAII包装类，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::unique_lock&lt;/code&gt; 除了会在析构函数自动解锁外，还支持主动 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unlock()&lt;/code&gt;。&lt;/p&gt;
 
-&lt;p&gt;生产者在往 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue&lt;/code&gt; 投递消息的时候，需要对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue&lt;/code&gt; 加锁，通知work线程的代码可以放在解锁之后，等待 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue_not_empty&lt;/code&gt; 条件必须受 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue_mutex&lt;/code&gt; 保护，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wait()&lt;/code&gt; 的第二个参数是一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lambda&lt;/code&gt; 表达式，因为会有多个 work 线程被唤醒，线程被唤醒后，会重新获得锁，检查条件，如果不成立，则再次睡眠。条件变量的使用需要非常谨慎，否则容易出现不能唤醒的情况。&lt;/p&gt;
+&lt;p&gt;生产者在往 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue&lt;/code&gt; 投递消息的时候，需要对 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue&lt;/code&gt; 加锁，通知 work 线程的代码可以放在解锁之后，等待 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue_not_empty&lt;/code&gt; 条件必须受 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg_queue_mutex&lt;/code&gt; 保护，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wait()&lt;/code&gt; 的第二个参数是一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lambda&lt;/code&gt; 表达式，因为会有多个 work 线程被唤醒，线程被唤醒后，会重新获得锁，检查条件，如果不成立，则再次睡眠。条件变量的使用需要非常谨慎，否则容易出现不能唤醒的情况。&lt;/p&gt;
 
 &lt;p&gt;C语言的条件变量、Posix 条件变量的编程接口跟 C++ 的类似，概念上是一致的，故在此不展开介绍。&lt;/p&gt;
 
@@ -756,13 +756,13 @@
 
 &lt;p&gt;互斥量、信号、条件变量这些系统提供的机制都属于阻塞型同步，在争用资源的时候，会导致调用线程阻塞。
 非阻塞型同步是指在无锁的情况下，通过某种算法和技术手段实现不用阻塞而同步。
-锁是阻塞同步机制，阻塞同步机制的缺陷是可能挂起你的程序，如果持有锁的线程崩溃或者hang住，则锁永远得不到释放，而其他线程则将陷入无限等待；另外，它也可能导致优先级倒转等问题。所以，我们需要Lock-free这类非阻塞的同步机制。&lt;/p&gt;
+锁是阻塞同步机制，阻塞同步机制的缺陷是可能挂起你的程序，如果持有锁的线程崩溃或者 hang 住，则锁永远得不到释放，而其他线程则将陷入无限等待；另外，它也可能导致优先级倒转等问题。所以，我们需要 Lock-free 这类非阻塞的同步机制。&lt;/p&gt;
 
 &lt;h4 id=&quot;82-什么是-lock-free&quot;&gt;8.2 什么是 Lock-free&lt;/h4&gt;
 
 &lt;p&gt;Lock-free 没有锁同步的问题，所有线程无阻碍的执行原子指令，而不是等待。比如一个线程读 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atomic&lt;/code&gt; 类型变量，一个线程写 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atomic&lt;/code&gt; 变量，它们没有任何等待，硬件原子指令确保不会出现数据不一致，写入数据不会出现半完成，读取数据也不会读一半。&lt;/p&gt;
 
-&lt;p&gt;那到底什么是 Lock-free？有人说 Lock-free 就是不使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mutex&lt;/code&gt; / &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;semaphores&lt;/code&gt; 之类的无锁（lock-Less）编程，这句话严格来说并不对。&lt;/p&gt;
+&lt;p&gt;那到底什么是 Lock-free？有人说 Lock-free 就是不使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mutex&lt;/code&gt; / &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;semaphores&lt;/code&gt; 之类的无锁（Lock-Less）编程，这句话严格来说并不对。&lt;/p&gt;
 
 &lt;p&gt;我们先看一下 wiki 对 Lock-free 的描述:&lt;/p&gt;
 
@@ -779,7 +779,7 @@
 
 &lt;p&gt;第1段给 Lock-free 下定义，第2段则是对 Lock-free 作解释：如果2个线程竞争同一个互斥锁或者自旋锁，那它就不是 Lock-free 的；因为如果暂停（Hang）持有锁的线程，那么另一个线程会被阻塞。&lt;/p&gt;
 
-&lt;p&gt;wiki的这段描述很抽象，它不够直观，稍微再解释一下：Lock-free 描述的是代码逻辑的属性，不使用锁的代码，大部分具有这种属性。大家经常会混淆这 Lock-free 和无锁这2个概念。其实，Lock-free 是对代码（算法）性质的描述，是属性；而无锁是说代码如何实现，是手段。&lt;/p&gt;
+&lt;p&gt;wiki 的这段描述很抽象，它不够直观，稍微再解释一下：Lock-free 描述的是代码逻辑的属性，不使用锁的代码，大部分具有这种属性。大家经常会混淆这 Lock-free 和无锁这2个概念。其实，Lock-free 是对代码（算法）性质的描述，是属性；而无锁是说代码如何实现，是手段。&lt;/p&gt;
 
 &lt;p&gt;Lock-free 的关键描述是：如果一个线程被暂停，那么其他线程应能继续前进，它需要有系统级（system-wide）的吞吐。&lt;/p&gt;
 
@@ -809,9 +809,9 @@
 
 &lt;p&gt;因为它们都会遇到同样的问题：即如果永久暂停当前占有锁的线程/进程的执行，将会阻塞其他线程/进程的执行。而对照 Lock-free 的描述，它允许部分 process（理解为执行流）饿死但必须保证整体逻辑的持续前进，基于锁的并发显然是违背 Lock-free 要求的。&lt;/p&gt;
 
-&lt;h4 id=&quot;83-cas-loop实现-lock-free&quot;&gt;8.3 CAS loop实现 Lock-free&lt;/h4&gt;
+&lt;h4 id=&quot;83-cas-loop-实现-lock-free&quot;&gt;8.3 CAS loop 实现 Lock-free&lt;/h4&gt;
 
-&lt;p&gt;Lock-Free 同步主要依靠CPU提供的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read-modify-write&lt;/code&gt; 原语，著名的“比较和交换”CAS（Compare And Swap）在X86机器上是通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmpxchg&lt;/code&gt; 系列指令实现的原子操作，CAS 逻辑上用代码表达是这样的：&lt;/p&gt;
+&lt;p&gt;Lock-free 同步主要依靠 CPU 提供的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read-modify-write&lt;/code&gt; 原语，著名的“比较和交换“ CAS（Compare And Swap）在 X86 机器上是通过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmpxchg&lt;/code&gt; 系列指令实现的原子操作，CAS 逻辑上用代码表达是这样的：&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CAS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expect_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expect_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -914,7 +914,7 @@
 
 &lt;p&gt;与程序序相对应的内存序，是指从某个角度观察到的对于内存的读和写所真正发生的顺序。内存操作顺序并不唯一，在一个包含 core0 和 core1 的 CPU 中，core0 和 core1 有着各自的内存操作顺序，这两个内存操作顺序不一定相同。从包含多个 Core 的 CPU 的视角看到的全局内存操作顺序跟单 core 视角看到的内存操作顺序亦不同，而这种不同，对于有些程序逻辑而言，是不可接受的，例如：&lt;/p&gt;
 
-&lt;p&gt;程序序要求 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a = 1&lt;/code&gt; 在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b = 2&lt;/code&gt; 之前执行，但内存操作顺序可能并非如此，对 a 赋值1并不确保发生在对b赋值2之前，这是因为：&lt;/p&gt;
+&lt;p&gt;程序序要求 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a = 1&lt;/code&gt; 在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b = 2&lt;/code&gt; 之前执行，但内存操作顺序可能并非如此，对 a 赋值1并不确保发生在对 b 赋值2之前，这是因为：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;如果编译器认为对 b 赋值没有依赖对 a 赋值，那它完全可能在编译期调整编译后的汇编指令顺序。&lt;/li&gt;
@@ -925,7 +925,7 @@
 
 &lt;p&gt;但多核系统，硬件不提供这样的保证，多线程程序中，每个线程所工作的 Core 观察到的不同内存操作序，以及这些顺序与全局内存序的差异，常常导致多线程同步失败，所以，需要有同步机制确保内存序与程序序的一致，内存屏障（Memory Barrier）的引入，就是为了解决这个问题，它让不同的 Core 之间，以及 Core 与全局内存序达成一致。&lt;/p&gt;
 
-&lt;h3 id=&quot;11-乱序执行out-of-order-execution&quot;&gt;11 乱序执行：Out-of-order Execution&lt;/h3&gt;
+&lt;h3 id=&quot;11-乱序执行out-of-order-execution&quot;&gt;11 乱序执行：Out-of-Order Execution&lt;/h3&gt;
 
 &lt;p&gt;乱序执行会引起内存顺序跟程序顺序不同，乱序执行的原因是多方面的，比如编译器指令重排、超标量指令流水线、预测执行、Cache-Miss 等。内存操作顺序无法精确匹配程序顺序，这有可能带来混乱，既然有副作用，那为什么还需要乱序执行呢？答案是为了性能。&lt;/p&gt;
 
@@ -939,7 +939,7 @@
   &lt;li&gt;功能单元将结果写回寄存器或内存位置&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;乱序处理器（Out-of-order Processors）&lt;/strong&gt;又是怎么处理指令的呢？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;乱序处理器（Out-of-Order Processors）&lt;/strong&gt;又是怎么处理指令的呢？&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;指令获取，从代码节内存区域加载指令到 I-Cache&lt;/li&gt;
@@ -951,11 +951,11 @@
   &lt;li&gt;只有更早请求执行的指令结果写入 Cache 后，指令执行结果才写入 Cache，通过对指令结果排序写入 Cache，使得执行看起来是有序的&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;指令乱序执行是结果，但原因并非只有CPU的乱序执行，而是由两种因素导致：&lt;/p&gt;
+&lt;p&gt;指令乱序执行是结果，但原因并非只有 CPU 的乱序执行，而是由两种因素导致：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;编译期&lt;/strong&gt;：指令重排（编译器），编译器会为了性能而对指令重排，源码上先后的两行，被编译器编译后，可能调换指令顺序，但编译器会基于一套规则做指令重排，有明显依赖的指令不会被随意重排，指令重排不能破坏程序逻辑。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;运行期&lt;/strong&gt;：乱序执行（CPU），CPU的超标量流水线、以及预测执行、Cache-Miss 等都有可能导致指令乱序执行，也就是说，后面的指令有可能先于前面的指令执行。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;运行期&lt;/strong&gt;：乱序执行（CPU），CPU 的超标量流水线、以及预测执行、Cache-Miss 等都有可能导致指令乱序执行，也就是说，后面的指令有可能先于前面的指令执行。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;12-store-buffer&quot;&gt;12 Store Buffer&lt;/h3&gt;
@@ -985,7 +985,7 @@
   &lt;span class=&quot;n&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;上面的代码，断言 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a==1&lt;/code&gt; 的时候，需要读（load）变量a的值，而如果 a 在被赋值前就在 Cache 中，就会从 Cache 中读到 a 的旧值（可能是1之外的其他值），所以断言就可能失败。但这样的结果显然是不能接受的，它违背了最直观的程序顺序性。&lt;/p&gt;
+&lt;p&gt;上面的代码，断言 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a == 1&lt;/code&gt; 的时候，需要读（load）变量a的值，而如果 a 在被赋值前就在 Cache 中，就会从 Cache 中读到 a 的旧值（可能是1之外的其他值），所以断言就可能失败。但这样的结果显然是不能接受的，它违背了最直观的程序顺序性。&lt;/p&gt;
 
 &lt;p&gt;问题出在变量 a 除保存在内存外，还有2份拷贝：一份在 Store Buffer 里，一份在 Cache 里；如果不考虑这2份拷贝的关系，就会出现数据不一致。那怎么修复这个问题呢？&lt;/p&gt;
 
@@ -1013,7 +1013,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;CPU0 执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a = 1&lt;/code&gt; 的时候，因为 a 不在 CPU0 的 local cache，CPU0 会把 a 的新值1写入 Store Buffer 里，并发送 Read Invalidate 消息给其他 CPU。&lt;/li&gt;
-  &lt;li&gt;CPU1 执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;while (b == 0)&lt;/code&gt;，因为 b 不在 CPU1 的 local cache 里，CPU1 会发送 Read 消息去其他CPU获取b的值。&lt;/li&gt;
+  &lt;li&gt;CPU1 执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;while (b == 0)&lt;/code&gt;，因为 b 不在 CPU1 的 local cache 里，CPU1 会发送 Read 消息去其他 CPU 获取 b 的值。&lt;/li&gt;
   &lt;li&gt;CPU0 执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b = 2&lt;/code&gt;，因为 b 在 CPU0 的 local Cache，所以直接更新 local cache 中 b 的副本。&lt;/li&gt;
   &lt;li&gt;CPU0 收到 CPU1 发来的 read 消息，把 b 的新值2发送给 CPU1；同时存放 b 的 Cache Line 的状态被设置为 Shared，以反应 b 同时被 CPU0 和 CPU1 cache 住的事实。&lt;/li&gt;
   &lt;li&gt;CPU1 收到 b 的新值2后结束循环，继续执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assert(a == 1)&lt;/code&gt;，因为此时 local Cache 中的 a 值为0，所以断言失败。&lt;/li&gt;
@@ -1101,7 +1101,7 @@
 &lt;p&gt;&lt;strong&gt;小结&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;为了提高处理器的性能，SMP 中引入了 store buffer(以及对应实现store buffer forwarding) 和 invalidate queue。&lt;/li&gt;
+  &lt;li&gt;为了提高处理器的性能，SMP 中引入了 store buffer (以及对应实现store buffer forwarding) 和 invalidate queue。&lt;/li&gt;
   &lt;li&gt;store buffer 的引入导致 core 上的 store 顺序可能不匹配于 global memory 的顺序，对此，我们需要使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wmb()&lt;/code&gt; 来解决。&lt;/li&gt;
   &lt;li&gt;invalidate queue 的存在导致 core 上观察到的 load 顺序可能与 global memory order 不一致，对此，我们需要使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rmb()&lt;/code&gt; 来解决。&lt;/li&gt;
   &lt;li&gt;由于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wmb()&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rmb()&lt;/code&gt; 分别只单独作用于 store buffer 和 invalidate queue，因此这两个 memory barrier 共同保证了 store/load 的顺序。&lt;/li&gt;
@@ -1256,15 +1256,15 @@
 
 &lt;p&gt;现代 CPU 可以有多个核，每个核有自己的 L1-L2 缓存，L1又区分数据缓存（L1-DCache）和指令缓存（L1-ICache），L2 不区分数据和指令 Cache，而 L3 是跨核共享的，L3 通过内存总线连接到内存，内存被所有 CPU 所有 Core 共享。&lt;/p&gt;
 
-&lt;p&gt;CPU 访问 L1 Cach e的速度大约是访问内存的100倍，Cache 作为 CPU 与内存之间的缓存，减少对内存的访问频率。&lt;/p&gt;
+&lt;p&gt;CPU 访问 L1 Cache 的速度大约是访问内存的100倍，Cache 作为 CPU 与内存之间的缓存，减少对内存的访问频率。&lt;/p&gt;
 
 &lt;p&gt;从内存加载数据到 Cache 的时候，是以 Cache Line 为长度单位的，Cache Line 的长度通常是64字节，所以，那怕只读一个字节，但是包含该字节的整个 Cache Line 都会被加载到缓存，同样，如果修改一个字节，那么最终也会导致整个 Cache Line 被冲刷到内存。&lt;/p&gt;
 
 &lt;p&gt;如果一块内存数据被多个线程访问，假设多个线程在多个 Core 上并行执行，那么它便会被加载到多个 Core 的的 Local Cache 中；这些线程在哪个 Core 上运行，就会被加载到哪个 Core 的 Local Cache 中，所以，内存中的一个数据，在不同 Core 的 Cache 里会同时存在多份拷贝。&lt;/p&gt;
 
-&lt;p&gt;那么，便会存在缓存一致性问题。当一个 Core 修改其缓存中的值时，其他 Core 不能再使用旧值。该内存位置将在所有缓存中失效。此外，由于缓存以缓存行而不是单个字节的粒度运行，因此整个缓存行将在所有缓存中失效。如果我们修改了 Core1 缓存里的某个数据，则该数据所在的Cache Line 的状态需要同步给其他 Core 的缓存，Core 之间可以通过核间消息同步状态，比如通过发送 Invalidate 消息给其他核，接收到该消息的核会把对应 Cache Line 置为无效，然后重新从内存里加载最新数据。&lt;/p&gt;
+&lt;p&gt;那么，便会存在缓存一致性问题。当一个 Core 修改其缓存中的值时，其他 Core 不能再使用旧值。该内存位置将在所有缓存中失效。此外，由于缓存以缓存行而不是单个字节的粒度运行，因此整个缓存行将在所有缓存中失效。如果我们修改了 Core1 缓存里的某个数据，则该数据所在的 Cache Line 的状态需要同步给其他 Core 的缓存，Core 之间可以通过核间消息同步状态，比如通过发送 Invalidate 消息给其他核，接收到该消息的核会把对应 Cache Line 置为无效，然后重新从内存里加载最新数据。&lt;/p&gt;
 
-&lt;p&gt;当然，被加载到多个 Core 缓存中的同一 Cache Line，会被标记为共享（Shared）状态，对共享状态的缓存行进行修改，需要先获取缓存行的修改权（独占），MESI协议用来保证多核缓存的一致性，更多的细节可以参考 MESI 的文章。&lt;/p&gt;
+&lt;p&gt;当然，被加载到多个 Core 缓存中的同一 Cache Line，会被标记为共享（Shared）状态，对共享状态的缓存行进行修改，需要先获取缓存行的修改权（独占），MESI 协议用来保证多核缓存的一致性，更多的细节可以参考 MESI 的文章。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;示例分析&lt;/strong&gt;&lt;/p&gt;
 
@@ -1280,7 +1280,7 @@
 
 &lt;p&gt;这种交替执行模式，相当于 Core1 和 Core2 之间需要频繁的发送核间消息，收到消息的 Core 的 Cache Line 被置为无效，并重新从内存里加载数据到 Cache，每次修改后都需要把 Cache 中的数据刷入内存，这相当于废弃掉了 Cache，因为每次读写都直接跟内存打交道，Cache 的作用不复存在，这就是性能低下的原因。&lt;/p&gt;
 
-&lt;p&gt;这种多核多线程程序，因为并发读写同一个 Cache Line 的数据（临近位置的内存数据），导致 Cache Lin e的频繁失效，内存的频繁 Load/Store，从而导致性能急剧下降的现象叫伪共享，伪共享是性能杀手。&lt;/p&gt;
+&lt;p&gt;这种多核多线程程序，因为并发读写同一个 Cache Line 的数据（临近位置的内存数据），导致 Cache Line 的频繁失效，内存的频繁 Load/Store，从而导致性能急剧下降的现象叫伪共享，伪共享是性能杀手。&lt;/p&gt;
 
 &lt;h3 id=&quot;4-另一个伪共享的例子&quot;&gt;4 另一个伪共享的例子&lt;/h3&gt;
 
@@ -1302,7 +1302,7 @@
 
 &lt;p&gt;&lt;strong&gt;空间换时间&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;避免 Cache 伪共享导致性能下降的思路是用空间换时间，通过增加填充，让 a 和 b 两个变量分布到不同的 Cache Line，这样对a和b的修改就会作用于不同 Cache Line，就能避免 Cache 失效的问题。&lt;/p&gt;
+&lt;p&gt;避免 Cache 伪共享导致性能下降的思路是用空间换时间，通过增加填充，让 a 和 b 两个变量分布到不同的 Cache Line，这样对 a 和 b 的修改就会作用于不同 Cache Line，就能避免 Cache 失效的问题。&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Data&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
