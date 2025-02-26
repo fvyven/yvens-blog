@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2025-02-15T15:47:55+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">一文讲清多线程和多线程同步</title><link href="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html" rel="alternate" type="text/html" title="一文讲清多线程和多线程同步" /><published>2024-07-25T00:00:00+08:00</published><updated>2024-07-25T00:00:00+08:00</updated><id>https://outofmemory.blog/multi-threading-and-multi-thread-synchronization</id><content type="html" xml:base="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://outofmemory.blog/atom.xml" rel="self" type="application/atom+xml" /><link href="https://outofmemory.blog/" rel="alternate" type="text/html" /><updated>2025-02-26T11:33:15+08:00</updated><id>https://outofmemory.blog/atom.xml</id><title type="html">Out of Memory</title><subtitle>Common sense is the collection of prejudices acquired by age eighteen.</subtitle><entry><title type="html">一文讲清多线程和多线程同步</title><link href="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html" rel="alternate" type="text/html" title="一文讲清多线程和多线程同步" /><published>2024-07-25T00:00:00+08:00</published><updated>2024-07-25T00:00:00+08:00</updated><id>https://outofmemory.blog/multi-threading-and-multi-thread-synchronization</id><content type="html" xml:base="https://outofmemory.blog/multi-threading-and-multi-thread-synchronization.html">&lt;blockquote&gt;
   &lt;p&gt;本文转载自美团技术团队，&lt;a href=&quot;https://tech.meituan.com/2024/07/19/multi-threading-and-multi-thread-synchronization.html&quot; target=&quot;_blank&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1361,7 +1361,86 @@ const ce = () =&gt; {
 };
 const ckw = (dw,o) =&gt; dw &gt;= 750 ? o.getAttribute(&apos;img-w&apos;) + &apos;%&apos; : &apos;100%&apos;;
 const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
-&lt;/script&gt;</content><author><name></name></author><category term="Multithreading" /><category term="C++" /><category term="Liunx" /><summary type="html">本文转载自美团技术团队，原文链接</summary></entry><entry><title type="html">Kafka 核心源码解读</title><link href="https://outofmemory.blog/class-002.html" rel="alternate" type="text/html" title="Kafka 核心源码解读" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://outofmemory.blog/class-002</id><content type="html" xml:base="https://outofmemory.blog/class-002.html">&lt;h2 id=&quot;01丨课前必学-3讲&quot;&gt;01丨课前必学 (3讲)&lt;/h2&gt;
+&lt;/script&gt;</content><author><name></name></author><category term="Multithreading" /><category term="C++" /><category term="Liunx" /><summary type="html">本文转载自美团技术团队，原文链接</summary></entry><entry><title type="html">[IOT] Docker 部署 Home Assistant</title><link href="https://outofmemory.blog/deploy-home-assistant-via-docker.html" rel="alternate" type="text/html" title="[IOT] Docker 部署 Home Assistant" /><published>2024-06-07T00:00:00+08:00</published><updated>2024-06-07T00:00:00+08:00</updated><id>https://outofmemory.blog/deploy-home-assistant-via-docker</id><content type="html" xml:base="https://outofmemory.blog/deploy-home-assistant-via-docker.html">&lt;p&gt;&lt;a href=&quot;https://github.com/home-assistant/home-assistant.io&quot; target=&quot;_blank&quot;&gt;Home Assistant&lt;/a&gt; 是一个用 Python 开发的&lt;strong&gt;开源&lt;/strong&gt;家居自动化平台，可以轻松集成各种智能设备和服务，并监控和管理。&lt;/p&gt;
+
+&lt;p&gt;主要特点：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;兼容性&lt;/strong&gt;：支持数千种智能设备和品牌，包括灯光、传感器、摄像头、开关、空调等等。它提供了丰富的集成选项，用户可以通过配置与多个设备相连。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;自动化&lt;/strong&gt;：用户可以创建复杂的自动化规则。例如，可以设置条件（如时间、传感器状态）来自动控制设备的行为，如在某个时间点自动开关灯。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;本地控制&lt;/strong&gt;：可以在本地部署运行，无需依赖云服务。这样可以提高隐私安全性，使设备的控制更加稳定和快速。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;用户界面&lt;/strong&gt;：它提供了一个直观的网页用户界面和移动端 App，用户可以通过它们查看设备状态，控制设备，并创建自动化规则。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;社区支持&lt;/strong&gt;：作为一个开源项目，它拥有活跃的开发者和用户社区，用户可以在社区中找到帮助、共享自定义配置和获取更新。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;扩展性&lt;/strong&gt;：用户可以通过编写自定义脚本和使用插件来扩展核心功能，以满足特定需求。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Docker 的部署其实也很简单，我为了能远程控制设备，是部署在云服务器(Ubuntu)上的，使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker compose&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;下为简单的部署步骤：&lt;/p&gt;
+
+&lt;h3 id=&quot;创建-docker-composeyml-文件&quot;&gt;创建 docker-compose.yml 文件&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; docker/home-assistant/data  &lt;span class=&quot;c&quot;&gt;# 创建目录&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;docker/home-assistant
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vim docker-compose.yml          &lt;span class=&quot;c&quot;&gt;# 创建文件&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; 文件：&lt;/p&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;homeassistant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;homeassistant&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;homeassistant/home-assistant:stable&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/home/ubuntu/docker/home-assistant/data:/config&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# 映射到本地目录&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;TZ=Asia/Shanghai&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unless-stopped&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;privileged&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;network_mode&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;host&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;拉取镜像并启动容器&quot;&gt;拉取镜像并启动容器&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker compose up &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;稍等执行完成，不出意外的话容器应该能顺利启动。可以使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker ps -a&lt;/code&gt; 查看容器状态。&lt;/p&gt;
+
+&lt;h3 id=&quot;创建账号&quot;&gt;创建账号&lt;/h3&gt;
+
+&lt;p&gt;此时访问 &lt;a href=&quot;http://localhost:8123&quot; target=&quot;_blank&quot;&gt;http://localhost:8123&lt;/a&gt; 或 &lt;a href=&quot;http://yourip:8123&quot; target=&quot;_blank&quot;&gt;http://yourip:8123&lt;/a&gt; 应该就能访问到 Home Assistant 的主界面了。&lt;/p&gt;
+
+&lt;p&gt;然后创建你的账号。&lt;/p&gt;
+
+&lt;h3 id=&quot;安装-hacs-home-asisstant-community-store&quot;&gt;安装 HACS (Home Asisstant Community Store)&lt;/h3&gt;
+
+&lt;p&gt;HACS 是一个插件，它提供了一个界面，让我们可以通过这个界面轻松地安装、更新和管理各种自定义组件、主题和插件等。&lt;/p&gt;
+
+&lt;p&gt;可以在 &lt;a href=&quot;https://github.com/hacs/integration/releases&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt; 下载你需要版本，一般直接选最新版就行了。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/ubuntu/docker/home-assistant/data    &lt;span class=&quot;c&quot;&gt;# 因为我上面把容器里的 /conf 映射到这个本地文件夹了，所以直接把文件放入这里就相当于放进了容器里&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; custom_components/hacs         &lt;span class=&quot;c&quot;&gt;# 创建目录&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;custom_components/hacs
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget https://github.com/hacs/integration/releases/download/1.34.0/hacs.zip  &lt;span class=&quot;c&quot;&gt;# 下载 hacs，复制你需要的版本下载链接。如果服务器下载太慢的话，可以本地下载后传到服务器上&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;unzip hacs.zip                          &lt;span class=&quot;c&quot;&gt;# 解压&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/ubuntu/docker/home-assistant   &lt;span class=&quot;c&quot;&gt;# 进入 docker-compose.yml 所在目录&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker compose restart             &lt;span class=&quot;c&quot;&gt;# 重启容器&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;集成-hacs&quot;&gt;集成 HACS&lt;/h3&gt;
+
+&lt;p&gt;重新进入 Home Assistant 主界面后，左下角 &lt;strong&gt;设置&lt;/strong&gt; » 选择 &lt;strong&gt;设备与服务&lt;/strong&gt; » 右下角 &lt;strong&gt;添加集成&lt;/strong&gt; » 弹出窗口中搜索 HACS » 全部勾选后点击提交&lt;/p&gt;
+
+&lt;p&gt;这时 HACS 会请求 GitHub 关联账号，如果长时间转圈之后提示 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;could_not_register&lt;/code&gt;，这通常是网络问题。查看日志（容器映射路径下的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;home-assistant.log&lt;/code&gt; 文件），可能会有类似输出：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+aiogithubapi.exceptions.GitHubConnectionException: Request exception for &apos;https://github.com/login/device/code&apos; with - Server disconnected
+ERROR (MainThread) [custom_components.hacs] Timeout of 20 reached while waiting for https://github.com/login/device/code
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这时如果能 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ping&lt;/code&gt; 通 github.com，那么上面集成 HACS 的步骤多试几次应该就行了。&lt;/p&gt;
+
+&lt;p&gt;安装成功后，刷新页面就能在左边的主菜单看到 HACS 了。&lt;/p&gt;</content><author><name></name></author><category term="Docker" /><category term="Ubuntu" /><category term="IOT" /><summary type="html">Home Assistant 是一个用 Python 开发的开源家居自动化平台，可以轻松集成各种智能设备和服务，并监控和管理。</summary></entry><entry><title type="html">Kafka 核心源码解读</title><link href="https://outofmemory.blog/class-002.html" rel="alternate" type="text/html" title="Kafka 核心源码解读" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://outofmemory.blog/class-002</id><content type="html" xml:base="https://outofmemory.blog/class-002.html">&lt;h2 id=&quot;01丨课前必学-3讲&quot;&gt;01丨课前必学 (3讲)&lt;/h2&gt;
 &lt;h3 id=&quot;01丨课前必学-3讲00丨导读丨构建kafka工程和源码阅读环境scala语言热身&quot;&gt;&lt;a href=&quot;/class/002/00-2&quot;&gt;01丨课前必学 (3讲)/00丨导读丨构建Kafka工程和源码阅读环境、Scala语言热身&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 id=&quot;01丨课前必学-3讲00丨开篇词丨阅读源码逐渐成了职业进阶道路上的必选项&quot;&gt;&lt;a href=&quot;/class/002/00-1&quot;&gt;01丨课前必学 (3讲)/00丨开篇词丨阅读源码，逐渐成了职业进阶道路上的“必选项”&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 id=&quot;01丨课前必学-3讲重磅加餐丨带你快速入门scala语言&quot;&gt;&lt;a href=&quot;/class/002/00-3&quot;&gt;01丨课前必学 (3讲)/重磅加餐丨带你快速入门Scala语言&lt;/a&gt;&lt;/h3&gt;
@@ -1731,53 +1810,4 @@ const cw = w =&gt; o =&gt; o.setAttribute(&apos;width&apos;, ckw(w,o));
 &lt;h2 id=&quot;07丨加餐-1讲&quot;&gt;07丨加餐 (1讲)&lt;/h2&gt;
 &lt;h3 id=&quot;开学直播回顾丨程序员如何阅读英语资料&quot;&gt;&lt;a href=&quot;/class/009/开学直播回顾&quot;&gt;开学直播回顾丨程序员如何阅读英语资料？&lt;/a&gt;&lt;/h3&gt;
 &lt;h2 id=&quot;08丨结束语-1讲&quot;&gt;08丨结束语 (1讲)&lt;/h2&gt;
-&lt;h3 id=&quot;结束语丨学英语也是修行&quot;&gt;&lt;a href=&quot;/class/009/结束语&quot;&gt;结束语丨学英语也是修行&lt;/a&gt;&lt;/h3&gt;</content><author><name></name></author><summary type="html">01丨课前必读 (2讲) 01丨课前必读 (2讲)/00丨学习指南丨我想和你交代下这门课的设计思路 01丨课前必读 (2讲)/00丨开篇词丨把技能当知识，是学英语最大的坑 02丨Article 1：The Product-Minded Software Engineer (10讲) 01｜导读：背景知识对于理解文章究竟有多重要？ 02丨什么时候适合用“词根词缀法”来背单词？ 03｜到底要不要学语法？什么时候学比较好？ 04丨从那些不规范的表达中，我们可以学到什么？ 05｜tradeoff还是trade-off？用连字符到底对不对？ 06｜小心那些平淡无奇、人畜无害的简单小词！ 07｜为什么虚拟语气一看就懂、一用就忘？（上） 07｜为什么虚拟语气一看就懂、一用就忘？（下） 08｜带你一次性搞懂非限定性和限定性定语从句 每周一起背10句丨week01 每周一起背10句丨week02 03丨Article 2：Open Source Benefits to Innovation and … (6讲) 09丨导读：通过阅读序言段了解文章的背景知识 10丨一切始于“主干”，万变不离其宗 11丨并列句 = 简单句 + 并列连词 + 简单句 12丨 谓语动词永远是英语句子的核心 每周一起背10句丨week03 每周一起背10句丨week04 04丨Article 3：Successful Remote Working (6讲) 13丨导读：如何逐渐培养阅读习惯，快速抓住文章大意？ 14｜为什么介词如此“烦人”？ 15｜同位语的两个重要作用 16｜动词：英语宇宙的中心 17｜参透“主从分明”的树状结构，即可“庖丁解牛” 每周一起背10句丨week05 05丨Aritcle 4：Breaking through Three Common… (11讲) 18｜全篇通读（上）：从读懂一句话慢慢转向读懂一篇文章 19｜全篇通读（下）：不是所有的文章和书籍都值得读完 20｜英语词汇学习的唯一有效途径：阅读、阅读、阅读 21丨你和所有见过的单词或短语都只是加了“好友”而已 22丨paraphrase：跨越阅读和写作两项技能的练习法 23｜练习paraphrase的最终目的，是有一天可以不再需要它 24｜如何用“金字塔原理”来练习阅读和写作？ 25｜如何利用“30秒电梯原则”写出言简意赅的读书总结？ 每周一起背10句丨week06 每周一起背10句丨week07 每周一起背10句丨week08 06丨Article 5：InfoQ’s 2019, and Software Predictions… (6讲) 26丨阅读准备：当我们谈论快速阅读时，我们究竟在谈论什么？ 27丨行业预测类文章，动词就是它的全部 28丨没有经过相关专业训练，如何自学新的专业知识？ 29丨如何通过定期的主题阅读计划，个性化定制专属的语料库？ 30丨突破实用型、技术类阅读，外面还有另一片星辰大海 每周一起背10句丨week09 07丨加餐 (1讲) 开学直播回顾丨程序员如何阅读英语资料？ 08丨结束语 (1讲) 结束语丨学英语也是修行</summary></entry><entry><title type="html">从0开始学游戏开发</title><link href="https://outofmemory.blog/class-010.html" rel="alternate" type="text/html" title="从0开始学游戏开发" /><published>2024-01-01T00:00:00+08:00</published><updated>2024-01-01T00:00:00+08:00</updated><id>https://outofmemory.blog/class-010</id><content type="html" xml:base="https://outofmemory.blog/class-010.html">&lt;h2 id=&quot;01-开篇词-1讲&quot;&gt;01-开篇词 (1讲)&lt;/h2&gt;
-&lt;h3 id=&quot;01-开篇词-1讲000丨开篇词丨跟我学你也可以开发一款游戏&quot;&gt;&lt;a href=&quot;/class/010/00&quot;&gt;01-开篇词 (1讲)/000丨开篇词丨跟我学，你也可以开发一款游戏！&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;02-第一章游戏开发基础知识-5讲&quot;&gt;02-第一章：游戏开发基础知识 (5讲)&lt;/h2&gt;
-&lt;h3 id=&quot;02-第一章游戏开发基础知识-5讲第01讲丨游戏开发需要了解哪些背景知识&quot;&gt;&lt;a href=&quot;/class/010/01&quot;&gt;02-第一章：游戏开发基础知识 (5讲)/第01讲丨游戏开发需要了解哪些背景知识？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;02-第一章游戏开发基础知识-5讲第02讲丨2d游戏和3d游戏有什么区别&quot;&gt;&lt;a href=&quot;/class/010/02&quot;&gt;02-第一章：游戏开发基础知识 (5讲)/第02讲丨2D游戏和3D游戏有什么区别？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;02-第一章游戏开发基础知识-5讲第03讲丨游戏的发动机游戏引擎&quot;&gt;&lt;a href=&quot;/class/010/03&quot;&gt;02-第一章：游戏开发基础知识 (5讲)/第03讲丨游戏的发动机：游戏引擎&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;02-第一章游戏开发基础知识-5讲第04讲丨底层绘图接口的妙用&quot;&gt;&lt;a href=&quot;/class/010/04&quot;&gt;02-第一章：游戏开发基础知识 (5讲)/第04讲丨底层绘图接口的妙用&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;02-第一章游戏开发基础知识-5讲第05讲丨构建游戏场景的武器地图编辑器&quot;&gt;&lt;a href=&quot;/class/010/05&quot;&gt;02-第一章：游戏开发基础知识 (5讲)/第05讲丨构建游戏场景的武器：地图编辑器&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;03-第二章客户端开发-10讲&quot;&gt;03-第二章：客户端开发 (10讲)&lt;/h2&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第06讲丨从0开始整理开发流程&quot;&gt;&lt;a href=&quot;/class/010/06&quot;&gt;03-第二章：客户端开发 (10讲)/第06讲丨从0开始整理开发流程&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第07讲丨如何建立一个windows窗体&quot;&gt;&lt;a href=&quot;/class/010/07&quot;&gt;03-第二章：客户端开发 (10讲)/第07讲丨如何建立一个Windows窗体？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第08讲丨如何区分图形和图像&quot;&gt;&lt;a href=&quot;/class/010/08&quot;&gt;03-第二章：客户端开发 (10讲)/第08讲丨如何区分图形和图像？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第09讲丨如何绘制游戏背景&quot;&gt;&lt;a href=&quot;/class/010/09&quot;&gt;03-第二章：客户端开发 (10讲)/第09讲丨如何绘制游戏背景？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第11讲丨如何载入飞机和敌人&quot;&gt;&lt;a href=&quot;/class/010/11&quot;&gt;03-第二章：客户端开发 (10讲)/第11讲丨如何载入“飞机”和“敌人”？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第12讲丨如何设置图像的前后遮挡&quot;&gt;&lt;a href=&quot;/class/010/12&quot;&gt;03-第二章：客户端开发 (10讲)/第12讲丨如何设置图像的前后遮挡？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第14讲丨如何设置精灵的变形放大和缩小&quot;&gt;&lt;a href=&quot;/class/010/14&quot;&gt;03-第二章：客户端开发 (10讲)/第14讲丨如何设置精灵的变形、放大和缩小？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第15讲丨如何设置淡入淡出和碰撞检测&quot;&gt;&lt;a href=&quot;/class/010/15&quot;&gt;03-第二章：客户端开发 (10讲)/第15讲丨如何设置淡入淡出和碰撞检测？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第17讲丨如何制作游戏资源包和保存机制&quot;&gt;&lt;a href=&quot;/class/010/17&quot;&gt;03-第二章：客户端开发 (10讲)/第17讲丨如何制作游戏资源包和保存机制？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;03-第二章客户端开发-10讲第18讲丨如何载入背景音乐和音效&quot;&gt;&lt;a href=&quot;/class/010/18&quot;&gt;03-第二章：客户端开发 (10讲)/第18讲丨如何载入背景音乐和音效？&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;04-第三章ui和键盘鼠标-3讲&quot;&gt;04-第三章：UI和键盘鼠标 (3讲)&lt;/h2&gt;
-&lt;h3 id=&quot;04-第三章ui和键盘鼠标-3讲第20讲丨如何在游戏中载入ui和菜单&quot;&gt;&lt;a href=&quot;/class/010/20&quot;&gt;04-第三章：UI和键盘鼠标 (3讲)/第20讲丨如何在游戏中载入UI和菜单？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;04-第三章ui和键盘鼠标-3讲第21讲丨如何用鼠标和键盘来操作游戏&quot;&gt;&lt;a href=&quot;/class/010/21&quot;&gt;04-第三章：UI和键盘鼠标 (3讲)/第21讲丨如何用鼠标和键盘来操作游戏？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;04-第三章ui和键盘鼠标-3讲第23讲丨如何判断客户端的网络连接&quot;&gt;&lt;a href=&quot;/class/010/23&quot;&gt;04-第三章：UI和键盘鼠标 (3讲)/第23讲丨如何判断客户端的网络连接？&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;05-第四章脚本语言-3讲&quot;&gt;05-第四章：脚本语言 (3讲)&lt;/h2&gt;
-&lt;h3 id=&quot;05-第四章脚本语言-3讲第24讲丨如何嵌入脚本语言&quot;&gt;&lt;a href=&quot;/class/010/24&quot;&gt;05-第四章：脚本语言 (3讲)/第24讲丨如何嵌入脚本语言？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;05-第四章脚本语言-3讲第26讲丨脚本语言在游戏开发中有哪些应用&quot;&gt;&lt;a href=&quot;/class/010/26&quot;&gt;05-第四章：脚本语言 (3讲)/第26讲丨脚本语言在游戏开发中有哪些应用？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;05-第四章脚本语言-3讲第27讲丨如何使用脚本语言编写周边工具&quot;&gt;&lt;a href=&quot;/class/010/27&quot;&gt;05-第四章：脚本语言 (3讲)/第27讲丨如何使用脚本语言编写周边工具？&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;06-第五章服务器端开发-6讲&quot;&gt;06-第五章：服务器端开发 (6讲)&lt;/h2&gt;
-&lt;h3 id=&quot;06-第五章服务器端开发-6讲第29讲丨如何选择合适的开发语言&quot;&gt;&lt;a href=&quot;/class/010/29&quot;&gt;06-第五章：服务器端开发 (6讲)/第29讲丨如何选择合适的开发语言？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;06-第五章服务器端开发-6讲第30讲丨如何定制合适的开发协议&quot;&gt;&lt;a href=&quot;/class/010/30&quot;&gt;06-第五章：服务器端开发 (6讲)/第30讲丨如何定制合适的开发协议？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;06-第五章服务器端开发-6讲第32讲丨不可忽视的多线程及并发问题&quot;&gt;&lt;a href=&quot;/class/010/32&quot;&gt;06-第五章：服务器端开发 (6讲)/第32讲丨不可忽视的多线程及并发问题&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;06-第五章服务器端开发-6讲第33讲丨如何判断心跳包是否离线&quot;&gt;&lt;a href=&quot;/class/010/33&quot;&gt;06-第五章：服务器端开发 (6讲)/第33讲丨如何判断心跳包是否离线？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;06-第五章服务器端开发-6讲第35讲丨如何用网关服务器进行负载均衡&quot;&gt;&lt;a href=&quot;/class/010/35&quot;&gt;06-第五章：服务器端开发 (6讲)/第35讲丨如何用网关服务器进行负载均衡？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;06-第五章服务器端开发-6讲第36讲丨如何制作游戏内容保存和缓存处理&quot;&gt;&lt;a href=&quot;/class/010/36&quot;&gt;06-第五章：服务器端开发 (6讲)/第36讲丨如何制作游戏内容保存和缓存处理？&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;07-第六章热点剖析-9讲&quot;&gt;07-第六章：热点剖析 (9讲)&lt;/h2&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第10讲丨热点剖析一html5技术是如何取代flash的&quot;&gt;&lt;a href=&quot;/class/010/10&quot;&gt;07-第六章：热点剖析 (9讲)/第10讲丨热点剖析（一）：HTML5技术是如何取代Flash的？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第13讲丨热点剖析二如何选择一款html5引擎&quot;&gt;&lt;a href=&quot;/class/010/13&quot;&gt;07-第六章：热点剖析 (9讲)/第13讲丨热点剖析（二）：如何选择一款HTML5引擎？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第16讲丨热点剖析三试试看你也可以编写一款html5小游戏&quot;&gt;&lt;a href=&quot;/class/010/16&quot;&gt;07-第六章：热点剖析 (9讲)/第16讲丨热点剖析（三）：试试看，你也可以编写一款HTML5小游戏！&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第19讲丨热点剖析四安卓端和苹果端游戏开发有什么区别&quot;&gt;&lt;a href=&quot;/class/010/19&quot;&gt;07-第六章：热点剖析 (9讲)/第19讲丨热点剖析（四）：安卓端和苹果端游戏开发有什么区别？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第22讲丨热点剖析五如何选择移动端的游戏引擎&quot;&gt;&lt;a href=&quot;/class/010/22&quot;&gt;07-第六章：热点剖析 (9讲)/第22讲丨热点剖析（五）：如何选择移动端的游戏引擎？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第25讲丨热点剖析六ar和人工智能在游戏领域有哪些应用&quot;&gt;&lt;a href=&quot;/class/010/25&quot;&gt;07-第六章：热点剖析 (9讲)/第25讲丨热点剖析（六）：AR和人工智能在游戏领域有哪些应用？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第28讲丨热点剖析七谈谈微信小游戏的成功点&quot;&gt;&lt;a href=&quot;/class/010/28&quot;&gt;07-第六章：热点剖析 (9讲)/第28讲丨热点剖析（七）：谈谈微信小游戏的成功点&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第31讲丨热点剖析八谈谈移动游戏的未来发展&quot;&gt;&lt;a href=&quot;/class/010/31&quot;&gt;07-第六章：热点剖析 (9讲)/第31讲丨热点剖析（八）：谈谈移动游戏的未来发展&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;07-第六章热点剖析-9讲第34讲丨热点剖析九谈谈独立开发者的未来发展&quot;&gt;&lt;a href=&quot;/class/010/34&quot;&gt;07-第六章：热点剖析 (9讲)/第34讲丨热点剖析（九）：谈谈独立开发者的未来发展&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;08-加餐-3讲&quot;&gt;08-加餐 (3讲)&lt;/h2&gt;
-&lt;h3 id=&quot;08-加餐-3讲复习课丨带你梳理客户端开发的三个重点&quot;&gt;&lt;a href=&quot;/class/010/复习课&quot;&gt;08-加餐 (3讲)/复习课丨带你梳理客户端开发的三个重点&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;08-加餐-3讲课后阅读丨游戏开发工程师学习路径上&quot;&gt;&lt;a href=&quot;/class/010/课后阅读1&quot;&gt;08-加餐 (3讲)/课后阅读丨游戏开发工程师学习路径（上）&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;08-加餐-3讲课后阅读丨游戏开发工程师学习路径下&quot;&gt;&lt;a href=&quot;/class/010/课后阅读2&quot;&gt;08-加餐 (3讲)/课后阅读丨游戏开发工程师学习路径（下）&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;09-结束语-1讲&quot;&gt;09-结束语 (1讲)&lt;/h2&gt;
-&lt;h3 id=&quot;09-结束语-1讲结束语丨做游戏的过程就像是在雕琢一件艺术品&quot;&gt;&lt;a href=&quot;/class/010/结束语&quot;&gt;09-结束语 (1讲)/结束语丨做游戏的过程就像是在雕琢一件艺术品&lt;/a&gt;&lt;/h3&gt;</content><author><name></name></author><summary type="html">01-开篇词 (1讲) 01-开篇词 (1讲)/000丨开篇词丨跟我学，你也可以开发一款游戏！ 02-第一章：游戏开发基础知识 (5讲) 02-第一章：游戏开发基础知识 (5讲)/第01讲丨游戏开发需要了解哪些背景知识？ 02-第一章：游戏开发基础知识 (5讲)/第02讲丨2D游戏和3D游戏有什么区别？ 02-第一章：游戏开发基础知识 (5讲)/第03讲丨游戏的发动机：游戏引擎 02-第一章：游戏开发基础知识 (5讲)/第04讲丨底层绘图接口的妙用 02-第一章：游戏开发基础知识 (5讲)/第05讲丨构建游戏场景的武器：地图编辑器 03-第二章：客户端开发 (10讲) 03-第二章：客户端开发 (10讲)/第06讲丨从0开始整理开发流程 03-第二章：客户端开发 (10讲)/第07讲丨如何建立一个Windows窗体？ 03-第二章：客户端开发 (10讲)/第08讲丨如何区分图形和图像？ 03-第二章：客户端开发 (10讲)/第09讲丨如何绘制游戏背景？ 03-第二章：客户端开发 (10讲)/第11讲丨如何载入“飞机”和“敌人”？ 03-第二章：客户端开发 (10讲)/第12讲丨如何设置图像的前后遮挡？ 03-第二章：客户端开发 (10讲)/第14讲丨如何设置精灵的变形、放大和缩小？ 03-第二章：客户端开发 (10讲)/第15讲丨如何设置淡入淡出和碰撞检测？ 03-第二章：客户端开发 (10讲)/第17讲丨如何制作游戏资源包和保存机制？ 03-第二章：客户端开发 (10讲)/第18讲丨如何载入背景音乐和音效？ 04-第三章：UI和键盘鼠标 (3讲) 04-第三章：UI和键盘鼠标 (3讲)/第20讲丨如何在游戏中载入UI和菜单？ 04-第三章：UI和键盘鼠标 (3讲)/第21讲丨如何用鼠标和键盘来操作游戏？ 04-第三章：UI和键盘鼠标 (3讲)/第23讲丨如何判断客户端的网络连接？ 05-第四章：脚本语言 (3讲) 05-第四章：脚本语言 (3讲)/第24讲丨如何嵌入脚本语言？ 05-第四章：脚本语言 (3讲)/第26讲丨脚本语言在游戏开发中有哪些应用？ 05-第四章：脚本语言 (3讲)/第27讲丨如何使用脚本语言编写周边工具？ 06-第五章：服务器端开发 (6讲) 06-第五章：服务器端开发 (6讲)/第29讲丨如何选择合适的开发语言？ 06-第五章：服务器端开发 (6讲)/第30讲丨如何定制合适的开发协议？ 06-第五章：服务器端开发 (6讲)/第32讲丨不可忽视的多线程及并发问题 06-第五章：服务器端开发 (6讲)/第33讲丨如何判断心跳包是否离线？ 06-第五章：服务器端开发 (6讲)/第35讲丨如何用网关服务器进行负载均衡？ 06-第五章：服务器端开发 (6讲)/第36讲丨如何制作游戏内容保存和缓存处理？ 07-第六章：热点剖析 (9讲) 07-第六章：热点剖析 (9讲)/第10讲丨热点剖析（一）：HTML5技术是如何取代Flash的？ 07-第六章：热点剖析 (9讲)/第13讲丨热点剖析（二）：如何选择一款HTML5引擎？ 07-第六章：热点剖析 (9讲)/第16讲丨热点剖析（三）：试试看，你也可以编写一款HTML5小游戏！ 07-第六章：热点剖析 (9讲)/第19讲丨热点剖析（四）：安卓端和苹果端游戏开发有什么区别？ 07-第六章：热点剖析 (9讲)/第22讲丨热点剖析（五）：如何选择移动端的游戏引擎？ 07-第六章：热点剖析 (9讲)/第25讲丨热点剖析（六）：AR和人工智能在游戏领域有哪些应用？ 07-第六章：热点剖析 (9讲)/第28讲丨热点剖析（七）：谈谈微信小游戏的成功点 07-第六章：热点剖析 (9讲)/第31讲丨热点剖析（八）：谈谈移动游戏的未来发展 07-第六章：热点剖析 (9讲)/第34讲丨热点剖析（九）：谈谈独立开发者的未来发展 08-加餐 (3讲) 08-加餐 (3讲)/复习课丨带你梳理客户端开发的三个重点 08-加餐 (3讲)/课后阅读丨游戏开发工程师学习路径（上） 08-加餐 (3讲)/课后阅读丨游戏开发工程师学习路径（下） 09-结束语 (1讲) 09-结束语 (1讲)/结束语丨做游戏的过程就像是在雕琢一件艺术品</summary></entry></feed>
+&lt;h3 id=&quot;结束语丨学英语也是修行&quot;&gt;&lt;a href=&quot;/class/009/结束语&quot;&gt;结束语丨学英语也是修行&lt;/a&gt;&lt;/h3&gt;</content><author><name></name></author><summary type="html">01丨课前必读 (2讲) 01丨课前必读 (2讲)/00丨学习指南丨我想和你交代下这门课的设计思路 01丨课前必读 (2讲)/00丨开篇词丨把技能当知识，是学英语最大的坑 02丨Article 1：The Product-Minded Software Engineer (10讲) 01｜导读：背景知识对于理解文章究竟有多重要？ 02丨什么时候适合用“词根词缀法”来背单词？ 03｜到底要不要学语法？什么时候学比较好？ 04丨从那些不规范的表达中，我们可以学到什么？ 05｜tradeoff还是trade-off？用连字符到底对不对？ 06｜小心那些平淡无奇、人畜无害的简单小词！ 07｜为什么虚拟语气一看就懂、一用就忘？（上） 07｜为什么虚拟语气一看就懂、一用就忘？（下） 08｜带你一次性搞懂非限定性和限定性定语从句 每周一起背10句丨week01 每周一起背10句丨week02 03丨Article 2：Open Source Benefits to Innovation and … (6讲) 09丨导读：通过阅读序言段了解文章的背景知识 10丨一切始于“主干”，万变不离其宗 11丨并列句 = 简单句 + 并列连词 + 简单句 12丨 谓语动词永远是英语句子的核心 每周一起背10句丨week03 每周一起背10句丨week04 04丨Article 3：Successful Remote Working (6讲) 13丨导读：如何逐渐培养阅读习惯，快速抓住文章大意？ 14｜为什么介词如此“烦人”？ 15｜同位语的两个重要作用 16｜动词：英语宇宙的中心 17｜参透“主从分明”的树状结构，即可“庖丁解牛” 每周一起背10句丨week05 05丨Aritcle 4：Breaking through Three Common… (11讲) 18｜全篇通读（上）：从读懂一句话慢慢转向读懂一篇文章 19｜全篇通读（下）：不是所有的文章和书籍都值得读完 20｜英语词汇学习的唯一有效途径：阅读、阅读、阅读 21丨你和所有见过的单词或短语都只是加了“好友”而已 22丨paraphrase：跨越阅读和写作两项技能的练习法 23｜练习paraphrase的最终目的，是有一天可以不再需要它 24｜如何用“金字塔原理”来练习阅读和写作？ 25｜如何利用“30秒电梯原则”写出言简意赅的读书总结？ 每周一起背10句丨week06 每周一起背10句丨week07 每周一起背10句丨week08 06丨Article 5：InfoQ’s 2019, and Software Predictions… (6讲) 26丨阅读准备：当我们谈论快速阅读时，我们究竟在谈论什么？ 27丨行业预测类文章，动词就是它的全部 28丨没有经过相关专业训练，如何自学新的专业知识？ 29丨如何通过定期的主题阅读计划，个性化定制专属的语料库？ 30丨突破实用型、技术类阅读，外面还有另一片星辰大海 每周一起背10句丨week09 07丨加餐 (1讲) 开学直播回顾丨程序员如何阅读英语资料？ 08丨结束语 (1讲) 结束语丨学英语也是修行</summary></entry></feed>
